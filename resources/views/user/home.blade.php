@@ -16,7 +16,7 @@
 
                     <div class="welcome">
                         Hallo {{ ((Auth::user()->scoutname != null) ? Auth::user()->scoutname : Auth::user()->prename) }}. <br/>
-                        Dein Login-Name ist <b>{{ ((Auth::user()->scoutname != null) ? Auth::user()->prename."_".Auth::user()->scoutname."_".Auth::user()->surname : Auth::user()->prename."_".Auth::user()->surname) }}</b>.
+                        Dein Login-Name ist <b>{{ Auth::user()->name_gen ((Auth::user()->scoutname != null) ? Auth::user()->prename."_".Auth::user()->scoutname."_".Auth::user()->surname : Auth::user()->prename."_".Auth::user()->surname) }}</b>.
                         Merk dir diesen, damit du dich später wieder Einloggen kannst.
                     </div>
 
