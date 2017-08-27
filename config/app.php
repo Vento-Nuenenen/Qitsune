@@ -178,6 +178,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+	    SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+	    Barryvdh\Snappy\ServiceProvider::class,
     ],
 
     /*
@@ -192,7 +194,6 @@ return [
     */
 
     'aliases' => [
-
         'App'          => Illuminate\Support\Facades\App::class,
         'Artisan'      => Illuminate\Support\Facades\Artisan::class,
         'Auth'         => Illuminate\Support\Facades\Auth::class,
@@ -226,7 +227,8 @@ return [
         'URL'          => Illuminate\Support\Facades\URL::class,
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
-
+	    'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+	    'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
+	    'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
     ],
-
 ];
