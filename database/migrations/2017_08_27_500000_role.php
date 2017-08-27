@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFk extends Migration
+class Role extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,18 @@ class AddFk extends Migration
      */
     public function up()
     {
-	    Schema::table('users_codes',function(Blueprint $table){
-		    $table->foreign('fk_users')->references('id')->on('users');
-		    $table->foreign('fk_game_codes')->references('id')->on('game_codes');
+	    Schema::create('role', function (Blueprint $table){
+		    $table->increments('id')->unsigned();
+		    $table->string('role_name');
 	    });
+
+	    DB::table('role')->insert(
+	    	['role_name' => 'admin',]
+	    );
+
+	    DB::table('role')->insert(
+		    ['role_name' => 'user',]
+	    );
     }
 
     /**
@@ -26,6 +34,6 @@ class AddFk extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('role');
     }
 }

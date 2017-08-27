@@ -19,9 +19,12 @@ class CreateUsersTable extends Migration
             $table->string('prename');
             $table->string('surname');
             $table->string('name_gen')->unique();
+	        $table->integer('fk_role')->unsigned();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->index('fk_role');
         });
     }
 
