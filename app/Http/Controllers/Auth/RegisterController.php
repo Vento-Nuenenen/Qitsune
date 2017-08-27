@@ -50,9 +50,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'scoutname' => 'nullable|string|max:255',
-	        'prename' => 'required|string|max:255',
-	        'surname' => 'required|string|max:255',
-            'password' => 'required|string|min:6|confirmed',
+            'prename'   => 'required|string|max:255',
+            'surname'   => 'required|string|max:255',
+            'password'  => 'required|string|min:6|confirmed',
         ]);
     }
 
@@ -65,14 +65,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-	    $name_gen = (($data['scoutname'] != null) ? $data['prename']."_".$data['scoutname']."_".$data['surname'] : $data['prename']."_".$data['surname']);
+        $name_gen = (($data['scoutname'] != null) ? $data['prename'].'_'.$data['scoutname'].'_'.$data['surname'] : $data['prename'].'_'.$data['surname']);
 
         return User::create([
             'scoutname' => $data['scoutname'],
-	        'prename' => $data['prename'],
-	        'surname' => $data['surname'],
-			'name_gen' => $name_gen,
-            'password' => bcrypt($data['password']),
+            'prename'   => $data['prename'],
+            'surname'   => $data['surname'],
+            'name_gen'  => $name_gen,
+            'password'  => bcrypt($data['password']),
         ]);
     }
 }
