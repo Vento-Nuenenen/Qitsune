@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class Role extends Migration
 {
@@ -13,18 +13,18 @@ class Role extends Migration
      */
     public function up()
     {
-	    Schema::create('role', function (Blueprint $table){
-		    $table->increments('id')->unsigned();
-		    $table->string('role_name');
-	    });
+        Schema::create('role', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->string('role_name');
+        });
 
-	    DB::table('role')->insert(
-	    	['role_name' => 'admin',]
-	    );
+        DB::table('role')->insert(
+            ['role_name' => 'admin']
+        );
 
-	    DB::table('role')->insert(
-		    ['role_name' => 'user',]
-	    );
+        DB::table('role')->insert(
+            ['role_name' => 'user']
+        );
     }
 
     /**
