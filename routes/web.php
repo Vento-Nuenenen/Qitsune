@@ -1,5 +1,9 @@
 <?php
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fd930b6d1b0828fd3371a8ae67e1f189ab314e01
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +22,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', function () {
+<<<<<<< HEAD
 		return view('home');
 });
 
 Route::get('/qr', function () {
 	return view('admin.qr');
+=======
+    return view('user.home');
+});
+
+Route::get('/qr', function () {
+    return view('user.qr');
+>>>>>>> fd930b6d1b0828fd3371a8ae67e1f189ab314e01
 });
