@@ -18,5 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', function () {
-    return view('user.home');
+		return view('home');
+});
+
+Route::get('/qr', function () {
+	return view('admin.qr');
 });
