@@ -22,5 +22,5 @@ Route::get('/home', function () {
 });
 
 Route::get('/qr', function () {
-    return view('admin.qr');
+    return view('qr');
 });
