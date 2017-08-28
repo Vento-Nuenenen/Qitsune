@@ -1,6 +1,5 @@
 <?php
 
-use App\Role;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,9 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', function () {
-	return view('user.home');
-});
-
-Route::get('/qr', function () {
-	return view('user.qr');
+    return view('user.home');
 });

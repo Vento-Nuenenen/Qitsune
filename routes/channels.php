@@ -14,7 +14,3 @@
 Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
-
-Broadcast::channel('App.User.{role}', function ($user, $role) {
-	return (int) $user->role === (int) $role;
-});
