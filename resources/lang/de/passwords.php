@@ -17,6 +17,6 @@ return [
     'reset'    => 'Das Passwort wurde zurückgesetzt!',
     'sent'     => 'Dein Passwort-Reset-Link wurde versendet!',
     'token'    => 'Dieses Reset-Token ist nicht gültig.',
-    'user'     => "Es konnte kein Nutzer mit diesem Nutzernamen gefunden werden.",
+    'user'     => 'Es konnte kein Nutzer mit diesem Nutzernamen gefunden werden.',
 
 ];
