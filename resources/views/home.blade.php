@@ -14,17 +14,24 @@
                         </div>
                     @endif
 
-                    <div class="welcome">
-                        Hallo {{ ((Auth::user()->scoutname != null) ? Auth::user()->scoutname : Auth::user()->prename) }}. <br/>
-                        Dein Login-Name ist <b>{{ ((Auth::user()->scoutname != null) ? Auth::user()->prename."_".Auth::user()->scoutname."_".Auth::user()->surname : Auth::user()->prename."_".Auth::user()->surname) }}</b>.
-                        Merk dir diesen, damit du dich später wieder Einloggen kannst.
-                    </div>
+                    @if(Auth::check() && Auth::user()->fk_role == 2)
+                        <div class="welcome">
+                            Hallo {{ ((Auth::user()->scoutname != null) ? Auth::user()->scoutname : Auth::user()->prename) }}. <br/>
+                            Dein Login-Name ist <b>{{ ((Auth::user()->scoutname != null) ? Auth::user()->prename."_".Auth::user()->scoutname."_".Auth::user()->surname : Auth::user()->prename."_".Auth::user()->surname) }}</b>.
+                            Merk dir diesen, damit du dich später wieder Einloggen kannst.
+                        </div>
 
-                    <div class="rules">
-                        <h1>Spielregeln</h1>
-                        Auf dem Gelände sind QR-Codes versteckt. Finde diese und Scanne sie mit deinem SmartPhone ein.
-                        Auf dem Admin-Monitor sieht du die aktuelle Rangliste, nach Anzahl gefundener QR-Codes.
-                    </div>
+                        <div class="rules">
+                            <h1>Spielregeln</h1>
+                            Auf dem Gelände sind QR-Codes versteckt. Finde diese und Scanne sie mit deinem SmartPhone ein.
+                            Auf dem Admin-Monitor sieht du die aktuelle Rangliste, nach Anzahl gefundener QR-Codes.
+                        </div>
+
+                    @elseif(Auth::check() && Auth::user()->fk_role == 1)
+
+                    @else
+                            <script>window.location.href = "/";</script>
+                    @endif
 
                 </div>
             </div>
