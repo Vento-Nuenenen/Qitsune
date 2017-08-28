@@ -16,5 +16,5 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
 });
 
 Broadcast::channel('App.User.{role}', function ($user, $role) {
-	return (int) $user->role === (int) $role;
+    return (int) $user->role === (int) $role;
 });
