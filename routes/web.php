@@ -17,9 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/home', 'RankController@index');
 
 Route::get('/qr', function () {
     return view('qr');

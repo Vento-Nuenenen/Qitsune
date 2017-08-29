@@ -34,20 +34,26 @@
 	                    </div>
 	                    <div class="rank">
 		                    <h1>Aktuelle Rangliste:</h1>
-		                    <table class="table">
+		                    <table class="table table-hover table-responsive">
 			                    <tr>
 				                    <th>
 					                    Rang
 				                    </th>
 				                    <th>
-										Teilnehmer
+										Vorname
+				                    </th>
+				                    <th>
+					                    Pfadiname
+				                    </th>
+				                    <th>
+					                    Nachname
 				                    </th>
 				                    <th>
 					                    Punkte
 				                    </th>
 			                    </tr>
 			                    <tr>
-
+									{{ print_r($rawRank) }}
 			                    </tr>
 		                    </table>
 		                </div>
