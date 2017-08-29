@@ -6,7 +6,6 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
-
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -28,6 +27,30 @@
                         </div>
 
                     @elseif(Auth::check() && Auth::user()->fk_role == 1)
+	                    <div class="welcome">
+		                    Hallo {{ ((Auth::user()->scoutname != null) ? Auth::user()->scoutname : Auth::user()->prename) }}. <br/>
+		                    Dein Login-Name ist <b>{{ ((Auth::user()->scoutname != null) ? Auth::user()->prename."_".Auth::user()->scoutname."_".Auth::user()->surname : Auth::user()->prename."_".Auth::user()->surname) }}</b>.
+		                    Merk dir diesen, damit du dich später wieder Einloggen kannst.
+	                    </div>
+	                    <div class="rank">
+		                    <h1>Aktuelle Rangliste:</h1>
+		                    <table class="table">
+			                    <tr>
+				                    <th>
+					                    Rang
+				                    </th>
+				                    <th>
+										Teilnehmer
+				                    </th>
+				                    <th>
+					                    Punkte
+				                    </th>
+			                    </tr>
+			                    <tr>
+
+			                    </tr>
+		                    </table>
+		                </div>
 
                     @else
                             <script>window.location.href = "/";</script>
