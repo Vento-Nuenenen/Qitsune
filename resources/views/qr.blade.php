@@ -15,7 +15,9 @@
                     @endif
 
                         @if(Auth::check() && Auth::user()->fk_role == 2)
+                            <table>
 
+                            </table>
                         @elseif(Auth::check() && Auth::user()->fk_role == 1)
                             <div class="col-lg-12">
                                 <div class="input-group">
