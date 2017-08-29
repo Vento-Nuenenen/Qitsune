@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RankController extends Controller
 {
@@ -14,16 +14,17 @@ class RankController extends Controller
      */
     public static function index()
     {
-    	$userCount = count(DB::table('users')->get());
-    	$i = 0;
-        $rawRank = DB::table('users')->leftJoin('users_codes','users.id','=','users_codes.fk_users')->leftJoin('game_codes','users_codes.fk_game_codes','=','game_codes.id')->whereRaw('users_codes.fk_game_codes IS NOT NULL')->get();
-	    foreach($rawRank as $rank){
-	    	$rankCount = $i++;
-	    	$rankPrename = $rank->prename;
-		    $rankScoutname = $rank->scoutname;
-		    $rankSurname = $rank->surname;
-	    }
-        return view('home',['rawRank' => $userCount]);
+        $userCount = count(DB::table('users')->get());
+        $i = 0;
+        $rawRank = DB::table('users')->leftJoin('users_codes', 'users.id', '=', 'users_codes.fk_users')->leftJoin('game_codes', 'users_codes.fk_game_codes', '=', 'game_codes.id')->whereRaw('users_codes.fk_game_codes IS NOT NULL')->get();
+        foreach ($rawRank as $rank) {
+            $rankCount = $i++;
+            $rankPrename = $rank->prename;
+            $rankScoutname = $rank->scoutname;
+            $rankSurname = $rank->surname;
+        }
+
+        return view('home', ['rawRank' => $userCount]);
     }
 
     /**
@@ -39,7 +40,8 @@ class RankController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -50,7 +52,8 @@ class RankController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -61,7 +64,8 @@ class RankController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -72,8 +76,9 @@ class RankController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -84,7 +89,8 @@ class RankController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
