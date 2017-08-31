@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Fpdf;
-use Illuminate\Support\Facades\App;
-use Illuminate\View\View;
 use QrCode;
 
 class GeneratePDF extends Controller
