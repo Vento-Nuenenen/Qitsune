@@ -179,7 +179,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
-	    Codedge\Fpdf\FpdfServiceProvider::class,
+        Codedge\Fpdf\FpdfServiceProvider::class,
     ],
 
     /*
@@ -228,6 +228,6 @@ return [
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
         'QrCode'       => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
-	    'Fpdf'         => Codedge\Fpdf\Facades\Fpdf::class,
+        'Fpdf'         => Codedge\Fpdf\Facades\Fpdf::class,
     ],
 ];
