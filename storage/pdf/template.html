@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Qitsune - QR Game</title>
+
+	<!-- Styles -->
+	<link href="./app.css" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+	<h1>Qitsune - QR-Code - <script type="text/php">$pdf-></script> </h1>
+	<script type="text/php">
+    if (isset($pdf)) {
+        $x = 250;
+        $y = 10;
+        $text = "Page {PAGE_NUM} of {PAGE_COUNT}";
+        $font = null;
+        $size = 14;
+        $color = array(255,0,0);
+        $word_space = 0.0;  //  default
+        $char_space = 0.0;  //  default
+        $angle = 0.0;   //  default
+        $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
+    }
+</script>
+</div>
+
+<!-- Scripts -->
+<script src="./app.js"></script>
+</body>
+</html>

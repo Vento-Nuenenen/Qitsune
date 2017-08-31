@@ -19,6 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'RankController@index');
 
-Route::get('/qr', function () {
-    return view('qr');
-});
+Route::get('/qr', 'GeneratePDF@index');
