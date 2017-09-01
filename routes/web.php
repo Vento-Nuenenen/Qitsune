@@ -21,4 +21,4 @@ Route::get('/home', 'RankController@index');
 
 Route::get('/qr', 'GeneratePDF@index');
 
-Route::get('/admin','AdminController@index');
+Route::get('/admin', 'AdminController@index');
