@@ -229,6 +229,6 @@ return [
         'View'         => Illuminate\Support\Facades\View::class,
         'QrCode'       => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'Fpdf'         => Codedge\Fpdf\Facades\Fpdf::class,
-	    'GeneratePDF'  => APP\Http\Controllers\GeneratePDF::class,
+        'GeneratePDF'  => APP\Http\Controllers\GeneratePDF::class,
     ],
 ];

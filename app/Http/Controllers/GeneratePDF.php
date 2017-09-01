@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Fpdf;
 use Illuminate\Http\Request;
 use QrCode;
-use DB;
 
 class GeneratePDF extends Controller
 {
-	public function show(){
-		return view('qr');
-	}
+    public function show()
+    {
+        return view('qr');
+    }
 
     /**
      * Display a listing of the resource.
@@ -20,8 +21,8 @@ class GeneratePDF extends Controller
      */
     public function index(Request $request)
     {
-    	$this->emptyDB();
-    	$countQR = $request['countQR'];
+        $this->emptyDB();
+        $countQR = $request['countQR'];
 
         //generateQR();
         //generatePDF();
@@ -29,10 +30,11 @@ class GeneratePDF extends Controller
         return view('qr');
     }
 
-	private function emptyDB(){
-		DB::table('game_codes')->delete();
-		DB::table('users_codes')->delete();
-	}
+    private function emptyDB()
+    {
+        DB::table('game_codes')->delete();
+        DB::table('users_codes')->delete();
+    }
 
     private function generateQR($codeKey = 'https://pfadi-nuenenen.ch/', $QRNumber = 'Test')
     {
