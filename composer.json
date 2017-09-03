@@ -9,7 +9,8 @@
         "codedge/laravel-fpdf": "^1.2",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "simplesoftwareio/simple-qrcode": "^1.5"
+        "simplesoftwareio/simple-qrcode": "^1.5",
+        "webpatser/laravel-uuid": "2.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

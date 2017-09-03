@@ -6,6 +6,10 @@ use DB;
 use Fpdf;
 use Illuminate\Http\Request;
 use QrCode;
+use uuid;
+use Storage;
+use File;
+use Response;
 
 class GeneratePDF extends Controller
 {
@@ -21,40 +25,82 @@ class GeneratePDF extends Controller
      */
     public function index(Request $request)
     {
-        $this->emptyDB();
+        $this->preCleanup();
+
         $countQR = $request['countQR'];
 
-        //generateQR();
-        //generatePDF();
+        for($i = 0;$i < $countQR; ++$i){
+	        $code = $this->generateCodes();
+
+	        $this->generateQR($code,$i);
+        }
+
+        $fileCount = glob(storage_path().'/pdf/QRCodes/*.png');
+        if($fileCount > 0){
+	       $this->generatePDF($fileCount);
+        }
 
         return view('qr');
     }
 
-    private function emptyDB()
+    private function preCleanup()
     {
         DB::table('game_codes')->delete();
         DB::table('users_codes')->delete();
+
+	    File::delete(File::glob(storage_path().'/pdf/QRCodes/*.png'));
     }
 
-    private function generateQR($codeKey = 'https://pfadi-nuenenen.ch/', $QRNumber = 'Test')
-    {
-        QrCode::generate($codeKey, storage_path().'/pdf/QRCodes/'.$QRNumber.'.svg');
+    private function generateCodes(){
+		$code = uuid::generate(4);
+
+		DB::table('game_codes')->insert(['game_code' => $code]);
+
+		return $code;
     }
 
-    private function generatePDF()
+    private function generateQR($code, $QRNumber)
     {
-        Fpdf::AddPage();
-        Fpdf::SetTitle(config('app.name'));
+        QrCode::format('png')->size(200)->generate(url('/').'/qr?code='.$code, storage_path().'/pdf/QRCodes/'.$QRNumber.'.png');
+    }
+
+    private function generatePDF($fileCount)
+    {
+	    Fpdf::SetTitle(config('app.name'));
         Fpdf::SetFont('Arial', 'B', 18);
         Fpdf::SetMargins(10, 10, 10);
         Fpdf::SetCreator(config('app.name'));
         Fpdf::SetAuthor(config('app.name'));
 
-        Fpdf::Cell(0, 25, config('app.name').' - QR Nr. 1', 1, 1, 'C');
-        Fpdf::AddPage();
-        Fpdf::SetFont('Courier', 'B', 18);
-        Fpdf::Cell(50, 25, 'Hello World!');
-        Fpdf::Output();
-        exit;
+        $fileCount = count($fileCount);
+
+        for($i = 0; $i < $fileCount; $i += 2){
+	        $j = $i;
+        	if($fileCount - $i == 1){
+		        Fpdf::AddPage();
+		        Fpdf::Cell(0,15,config('app.name').' - QR Nr. '.$j += 1,0,1,'C');
+		        Fpdf::SetX(500);
+		        Fpdf::Image(storage_path().'/pdf/QRCodes/'.$i.'.png',Fpdf::GetX() + 1, Fpdf::GetY() + 1);
+		        Fpdf::Image(storage_path().'/pdf/Logo-Nuenenen.png',Fpdf::GetX() + 1, Fpdf::GetY() + 50);
+	        }else{
+		        Fpdf::AddPage();
+		        Fpdf::Cell(0,15,config('app.name').' - QR Nr. '.$j += 1,0,1,'C');
+		        Fpdf::Image(storage_path().'/pdf/QRCodes/'.$i.'.png',Fpdf::GetX() + 1, Fpdf::GetY() + 1);
+		        Fpdf::Image(storage_path().'/pdf/Logo-Nuenenen.png',Fpdf::GetX() + 1, Fpdf::GetY() + 50);
+		        Fpdf::SetY(130);
+		        Fpdf::Cell(0,15,config('app.name').' - QR Nr. '.$j += 1,0,1,'C');
+		        Fpdf::Image(storage_path().'/pdf/QRCodes/'.++$i.'.png',Fpdf::GetX() + 1, Fpdf::GetY() + 1);
+		        Fpdf::Image(storage_path().'/pdf/Logo-Nuenenen.png',Fpdf::GetX() + 1, Fpdf::GetY() + 50);
+	        }
+        }
+
+	    //Fpdf::Output(storage_path().'/pdf/generated/QR-Codes.pdf','F');
+		Fpdf::Output();
+
+	    //header("Content-Description: File Transfer");
+	    //header("Content-Type: application/pdf");
+	    //header("Content-Disposition: attachment; filename='" . 'QR-Codes.pdf' . "'");
+
+	    //readfile(storage_path().'/pdf/generated/QR-Codes.pdf');
     }
 }

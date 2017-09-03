@@ -180,6 +180,7 @@ return [
 
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         Codedge\Fpdf\FpdfServiceProvider::class,
+
     ],
 
     /*
@@ -230,5 +231,6 @@ return [
         'QrCode'       => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'Fpdf'         => Codedge\Fpdf\Facades\Fpdf::class,
         'GeneratePDF'  => APP\Http\Controllers\GeneratePDF::class,
+	    'uuid'         => Webpatser\Uuid\Uuid::class,
     ],
 ];
