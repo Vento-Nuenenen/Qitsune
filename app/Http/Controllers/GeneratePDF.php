@@ -38,7 +38,7 @@ class GeneratePDF extends Controller
             $this->generatePDF($fileCount);
         }
 
-        return view('qr');
+        return back();
     }
 
     private function preCleanup()
@@ -93,8 +93,7 @@ class GeneratePDF extends Controller
             }
         }
 
-        //Fpdf::Output(storage_path().'/pdf/generated/QR-Codes.pdf','F');
-        Fpdf::Output();
+        Fpdf::Output(storage_path().'/pdf/generated/QR-Codes.pdf','F');
 
         //header("Content-Description: File Transfer");
         //header("Content-Type: application/pdf");

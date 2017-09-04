@@ -20,6 +20,6 @@ Auth::routes();
 Route::get('/home', 'RankController@index');
 
 Route::get('/qr', 'GeneratePDF@show');
-Route::get('/qr', 'GeneratePDF@index');
+Route::get('/qr/do', 'GeneratePDF@index');
 
 Route::get('/admin', 'AdminController@index');
