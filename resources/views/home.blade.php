@@ -53,7 +53,7 @@
 				                    </th>
 			                    </tr>
 			                    <tr>
-									{{ print_r($rawRank) }}
+
 			                    </tr>
 		                    </table>
 		                </div>
