@@ -21,5 +21,8 @@ Route::get('/home', 'RankController@index');
 
 Route::get('/qr', 'GeneratePDF@show');
 Route::get('/qr/do', 'GeneratePDF@index');
+Route::get('/qr/download',function(){
+	return response()->download(storage_path('pdf/generated/QR-Codes.pdf'));
+});
 
 Route::get('/admin', 'AdminController@index');

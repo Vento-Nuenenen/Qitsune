@@ -94,11 +94,5 @@ class GeneratePDF extends Controller
         }
 
         Fpdf::Output(storage_path().'/pdf/generated/QR-Codes.pdf', 'F');
-
-        //header("Content-Description: File Transfer");
-        //header("Content-Type: application/pdf");
-        //header("Content-Disposition: attachment; filename='" . 'QR-Codes.pdf' . "'");
-
-        //readfile(storage_path().'/pdf/generated/QR-Codes.pdf');
     }
 }

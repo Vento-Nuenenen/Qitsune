@@ -30,8 +30,8 @@
 	                        <div class="form-group">
 		                        &nbsp;
 	                        </div>
-	                        <div>
-
+	                        <div class="download">
+								<button type="button" class="btn btn-block btn-success" onclick="window.location='{{ url("qr/download") }}'">QR-Codes Herunterladen (PDF)</button>
 	                        </div>
                         </div>
                     @else
