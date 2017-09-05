@@ -16,7 +16,7 @@ class RankController extends Controller
         $rawRank = DB::select('SELECT prename,scoutname,surname,points,name_gen FROM users LEFT JOIN users_codes ON users.id = users_codes.fk_users LEFT JOIN game_codes ON users_codes.fk_game_codes = game_codes.id WHERE users_codes.fk_game_codes IS NOT NULL;');
 
         print_r($rawRank);
-        
+
         return view('home');
     }
 }
