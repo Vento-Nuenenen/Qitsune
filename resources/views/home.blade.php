@@ -52,9 +52,15 @@
 					                    Punkte
 				                    </th>
 			                    </tr>
-			                    <tr>
-
-			                    </tr>
+								@for($i = 0; $i < $userRank; ++$i)
+									<tr>
+										<td>{{ $i }}</td>
+										<td>{{ $rankArray[$i]['prename'] }}</td>
+					                    <td>{{ $rankArray[$i]['scoutname'] }}</td>
+					                    <td>{{ $rankArray[$i]['surname'] }}
+					                    <td>{{ $rankArray[$i]['rank'] }}</td>
+									</tr>
+								@endfor
 		                    </table>
 		                </div>
 
