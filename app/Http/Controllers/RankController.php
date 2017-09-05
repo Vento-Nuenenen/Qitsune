@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use PhpParser\ErrorHandler\Collecting;
 
 class RankController extends Controller
 {
@@ -20,6 +17,13 @@ class RankController extends Controller
 
         print_r($rawRank);
 
+<<<<<<< HEAD
+=======
+        foreach ($rawRank as $user => $points) {
+            $getPoints = array_search();
+        }
+
+>>>>>>> 292abd79e1631de6686b46d2765a9f93e99c7c91
         return view('home');
     }
 }
