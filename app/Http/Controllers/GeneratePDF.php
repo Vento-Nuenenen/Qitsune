@@ -60,7 +60,7 @@ class GeneratePDF extends Controller
 
     private function generateQR($code, $QRNumber)
     {
-        QrCode::format('png')->size(200)->generate(url('/').'/qr?code='.$code, storage_path().'/pdf/QRCodes/'.$QRNumber.'.png');
+        QrCode::format('png')->size(200)->generate(url('/').'/qr/'.$code, storage_path().'/pdf/QRCodes/'.$QRNumber.'.png');
     }
 
     private function generatePDF($fileCount)

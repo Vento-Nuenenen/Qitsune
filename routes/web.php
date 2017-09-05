@@ -24,5 +24,6 @@ Route::get('/qr/do', 'GeneratePDF@index');
 Route::get('/qr/download', function () {
     return response()->download(storage_path('pdf/generated/QR-Codes.pdf'));
 });
+Route::get('/qr/{uniqKey}','CheckQR@index');
 
 Route::get('/admin', 'AdminController@index');

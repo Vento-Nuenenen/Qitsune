@@ -13,7 +13,13 @@
                         </div>
                     @endif
 		            @if(Auth::check() && Auth::user()->fk_role == 2)
+						@if(isset($error))
 
+						@else
+		                    Der Folgende QR-Code wurde gefunden: <b>{{ $checkExists[0]->game_code }}</b><br/>
+		                    Dieser bringt dir <b>{{ $checkExists[0]->points }}</b> Punkte ein.<br/>
+		                    <b>Gut gemacht. Such weiter.</b>
+						@endif
                     @elseif(Auth::check() && Auth::user()->fk_role == 1)
                         <div class="col-lg-12">
 	                        <div class="alert alert-danger">

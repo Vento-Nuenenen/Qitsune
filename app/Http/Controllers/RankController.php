@@ -20,10 +20,6 @@ class RankController extends Controller
 
         print_r($rawRank);
 
-        foreach($rawRank as $user => $points){
-	        $getPoints = array_search();
-        }
-
         return view('home');
     }
 }
