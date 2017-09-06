@@ -52,16 +52,18 @@
 					                    Punkte
 				                    </th>
 			                    </tr>
-								@for($i = 0; $i < $userRank; ++$i)
-				                    @php ($j = $i)
-									<tr>
-										<td>{{ ++$j }}</td>
-										<td>{{ $rankArray[$i]['prename'] }}</td>
-					                    <td>{{ $rankArray[$i]['scoutname'] }}</td>
-					                    <td>{{ $rankArray[$i]['surname'] }}
-					                    <td>{{ $rankArray[$i]['rank'] }}</td>
-									</tr>
-								@endfor
+			                    @section('dynamicRanking')
+									@for($i = 0; $i < $userRank; ++$i)
+					                    @php ($j = $i)
+										<tr>
+											<td>{{ ++$j }}</td>
+											<td>{{ $rankArray[$i]['prename'] }}</td>
+						                    <td>{{ $rankArray[$i]['scoutname'] }}</td>
+						                    <td>{{ $rankArray[$i]['surname'] }}
+						                    <td>{{ $rankArray[$i]['rank'] }}</td>
+										</tr>
+									@endfor
+								@show
 		                    </table>
 		                </div>
                     @else
@@ -73,4 +75,17 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    setInterval(function(){ updateRanking(); }, 20000);
+
+    function updateRanking(){
+        $.ajax({
+            url: '/ajax/ranking',
+            type: 'get',
+            success: function(data) {
+               console.log('Reload suceed!');
+            }
+        });
+    }
+</script>
 @endsection

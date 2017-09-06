@@ -26,4 +26,4 @@ Route::get('/qr/download', function () {
 });
 Route::get('/qr/{uniqKey}', 'CheckQR@index');
 
-Route::get('/admin', 'AdminController@index');
+Route::get('/ajax/ranking', 'AJAX@ranking');
