@@ -39,7 +39,7 @@ class RankController extends Controller
     {
         self::index();
 
-        $rankObj = DB::select('SELECT prename,scoutname,surname,rank  FROM users WHERE fk_role = 2 ORDER BY rank DESC;');
+        $rankObj = DB::select('SELECT prename,scoutname,surname,rank  FROM users WHERE fk_role = 2 AND rank > 0 ORDER BY rank DESC;');
         $rankArray = json_decode(json_encode($rankObj), true);
         $userRank = count($rankArray);
 
