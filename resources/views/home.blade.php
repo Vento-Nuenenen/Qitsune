@@ -32,7 +32,7 @@
 		                    Dein Login-Name ist <b>{{ ((Auth::user()->scoutname != null) ? Auth::user()->prename."_".Auth::user()->scoutname."_".Auth::user()->surname : Auth::user()->prename."_".Auth::user()->surname) }}</b>.
 		                    Merk dir diesen, damit du dich später wieder Einloggen kannst.
 	                    </div>
-	                    <div class="rank">
+	                    <div class="rank table-responsive">
 		                    <h1>Aktuelle Rangliste:</h1>
 		                    <table class="table table-hover table-responsive">
 			                    <tr>
@@ -53,8 +53,9 @@
 				                    </th>
 			                    </tr>
 								@for($i = 0; $i < $userRank; ++$i)
+				                    @php ($j = $i)
 									<tr>
-										<td>{{ $i }}</td>
+										<td>{{ ++$j }}</td>
 										<td>{{ $rankArray[$i]['prename'] }}</td>
 					                    <td>{{ $rankArray[$i]['scoutname'] }}</td>
 					                    <td>{{ $rankArray[$i]['surname'] }}
