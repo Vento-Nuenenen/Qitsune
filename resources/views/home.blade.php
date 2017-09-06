@@ -63,7 +63,6 @@
 								@endfor
 		                    </table>
 		                </div>
-
                     @else
                             <script>window.location.href = "/";</script>
                     @endif

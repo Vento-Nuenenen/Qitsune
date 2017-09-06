@@ -29,7 +29,9 @@ class RankController extends Controller
                 $points += $rankArray[$j]['points'];
             }
 
-            DB::update('UPDATE users SET rank = ? WHERE name_gen = ?;', [$points, $rankArray[$i]['name_gen']]);
+            if($points > 0){
+	            DB::update('UPDATE users SET rank = ? WHERE name_gen = ?;',[$points,$rankArray[$i]['name_gen']]);
+            }
         }
     }
 
