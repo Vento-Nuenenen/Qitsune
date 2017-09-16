@@ -180,7 +180,7 @@ return [
 
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         Codedge\Fpdf\FpdfServiceProvider::class,
-	    Appstract\Opcache\OpcacheServiceProvider::class,
+        Appstract\Opcache\OpcacheServiceProvider::class,
 
     ],
 
