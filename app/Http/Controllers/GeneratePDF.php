@@ -46,6 +46,8 @@ class GeneratePDF extends Controller
         DB::table('game_codes')->delete();
         DB::table('users_codes')->delete();
 
+        DB::update('UPDATE users SET rank = NULL');
+
         File::delete(File::glob(storage_path().'/pdf/QRCodes/*.png'));
     }
 
@@ -73,21 +75,21 @@ class GeneratePDF extends Controller
 
         $fileCount = count($fileCount);
 
-        for ($i = 0; $i < $fileCount; $i += 2) {
+        for ($i = 0; $i < $fileCount; $i++) {
             $j = $i;
             if ($fileCount - $i == 1) {
                 Fpdf::AddPage();
-                Fpdf::Cell(0, 15, config('app.name').' - QR Nr. '.$j += 1, 0, 1, 'C');
+                Fpdf::Cell(0, 15, config('app.name').' - QR Nr. '.++$j, 0, 1, 'C');
                 Fpdf::SetX(500);
                 Fpdf::Image(storage_path().'/pdf/QRCodes/'.$i.'.png', Fpdf::GetX() + 1, Fpdf::GetY() + 1);
                 Fpdf::Image(storage_path().'/pdf/Logo-Nuenenen.png', Fpdf::GetX() + 1, Fpdf::GetY() + 50);
             } else {
                 Fpdf::AddPage();
-                Fpdf::Cell(0, 15, config('app.name').' - QR Nr. '.$j += 1, 0, 1, 'C');
+                Fpdf::Cell(0, 15, config('app.name').' - QR Nr. '.++$j, 0, 1, 'C');
                 Fpdf::Image(storage_path().'/pdf/QRCodes/'.$i.'.png', Fpdf::GetX() + 1, Fpdf::GetY() + 1);
                 Fpdf::Image(storage_path().'/pdf/Logo-Nuenenen.png', Fpdf::GetX() + 1, Fpdf::GetY() + 50);
                 Fpdf::SetY(130);
-                Fpdf::Cell(0, 15, config('app.name').' - QR Nr. '.$j += 1, 0, 1, 'C');
+                Fpdf::Cell(0, 15, config('app.name').' - QR Nr. '.++$j, 0, 1, 'C');
                 Fpdf::Image(storage_path().'/pdf/QRCodes/'.++$i.'.png', Fpdf::GetX() + 1, Fpdf::GetY() + 1);
                 Fpdf::Image(storage_path().'/pdf/Logo-Nuenenen.png', Fpdf::GetX() + 1, Fpdf::GetY() + 50);
             }
