@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
-use Grimthorr\LaravelToast\Toast;
 
 class RankController extends Controller
 {
@@ -44,6 +43,6 @@ class RankController extends Controller
         $rankArray = json_decode(json_encode($rankObj), true);
         $userRank = count($rankArray);
 
-	    return view('home', ['rankArray' => $rankArray, 'userRank' => $userRank]);
+        return view('home', ['rankArray' => $rankArray, 'userRank' => $userRank]);
     }
 }

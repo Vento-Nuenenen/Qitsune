@@ -181,7 +181,7 @@ return [
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         Codedge\Fpdf\FpdfServiceProvider::class,
         Appstract\Opcache\OpcacheServiceProvider::class,
-	    Grimthorr\LaravelToast\ServiceProvider::class,
+        Grimthorr\LaravelToast\ServiceProvider::class,
     ],
 
     /*
@@ -233,6 +233,6 @@ return [
         'Fpdf'         => Codedge\Fpdf\Facades\Fpdf::class,
         'GeneratePDF'  => APP\Http\Controllers\GeneratePDF::class,
         'uuid'         => Webpatser\Uuid\Uuid::class,
-	    'Toast'        => Grimthorr\LaravelToast\Facade::class,
+        'Toast'        => Grimthorr\LaravelToast\Facade::class,
     ],
 ];
