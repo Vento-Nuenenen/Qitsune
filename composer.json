@@ -8,6 +8,7 @@
         "php": ">=5.6.4",
         "appstract/laravel-opcache": "^1.2",
         "codedge/laravel-fpdf": "^1.2",
+        "grimthorr/laravel-toast": "^1.1",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "praem90/laravel-mpdf": "^0.1.0",

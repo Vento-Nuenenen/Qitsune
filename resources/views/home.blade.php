@@ -13,6 +13,8 @@
                         </div>
                     @endif
 
+	                @include('toast::messages')
+
                     @if(Auth::check() && Auth::user()->fk_role == 2)
                         <div class="welcome">
                             Hallo {{ ((Auth::user()->scoutname != null) ? Auth::user()->scoutname : Auth::user()->prename) }}. <br/>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Grimthorr\LaravelToast\Toast;
 
 class RankController extends Controller
 {
@@ -18,14 +19,14 @@ class RankController extends Controller
 
         $userCount = count($allUsers);
 
-        for ($i = 0; $i < $userCount; ++$i) {
+        for ($i = 0; $i < $userCount; $i++) {
             $rawRank = DB::select('SELECT points,name_gen FROM users LEFT JOIN users_codes ON users.id = users_codes.fk_users LEFT JOIN game_codes ON users_codes.fk_game_codes = game_codes.id WHERE users_codes.fk_game_codes IS NOT NULL AND users.name_gen = ?;', [$userArray[$i]['name_gen']]);
             $rankArray = json_decode(json_encode($rawRank), true);
 
             $rankCount = count($rankArray);
 
             $points = 0;
-            for ($j = 0; $j < $rankCount; ++$j) {
+            for ($j = 0; $j < $rankCount; $j++) {
                 $points += $rankArray[$j]['points'];
             }
 
@@ -43,6 +44,6 @@ class RankController extends Controller
         $rankArray = json_decode(json_encode($rankObj), true);
         $userRank = count($rankArray);
 
-        return view('home', ['rankArray' => $rankArray, 'userRank' => $userRank]);
+	    return view('home', ['rankArray' => $rankArray, 'userRank' => $userRank]);
     }
 }
