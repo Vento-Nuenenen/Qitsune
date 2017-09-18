@@ -6,14 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "appstract/laravel-opcache": "^1.2",
-        "codedge/laravel-fpdf": "^1.2",
-        "grimthorr/laravel-toast": "^1.1",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "praem90/laravel-mpdf": "^0.1.0",
-        "simplesoftwareio/simple-qrcode": "^1.5",
-        "webpatser/laravel-uuid": "2.*"
+        "tcg/voyager": "^0.11.14"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -22,8 +17,7 @@
     },
     "autoload": {
         "classmap": [
-            "database/seeds",
-            "database/factories"
+            "database"
         ],
         "psr-4": {
             "App\\": "app/"
