@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -42,37 +42,30 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param array $data
-     *
+     * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-	        'scoutname' => 'nullable|string|max:255',
-	        'prename'   => 'required|string|max:255',
-	        'surname'   => 'required|string|max:255',
-	        'password'  => 'required|string|min:6|confirmed',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param array $data
-     *
+     * @param  array  $data
      * @return \App\User
      */
     protected function create(array $data)
     {
-	    $name_gen = (($data['scoutname'] != null) ? $data['prename'].'_'.$data['scoutname'].'_'.$data['surname'] : $data['prename'].'_'.$data['surname']);
-
-	    return User::create([
-		    'scoutname' => $data['scoutname'],
-		    'prename'   => $data['prename'],
-		    'surname'   => $data['surname'],
-		    'name_gen'  => $name_gen,
-		    'password'  => bcrypt($data['password']),
-	    ]);
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
     }
 }

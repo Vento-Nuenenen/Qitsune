@@ -91,9 +91,21 @@ return [
 
     'database' => [
         'tables' => [
-            'hidden' => ['migrations', 'data_rows', 'data_types', 'menu_items', 'password_resets', 'permission_role', 'permissions', 'settings'],
+            'hidden' => ['migrations', 'data_rows', 'data_types', 'menu_items', 'password_resets', 'permission_role', 'settings'],
         ],
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | The prefix you wish to use with your voyager installation
+    |--------------------------------------------------------------------------
+    |
+    | specify the domain prefix you would like your users to visit in order
+    | to view the Voyager admin panel
+    |
+    */
+
+    'prefix' => 'admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -114,46 +126,14 @@ return [
         /*
          * Select default language
          */
-        'default' => 'de',
+        'default' => 'en',
 
         /*
          * Select languages that are supported.
          */
         'locales' => [
-            'de',
-        ],
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Widgets Config
-    |--------------------------------------------------------------------------
-    |
-    | Here you can specify voyager administration settings
-    |
-    */
-
-    'widgets' => [
-        [
-            'name'  => 'User',
-            'icon'  => 'voyager-group',
-            'model' => TCG\Voyager\Models\User::class,
-            'url'   => 'admin/users',
-            'image' => '/images/widget-backgrounds/02.png',
-        ],
-        [
-            'name'  => 'Post',
-            'icon'  => 'voyager-news',
-            'model' => TCG\Voyager\Models\Post::class,
-            'url'   => 'admin/posts',
-            'image' => '/images/widget-backgrounds/03.png',
-        ],
-        [
-            'name'  => 'Page',
-            'icon'  => 'voyager-file-text',
-            'model' => TCG\Voyager\Models\Page::class,
-            'url'   => 'admin/pages',
-            'image' => '/images/widget-backgrounds/04.png',
+            'en',
+            //'pt',
         ],
     ],
 
@@ -185,10 +165,6 @@ return [
             ],
         ],
 
-        'data_tables' => [
-            'responsive' => true, // Use responsive extension for jQuery dataTables that are not server-side paginated
-        ],
-
         'widgets' => [
             'TCG\\Voyager\\Widgets\\UserDimmer',
             'TCG\\Voyager\\Widgets\\PostDimmer',
@@ -204,14 +180,7 @@ return [
     |
     | Here you change some of the Voyager UI settings.
     |
-    | TODO: Move style properties to assets/css
-    |
     */
-
-    'login' => [
-        'gradient_a' => '#ffffff',
-        'gradient_b' => '#ffffff',
-    ],
 
     'primary_color' => '#22A7F0',
 
@@ -225,5 +194,14 @@ return [
     'additional_js' => [
         //'js/custom.js',
     ],
+
+    'googlemaps' => [
+         'key'    => env('GOOGLE_MAPS_KEY', ''),
+         'center' => [
+             'lat' => env('GOOGLE_MAPS_DEFAULT_CENTER_LAT', '32.715738'),
+             'lng' => env('GOOGLE_MAPS_DEFAULT_CENTER_LNG', '-117.161084'),
+         ],
+         'zoom' => env('GOOGLE_MAPS_DEFAULT_ZOOM', 11),
+     ],
 
 ];
