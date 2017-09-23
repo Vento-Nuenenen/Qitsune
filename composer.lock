@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2ed76032a52ce9a393af4859172cb9e",
+    "content-hash": "d0b89385b2679aae8fa9b7d82247f889",
     "packages": [
         {
             "name": "appstract/laravel-opcache",
@@ -478,6 +478,68 @@
                 "validator"
             ],
             "time": "2017-04-03T19:08:52+00:00"
+        },
+        {
+            "name": "devmarketer/laraflash",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DevMarketer/LaraFlash.git",
+                "reference": "4d96f9c06f594e2ca8ae72e64f4d3754cd95b6c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DevMarketer/LaraFlash/zipball/4d96f9c06f594e2ca8ae72e64f4d3754cd95b6c8",
+                "reference": "4d96f9c06f594e2ca8ae72e64f4d3754cd95b6c8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DevMarketer\\LaraFlash\\LaraFlashServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaraFlash": "DevMarketer\\LaraFlash\\LaraFlashFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "DevMarketer\\LaraFlash": "src/"
+                },
+                "files": [
+                    "src/DevMarketer/LaraFlash/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "J. Alexander Curtis",
+                    "email": "jalexandercurtis@gmail.com"
+                }
+            ],
+            "description": "A powerful and flexible flash notifications system. Improving over built-in Laravel Flash messaging functionality.",
+            "homepage": "https://github.com/DevMarketer/LaraFlash",
+            "keywords": [
+                "flash",
+                "laraflash",
+                "laravel",
+                "messages",
+                "notifications",
+                "session"
+            ],
+            "time": "2017-09-08T14:45:05+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

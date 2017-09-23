@@ -42,8 +42,7 @@ class LoginController extends Controller
      *
      * @return string
      */
-    public function username()
-    {
-        return 'name_gen';
-    }
+    //public function username(){
+    //    return 'name_gen';
+    //}
 }

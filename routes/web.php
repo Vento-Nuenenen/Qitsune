@@ -21,4 +21,20 @@ Route::group(['prefix' => 'admin'], function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@checkAuth')->name('home');
+
+Route::group(['prefix' => 'leader'], function () {
+	Route::group(['prefix' => 'qr'], function () {
+		Route::get('/generate','GenerateController@showGenerate');
+	});
+
+	Route::get('/ranking','RankingController@showRanking');
+});
+
+Route::group(['prefix' => 'user'], function () {
+	Route::group(['prefix' => 'qr'], function () {
+		Route::get('/scan','ScanController@showScan');
+	});
+
+	Route::get('/description','DescriptionController@showDescription');
+});
