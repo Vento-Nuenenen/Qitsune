@@ -14,14 +14,6 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-<<<<<<< HEAD
-            $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-=======
             $table->increments('id')->unsigned();
             $table->integer('total_points')->nullable();
             $table->integer('rank')->nullable();
@@ -35,7 +27,6 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             $table->index('fk_role');
->>>>>>> 7438213845ceba112fcc6f2cc51850bb38b0d39b
         });
     }
 
