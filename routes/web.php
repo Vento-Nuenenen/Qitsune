@@ -24,6 +24,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@checkAuth')->name('home');
 
 Route::group(['prefix' => 'leader'], function () {
+<<<<<<< HEAD
 	Route::group(['prefix' => 'qr'], function () {
 		Route::get('/generate','GenerateController@showGenerate');
 		Route::get('/','GenerateController@showGenerate');
@@ -41,4 +42,19 @@ Route::group(['prefix' => 'user'], function () {
 
 	Route::get('/description','DescriptionController@showDescription');
 	Route::get('/','DescriptionController@showDescription');
+=======
+    Route::group(['prefix' => 'qr'], function () {
+        Route::get('/generate', 'GenerateController@showGenerate');
+    });
+
+    Route::get('/ranking', 'RankingController@showRanking');
+});
+
+Route::group(['prefix' => 'user'], function () {
+    Route::group(['prefix' => 'qr'], function () {
+        Route::get('/scan', 'ScanController@showScan');
+    });
+
+    Route::get('/description', 'DescriptionController@showDescription');
+>>>>>>> 4d72e0abb842ab1066be1c196a21f565d32282ec
 });
