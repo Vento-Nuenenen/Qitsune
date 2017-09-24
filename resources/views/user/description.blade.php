@@ -13,8 +13,8 @@
                         </div>
                     @endif
 	                <div class="welcome">
-                        Hallo {{ ((Auth::user()->scoutname != null) ? Auth::user()->scoutname : Auth::user()->prename) }}. <br/>
-		                Dein Login-Name ist <b>{{ ((Auth::user()->scoutname != null) ? Auth::user()->prename."_".Auth::user()->scoutname."_".Auth::user()->surname : Auth::user()->prename."_".Auth::user()->surname) }}</b>.
+                        Hallo . <br/>
+		                Dein Login-Name ist <b></b>.
 		                Merk dir diesen, damit du dich später wieder Einloggen kannst.
 	                </div>
 	                <div class="rules">
