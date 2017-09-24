@@ -177,7 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-	    TCG\Voyager\VoyagerServiceProvider::class,
+        TCG\Voyager\VoyagerServiceProvider::class,
 
     ],
 
@@ -228,6 +228,6 @@ return [
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
 
-	    'Menu' => TCG\Voyager\Models\Menu::class,
+        'Menu' => TCG\Voyager\Models\Menu::class,
     ],
 ];
