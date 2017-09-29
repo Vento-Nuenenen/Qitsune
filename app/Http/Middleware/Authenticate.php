@@ -2,9 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Support\Facades\Auth;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
@@ -17,12 +17,11 @@ class Authenticate
      */
     protected $auth;
 
-	/**
-	 * Create a new filter instance.
-	 *
-	 * @param Guard $auth
-	 *
-	 */
+    /**
+     * Create a new filter instance.
+     *
+     * @param Guard $auth
+     */
     public function __construct(Guard $auth)
     {
         $this->auth = $auth;

@@ -3,9 +3,9 @@
 namespace App\Http\Middleware;
 
 use App\Models\Activation;
-use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Closure;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 

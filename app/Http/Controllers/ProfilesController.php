@@ -370,13 +370,14 @@ class ProfilesController extends Controller
         return redirect('/login/')->with('success', trans('profile.successUserAccountDeleted'));
     }
 
-	/**
-	 * Send GoodBye Email Function via Notify.
-	 *
-	 * @param User|array $user
-	 * @param string $token
-	 * @return void
-	 */
+    /**
+     * Send GoodBye Email Function via Notify.
+     *
+     * @param User|array $user
+     * @param string     $token
+     *
+     * @return void
+     */
     public static function sendGoodbyEmail(User $user, $token)
     {
         $user->notify(new SendGoodbyeEmail($token));

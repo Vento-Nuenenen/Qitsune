@@ -65,23 +65,25 @@ class User extends Authenticatable
         'deleted_at',
     ];
 
-	/**
-	 * Build Social Relationships.
-	 *
-	 * @var array
-	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
-	 */
+    /**
+     * Build Social Relationships.
+     *
+     * @var array
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function social()
     {
         return $this->hasMany('App\Models\Social');
     }
 
-	/**
-	 * User Profile Relationships.
-	 *
-	 * @var array
-	 * @return \Illuminate\Database\Eloquent\Relations\HasOne
-	 */
+    /**
+     * User Profile Relationships.
+     *
+     * @var array
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function profile()
     {
         return $this->hasOne('App\Models\Profile');
@@ -89,19 +91,20 @@ class User extends Authenticatable
 
     // User Profile Setup - SHould move these to a trait or interface...
 
-	/**
-	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-	 */
-	public function profiles()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function profiles()
     {
         return $this->belongsToMany('App\Models\Profile')->withTimestamps();
     }
 
-	/**
-	 * @param $name
-	 * @return bool
-	 */
-	public function hasProfile($name)
+    /**
+     * @param $name
+     *
+     * @return bool
+     */
+    public function hasProfile($name)
     {
         foreach ($this->profiles as $profile) {
             if ($profile->name == $name) {
@@ -112,19 +115,20 @@ class User extends Authenticatable
         return false;
     }
 
-	/**
-	 * @param $profile
-	 */
-	public function assignProfile($profile)
+    /**
+     * @param $profile
+     */
+    public function assignProfile($profile)
     {
         return $this->profiles()->attach($profile);
     }
 
-	/**
-	 * @param $profile
-	 * @return int
-	 */
-	public function removeProfile($profile)
+    /**
+     * @param $profile
+     *
+     * @return int
+     */
+    public function removeProfile($profile)
     {
         return $this->profiles()->detach($profile);
     }
