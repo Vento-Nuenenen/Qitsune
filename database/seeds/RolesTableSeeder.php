@@ -1,27 +1,47 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
-use TCG\Voyager\Models\Role;
+use jeremykenedy\LaravelRoles\Models\Role;
 
 class RolesTableSeeder extends Seeder
 {
     /**
-     * Auto generated seed file.
+     * Run the database seeds.
+     *
+     * @return void
      */
     public function run()
     {
-        $role = Role::firstOrNew(['name' => 'admin']);
-        if (!$role->exists) {
-            $role->fill([
-                    'display_name' => 'Administrator',
-                ])->save();
+        /*
+         * Add Roles
+         *
+         */
+        if (Role::where('slug', '=', 'admin')->first() === null) {
+            $adminRole = Role::create([
+                'name'        => 'Admin',
+                'slug'        => 'admin',
+                'description' => 'Admin Role',
+                'level'       => 5,
+            ]);
         }
 
-        $role = Role::firstOrNew(['name' => 'user']);
-        if (!$role->exists) {
-            $role->fill([
-                    'display_name' => 'Normal User',
-                ])->save();
+        if (Role::where('slug', '=', 'user')->first() === null) {
+            $userRole = Role::create([
+                'name'        => 'User',
+                'slug'        => 'user',
+                'description' => 'User Role',
+                'level'       => 1,
+            ]);
+        }
+
+        if (Role::where('slug', '=', 'unverified')->first() === null) {
+            $userRole = Role::create([
+                'name'        => 'Unverified',
+                'slug'        => 'unverified',
+                'description' => 'Unverified Role',
+                'level'       => 0,
+            ]);
         }
     }
 }

@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -25,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectAfterLogout = '/';
 
     /**
      * Create a new controller instance.
@@ -34,15 +37,21 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest', ['except' => 'logout']);
     }
 
-    /*
-     * Override the username method used to validate login.
+    /**
+     * Logout, Clear Session, and Return.
      *
-     * @return string
+     * @return void
      */
-    //public function username(){
-    //    return 'name_gen';
-    //}
+    public function logout()
+    {
+        $user = Auth::user();
+        Log::info('User Logged Out. ', [$user]);
+        Auth::logout();
+        Session::flush();
+
+        return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
+    }
 }

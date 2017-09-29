@@ -1,41 +1,57 @@
 <?php
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
-use TCG\Voyager\Models\Permission;
+use jeremykenedy\LaravelRoles\Models\Permission;
 
 class PermissionsTableSeeder extends Seeder
 {
     /**
-     * Auto generated seed file.
+     * Run the database seeds.
+     *
+     * @return void
      */
     public function run()
     {
-        $keys = [
-            'browse_admin',
-            'browse_database',
-            'browse_media',
-            'browse_compass',
-        ];
 
-        foreach ($keys as $key) {
-            Permission::firstOrCreate([
-                'key'        => $key,
-                'table_name' => null,
+        /*
+         * Add Permissions
+         *
+         */
+        if (Permission::where('name', '=', 'Can View Users')->first() === null) {
+            Permission::create([
+                'name'        => 'Can View Users',
+                'slug'        => 'view.users',
+                'description' => 'Can view users',
+                'model'       => 'Permission',
             ]);
         }
 
-        Permission::generateFor('menus');
+        if (Permission::where('name', '=', 'Can Create Users')->first() === null) {
+            Permission::create([
+                'name'        => 'Can Create Users',
+                'slug'        => 'create.users',
+                'description' => 'Can create new users',
+                'model'       => 'Permission',
+            ]);
+        }
 
-        Permission::generateFor('pages');
+        if (Permission::where('name', '=', 'Can Edit Users')->first() === null) {
+            Permission::create([
+                'name'        => 'Can Edit Users',
+                'slug'        => 'edit.users',
+                'description' => 'Can edit users',
+                'model'       => 'Permission',
+            ]);
+        }
 
-        Permission::generateFor('roles');
-
-        Permission::generateFor('users');
-
-        Permission::generateFor('posts');
-
-        Permission::generateFor('categories');
-
-        Permission::generateFor('settings');
+        if (Permission::where('name', '=', 'Can Delete Users')->first() === null) {
+            Permission::create([
+                'name'        => 'Can Delete Users',
+                'slug'        => 'delete.users',
+                'description' => 'Can delete users',
+                'model'       => 'Permission',
+            ]);
+        }
     }
 }

@@ -10,10 +10,9 @@ return [
     | This value is the name of your application. This value is used when the
     | framework needs to place the application's name in a notification or
     | any other location as required by the application or its packages.
-    |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => 'Laravel',
 
     /*
     |--------------------------------------------------------------------------
@@ -167,6 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Laravel\Tinker\TinkerServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -176,8 +176,19 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        TCG\Voyager\VoyagerServiceProvider::class,
+        // Laravel\Socialite\SocialiteServiceProvider::class,
+        SocialiteProviders\Manager\ServiceProvider::class,
+        SocialiteProviders\Generators\GeneratorsServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        Illuminate\Notifications\NotificationServiceProvider::class,
+        App\Providers\MacroServiceProvider::class,
+        jeremykenedy\LaravelRoles\RolesServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
+        Creativeorange\Gravatar\GravatarServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        App\Providers\LocalEnvironmentServiceProvider::class,
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+        jeremykenedy\laravelexceptionnotifier\LaravelExceptionNotifier::class,
 
     ],
 
@@ -227,7 +238,13 @@ return [
         'URL'          => Illuminate\Support\Facades\URL::class,
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
-
-        'Menu' => TCG\Voyager\Models\Menu::class,
+        'Form'         => \Collective\Html\FormFacade::class,
+        'HTML'         => \Collective\Html\HtmlFacade::class,
+        'Socialite'    => Laravel\Socialite\Facades\Socialite::class,
+        'Input'        => Illuminate\Support\Facades\Input::class,
+        'Gravatar'     => Creativeorange\Gravatar\Facades\Gravatar::class,
+        'Image'        => Intervention\Image\Facades\Image::class,
+        'Uuid'         => Webpatser\Uuid\Uuid::class,
     ],
+
 ];
