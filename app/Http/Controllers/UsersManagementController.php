@@ -86,9 +86,9 @@ class UsersManagementController extends Controller
 
         $ipAddress = new CaptureIpTrait();
         $profile = new Profile();
-	    $name_gen = (($request->input('scoutname') != null) ? $request->input('first_name').'_'.$request->input('scoutname').'_'.$request->input('last_name') : $request->input('first_name').'_'.$request->input('last_name'));
+        $name_gen = (($request->input('scoutname') != null) ? $request->input('first_name').'_'.$request->input('scoutname').'_'.$request->input('last_name') : $request->input('first_name').'_'.$request->input('last_name'));
 
-	    $user = User::create([
+        $user = User::create([
             'scoutname'              => $request->input('scoutname'),
             'first_name'             => $request->input('first_name'),
             'last_name'              => $request->input('last_name'),
