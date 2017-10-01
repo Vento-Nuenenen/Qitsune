@@ -48,8 +48,6 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
         'as'        => '{username}',
         'uses'      => 'ProfilesController@show',
     ]);
-
-
 });
 
 // Registered, activated, and is current user routes.
@@ -87,15 +85,15 @@ Route::group(['middleware'=> ['auth', 'activated', 'currentUser']], function () 
     // Route to upload user avatar.
     Route::post('avatar/upload', ['as' => 'avatar.upload', 'uses' => 'ProfilesController@upload']);
 
-	Route::group(['prefix' => 'user'], function () {
-		Route::group(['prefix' => 'qr'], function () {
-			Route::get('/scan','ScanController@showScan');
-			Route::get('/','ScanController@showScan');
-		});
+    Route::group(['prefix' => 'user'], function () {
+        Route::group(['prefix' => 'qr'], function () {
+            Route::get('/scan', 'ScanController@showScan');
+            Route::get('/', 'ScanController@showScan');
+        });
 
-		Route::get('/description','DescriptionController@showDescription');
-		Route::get('/','DescriptionController@showDescription');
-	});
+        Route::get('/description', 'DescriptionController@showDescription');
+        Route::get('/', 'DescriptionController@showDescription');
+    });
 });
 
 // Registered, activated, and is admin routes.
@@ -123,15 +121,15 @@ Route::group(['middleware'=> ['auth', 'activated', 'role:admin']], function () {
         ],
     ]);
 
-	Route::group(['prefix' => 'leader'], function () {
-		Route::group(['prefix' => 'qr'], function () {
-			Route::get('/generate','GenerateController@showGenerate');
-			Route::get('/','GenerateController@showGenerate');
-		});
+    Route::group(['prefix' => 'leader'], function () {
+        Route::group(['prefix' => 'qr'], function () {
+            Route::get('/generate', 'GenerateController@showGenerate');
+            Route::get('/', 'GenerateController@showGenerate');
+        });
 
-		Route::get('/ranking','RankingController@showRanking');
-		Route::get('/','RankingController@showRanking');
-	});
+        Route::get('/ranking', 'RankingController@showRanking');
+        Route::get('/', 'RankingController@showRanking');
+    });
 
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
     Route::get('php', 'AdminDetailsController@listPHPInfo');

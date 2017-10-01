@@ -15,12 +15,12 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-	        $table->integer('total_points')->nullable()->default(NULL);
-	        $table->integer('rank')->nullable()->default(NULL);
+            $table->integer('total_points')->nullable()->default(null);
+            $table->integer('rank')->nullable()->default(null);
             $table->string('scoutname')->unique();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
-	        $table->string('name_gen')->unique();
+            $table->string('name_gen')->unique();
             $table->string('password');
             $table->rememberToken();
             $table->boolean('activated')->default(true);

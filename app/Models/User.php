@@ -37,7 +37,7 @@ class User extends Authenticatable
         'scoutname',
         'first_name',
         'last_name',
-	    'name_gen',
+        'name_gen',
         'password',
         'activated',
         'token',
