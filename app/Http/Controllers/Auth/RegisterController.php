@@ -62,12 +62,12 @@ class RegisterController extends Controller
             $data['captcha'] = true;
         }
 
-	    return Validator::make($data, [
-		    'scoutname' => 'nullable|string|max:255',
-		    'first_name'   => 'required|string|max:255',
-		    'last_name'   => 'required|string|max:255',
-		    'password'  => 'required|string|min:6|confirmed',
-	    ]);
+        return Validator::make($data, [
+            'scoutname'    => 'nullable|string|max:255',
+            'first_name'   => 'required|string|max:255',
+            'last_name'    => 'required|string|max:255',
+            'password'     => 'required|string|min:6|confirmed',
+        ]);
     }
 
     /**
@@ -82,9 +82,9 @@ class RegisterController extends Controller
         $ipAddress = new CaptureIpTrait();
         $role = Role::where('slug', '=', 'unverified')->first();
 
-	    $name_gen = (($data['scoutname'] != null) ? $data['first_name'].'_'.$data['scoutname'].'_'.$data['last_name'] : $data['first_name'].'_'.$data['last_name']);
+        $name_gen = (($data['scoutname'] != null) ? $data['first_name'].'_'.$data['scoutname'].'_'.$data['last_name'] : $data['first_name'].'_'.$data['last_name']);
 
-	    $user = User::create([
+        $user = User::create([
                 'scoutname'         => $data['scoutname'],
                 'first_name'        => $data['first_name'],
                 'last_name'         => $data['last_name'],

@@ -85,7 +85,7 @@ class ActivateController extends Controller
 
         $data = [
             'name_gen' => $user->name_gen,
-            'date'  => $lastActivation->created_at->format('m/d/Y'),
+            'date'     => $lastActivation->created_at->format('m/d/Y'),
         ];
 
         return view($this->getActivationView())->with($data);
@@ -112,7 +112,7 @@ class ActivateController extends Controller
 
                 $data = [
                     'name_gen' => $user->name_gen,
-                    'hours' => config('settings.timePeriod'),
+                    'hours'    => config('settings.timePeriod'),
                 ];
 
                 return view('auth.exceeded')->with($data);
@@ -123,7 +123,7 @@ class ActivateController extends Controller
 
         $data = [
             'name_gen' => $user->name_gen,
-            'date'  => $lastActivation->created_at->format('m/d/Y'), //
+            'date'     => $lastActivation->created_at->format('m/d/Y'), //
         ];
 
         return view($this->getActivationView())->with($data);
@@ -195,7 +195,7 @@ class ActivateController extends Controller
 
                 $data = [
                     'name_gen' => $user->name_gen,
-                    'hours' => config('settings.timePeriod'),
+                    'hours'    => config('settings.timePeriod'),
                 ];
 
                 return view('auth.exceeded')->with($data);
@@ -231,9 +231,9 @@ class ActivateController extends Controller
             Log::info('Locked non-activated user attempted to visit '.$currentRoute.'. ', [$user]);
 
             $data = [
-                'hours'     => config('settings.timePeriod'),
+                'hours'        => config('settings.timePeriod'),
                 'name_gen'     => $user->name_gen,
-                'lastDate'  => $lastActivation->created_at->format('m/d/Y'),
+                'lastDate'     => $lastActivation->created_at->format('m/d/Y'),
             ];
 
             return view('auth.exceeded')->with($data);

@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class UsersCodes extends Migration
 {
@@ -13,14 +13,14 @@ class UsersCodes extends Migration
      */
     public function up()
     {
-	    Schema::create('users_codes', function (Blueprint $table) {
-		    $table->increments('id')->unsigned();
-		    $table->integer('fk_users')->unsigned();
-		    $table->integer('fk_game_codes')->unsigned();
+        Schema::create('users_codes', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->integer('fk_users')->unsigned();
+            $table->integer('fk_game_codes')->unsigned();
 
-		    $table->index('fk_users');
-		    $table->index('fk_game_codes');
-	    });
+            $table->index('fk_users');
+            $table->index('fk_game_codes');
+        });
     }
 
     /**
@@ -30,6 +30,6 @@ class UsersCodes extends Migration
      */
     public function down()
     {
-	    Schema::dropIfExists('users_codes');
+        Schema::dropIfExists('users_codes');
     }
 }

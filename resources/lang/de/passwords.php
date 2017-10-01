@@ -17,6 +17,6 @@ return [
     'reset'    => 'Dein Passwort wurde zurückgesetzt!',
     'sent'     => 'Wir haben dir einen Reset-Link zugesendet!',
     'token'    => 'Der angegeben Reset-TOken ist falsch.',
-    'user'     => "Wir können die Eingegebene E-Mail Adresse nicht finden.",
+    'user'     => 'Wir können die Eingegebene E-Mail Adresse nicht finden.',
 
 ];
