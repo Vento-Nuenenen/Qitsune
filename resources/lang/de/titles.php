@@ -30,8 +30,8 @@ return [
     'adminPHP'         => 'PHP Informationen',
     'adminRoutes'      => 'Routing Details',
 
-	'qrDescription'    => 'Anleitung',
-	'qrRanking'    => 'Rangliste',
-	'qrGenerator'    => 'Codes Generieren',
+    'qrDescription'    => 'Anleitung',
+    'qrRanking'        => 'Rangliste',
+    'qrGenerator'      => 'Codes Generieren',
 
 ];
