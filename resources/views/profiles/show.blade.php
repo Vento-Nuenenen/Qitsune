@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-	{{ $user->gen_name }}'s Profile
+	{{ $user->name_gen }}'s Profile
 @endsection
 
 @section('template_fastload_css')
@@ -21,7 +21,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 
-						{{ trans('profile.showProfileTitle',['username' => $user->name]) }}
+						{{ trans('profile.showProfileTitle',['username' => $user->name_gen]) }}
 
 					</div>
 					<div class="panel-body">
@@ -63,22 +63,15 @@
 									</dd>
 								@endif
 							@endif
-
 						</dl>
-
 						@if ($user->profile)
 							@if (Auth::user()->id == $user->id)
-
 								{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name_gen.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
-
 							@endif
 						@else
-
 							<p>{{ trans('profile.noProfileYet') }}</p>
 							{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name_gen.'/edit'), 'fa fa-fw fa-plus ', trans('titles.createProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
-
 						@endif
-
 					</div>
 				</div>
 			</div>
@@ -87,7 +80,5 @@
 @endsection
 
 @section('footer_scripts')
-
 	@include('scripts.google-maps-geocode-and-map')
-
 @endsection

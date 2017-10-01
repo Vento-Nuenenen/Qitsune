@@ -42,9 +42,7 @@ class Authenticate
     public function handle($request, Closure $next, $role)
     {
         if (!$this->auth->check()) {
-            return redirect()->to('/login')
-                ->with('status', 'success')
-                ->with('message', 'Please login.');
+            return redirect()->to('/login')->with('status', 'success')->with('message', 'Please login.');
         }
         ////////////////
         // if($role == 'all')

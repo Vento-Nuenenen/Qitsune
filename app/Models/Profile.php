@@ -29,10 +29,6 @@ class Profile extends Model
      */
     protected $fillable = [
         'theme_id',
-        'location',
-        'bio',
-        'twitter_username',
-        'github_username',
         'user_profile_bg',
         'avatar',
         'avatar_status',
@@ -52,11 +48,12 @@ class Profile extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-    /**
-     * Profile Theme Relationships.
-     *
-     * @var array
-     */
+	/**
+	 * Profile Theme Relationships.
+	 *
+	 * @var array
+	 * @return \Illuminate\Database\Eloquent\Relations\HasOne
+	 */
     public function theme()
     {
         return $this->hasOne('App\Models\Theme');

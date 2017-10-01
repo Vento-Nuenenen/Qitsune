@@ -48,13 +48,15 @@ class Theme extends Model
         'deleted_at',
     ];
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param array $data
-     *
-     * @return array
-     */
+	/**
+	 * Get a validator for an incoming registration request.
+	 *
+	 * @param int $id
+	 * @param array $merge
+	 * @return array
+	 * @internal param array $data
+	 *
+	 */
     public static function rules($id = 0, $merge = [])
     {
         return array_merge(
@@ -67,11 +69,12 @@ class Theme extends Model
             $merge);
     }
 
-    /**
-     * Build Theme Relationships.
-     *
-     * @var array
-     */
+	/**
+	 * Build Theme Relationships.
+	 *
+	 * @var array
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
     public function profile()
     {
         return $this->hasMany('App\Models\Profile');

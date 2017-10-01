@@ -11,7 +11,6 @@ use File;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Session;
 use Image;
 use jeremykenedy\Uuid\Uuid;
 use Validator;
@@ -48,30 +47,32 @@ class ProfilesController extends Controller
         ]);
     }
 
-    /**
-     * Fetch user
-     * (You can extract this to repository method).
-     *
-     * @param $username
-     *
-     * @return mixed
-     */
-    public function getUserByUsername($username)
+	/**
+	 * Fetch user
+	 * (You can extract this to repository method).
+	 *
+	 * @param $name_gen
+	 * @return mixed
+	 * @internal param $username
+	 *
+	 */
+    public function getUserByUsername($name_gen)
     {
-        return User::with('profile')->wherename($username)->firstOrFail();
+        return User::with('profile')->where('name_gen',$name_gen)->firstOrFail();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param string $username
-     *
-     * @return Response
-     */
-    public function show($username)
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param $name_gen
+	 * @return Response
+	 * @internal param string $username
+	 *
+	 */
+    public function show($name_gen)
     {
         try {
-            $user = $this->getUserByUsername($username);
+            $user = $this->getUserByUsername($name_gen);
         } catch (ModelNotFoundException $exception) {
             abort(404);
         }
@@ -86,17 +87,18 @@ class ProfilesController extends Controller
         return view('profiles.show')->with($data);
     }
 
-    /**
-     * /profiles/username/edit.
-     *
-     * @param $username
-     *
-     * @return mixed
-     */
-    public function edit($username)
+	/**
+	 * /profiles/username/edit.
+	 *
+	 * @param $name_gen
+	 * @return mixed
+	 * @internal param $username
+	 *
+	 */
+    public function edit($name_gen)
     {
         try {
-            $user = $this->getUserByUsername($username);
+            $user = $this->getUserByUsername($name_gen);
         } catch (ModelNotFoundException $exception) {
             return view('pages.status')->with('error', trans('profile.notYourProfile'))->with('error_title', trans('profile.notYourProfileTitle'));
         }
@@ -115,18 +117,18 @@ class ProfilesController extends Controller
         return view('profiles.edit')->with($data);
     }
 
-    /**
-     * Update a user's profile.
-     *
-     * @param $username
-     *
-     * @throws Laracasts\Validation\FormValidationException
-     *
-     * @return mixed
-     */
-    public function update($username, Request $request)
+	/**
+	 * Update a user's profile.
+	 *
+	 * @param $name_gen
+	 * @param Request $request
+	 * @return mixed
+	 * @internal param $username
+	 *
+	 */
+    public function update($name_gen, Request $request)
     {
-        $user = $this->getUserByUsername($username);
+        $user = $this->getUserByUsername($name_gen);
 
         $input = Input::only('theme_id', 'avatar_status');
 

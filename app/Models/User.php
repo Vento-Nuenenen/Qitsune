@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -37,7 +36,7 @@ class User extends Authenticatable
         'scoutname',
         'first_name',
         'last_name',
-        'name_gen',
+
         'password',
         'activated',
         'token',
@@ -55,6 +54,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
+
         'password',
         'remember_token',
         'activated',
@@ -99,15 +99,16 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Profile')->withTimestamps();
     }
 
-    /**
-     * @param $name
-     *
-     * @return bool
-     */
-    public function hasProfile($name)
+	/**
+	 * @param $name_gen
+	 * @return bool
+	 * @internal param $name
+	 *
+	 */
+    public function hasProfile($name_gen)
     {
         foreach ($this->profiles as $profile) {
-            if ($profile->name == $name) {
+            if ($profile->name_gen == $name_gen) {
                 return true;
             }
         }
