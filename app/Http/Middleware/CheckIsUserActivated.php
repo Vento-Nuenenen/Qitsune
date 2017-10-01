@@ -43,7 +43,7 @@ class CheckIsUserActivated
                     Log::info('Non-activated user attempted to visit '.$currentRoute.'. ', [$user]);
 
                     return redirect()->route('activation-required')->with([
-	                    'message' => 'Activation is required. ',
+                        'message' => 'Activation is required. ',
                         'status'  => 'danger',
                     ]);
                 }

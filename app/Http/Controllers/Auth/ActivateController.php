@@ -23,19 +23,18 @@ class ActivateController extends Controller
     private static $activationView = 'auth.activation';
     private static $activationRoute = 'activation-required';
 
-	/**
-	 * Create a new controller instance.
-	 *
-	 */
+    /**
+     * Create a new controller instance.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-	/**
-	 * @return string
-	 */
-	public static function getUserHomeRoute()
+    /**
+     * @return string
+     */
+    public static function getUserHomeRoute()
     {
         return self::$userHomeRoute;
     }

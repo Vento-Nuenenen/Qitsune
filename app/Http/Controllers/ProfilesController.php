@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use App\Models\Theme;
 use App\Models\User;
-use App\Notifications\SendGoodbyeEmail;
 use App\Traits\CaptureIpTrait;
 use File;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -186,28 +185,27 @@ class ProfilesController extends Controller
         $currentUser = \Auth::user();
         $user = User::findOrFail($id);
         $ipAddress = new CaptureIpTrait();
-	    $name_gen = (($request->input('scoutname') != null) ? $request->input('first_name').'_'.$request->input('scoutname').'_'.$request->input('last_name') : $request->input('first_name').'_'.$request->input('last_name'));
+        $name_gen = (($request->input('scoutname') != null) ? $request->input('first_name').'_'.$request->input('scoutname').'_'.$request->input('last_name') : $request->input('first_name').'_'.$request->input('last_name'));
 
-
-	    $validator = Validator::make($request->all(), [
-	        'scoutname'    => 'nullable|string|max:255',
-	        'first_name'   => 'required|string|max:255',
-	        'last_name'    => 'required|string|max:255',
-	        'password'     => 'required|string|min:6|confirmed',
+        $validator = Validator::make($request->all(), [
+            'scoutname'    => 'nullable|string|max:255',
+            'first_name'   => 'required|string|max:255',
+            'last_name'    => 'required|string|max:255',
+            'password'     => 'required|string|min:6|confirmed',
         ]);
 
         $rules = [];
 
         $validator = $this->validator($request->all(), $rules);
 
-        if ($validator->fails()){
+        if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
 
         $user->scoutname = $request->input('scoutname');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
-	    $user->name_gen = $name_gen;
+        $user->name_gen = $name_gen;
 
         $user->updated_ip_address = $ipAddress->getClientIp();
 
@@ -303,15 +301,16 @@ class ProfilesController extends Controller
         return Image::make(storage_path().'/users/id/'.$id.'/uploads/images/avatar/'.$image)->response();
     }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param \Illuminate\Http\Request $request
-	 * @param int $id
-	 *
-	 * @return \Illuminate\Http\Response
-	 * @throws \Exception
-	 */
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
+     * @throws \Exception
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function deleteUserAccount(Request $request, $id)
     {
         $currentUser = \Auth::user();
