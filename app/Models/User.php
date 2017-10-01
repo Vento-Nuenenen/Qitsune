@@ -99,12 +99,13 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Profile')->withTimestamps();
     }
 
-	/**
-	 * @param $name_gen
-	 * @return bool
-	 * @internal param $name
-	 *
-	 */
+    /**
+     * @param $name_gen
+     *
+     * @return bool
+     *
+     * @internal param $name
+     */
     public function hasProfile($name_gen)
     {
         foreach ($this->profiles as $profile) {

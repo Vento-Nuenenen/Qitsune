@@ -47,28 +47,30 @@ class ProfilesController extends Controller
         ]);
     }
 
-	/**
-	 * Fetch user
-	 * (You can extract this to repository method).
-	 *
-	 * @param $name_gen
-	 * @return mixed
-	 * @internal param $username
-	 *
-	 */
+    /**
+     * Fetch user
+     * (You can extract this to repository method).
+     *
+     * @param $name_gen
+     *
+     * @return mixed
+     *
+     * @internal param $username
+     */
     public function getUserByUsername($name_gen)
     {
-        return User::with('profile')->where('name_gen',$name_gen)->firstOrFail();
+        return User::with('profile')->where('name_gen', $name_gen)->firstOrFail();
     }
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param $name_gen
-	 * @return Response
-	 * @internal param string $username
-	 *
-	 */
+    /**
+     * Display the specified resource.
+     *
+     * @param $name_gen
+     *
+     * @return Response
+     *
+     * @internal param string $username
+     */
     public function show($name_gen)
     {
         try {
@@ -87,14 +89,15 @@ class ProfilesController extends Controller
         return view('profiles.show')->with($data);
     }
 
-	/**
-	 * /profiles/username/edit.
-	 *
-	 * @param $name_gen
-	 * @return mixed
-	 * @internal param $username
-	 *
-	 */
+    /**
+     * /profiles/username/edit.
+     *
+     * @param $name_gen
+     *
+     * @return mixed
+     *
+     * @internal param $username
+     */
     public function edit($name_gen)
     {
         try {
@@ -117,15 +120,16 @@ class ProfilesController extends Controller
         return view('profiles.edit')->with($data);
     }
 
-	/**
-	 * Update a user's profile.
-	 *
-	 * @param $name_gen
-	 * @param Request $request
-	 * @return mixed
-	 * @internal param $username
-	 *
-	 */
+    /**
+     * Update a user's profile.
+     *
+     * @param $name_gen
+     * @param Request $request
+     *
+     * @return mixed
+     *
+     * @internal param $username
+     */
     public function update($name_gen, Request $request)
     {
         $user = $this->getUserByUsername($name_gen);

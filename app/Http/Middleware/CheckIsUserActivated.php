@@ -53,7 +53,7 @@ class CheckIsUserActivated
             if ($user && $user->activated != 1) {
                 $activationsCount = Activation::where('user_id', $user->id)->where('created_at', '>=', Carbon::now()->subHours(config('settings.timePeriod')))->count();
 
-                if ($activationsCount >= config('settings.maxAttempts')){
+                if ($activationsCount >= config('settings.maxAttempts')) {
                     return redirect()->route('exceeded');
                 }
             }

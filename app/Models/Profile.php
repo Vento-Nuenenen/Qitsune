@@ -48,12 +48,13 @@ class Profile extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-	/**
-	 * Profile Theme Relationships.
-	 *
-	 * @var array
-	 * @return \Illuminate\Database\Eloquent\Relations\HasOne
-	 */
+    /**
+     * Profile Theme Relationships.
+     *
+     * @var array
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function theme()
     {
         return $this->hasOne('App\Models\Theme');
