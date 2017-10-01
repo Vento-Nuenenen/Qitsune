@@ -124,9 +124,9 @@ Route::group(['middleware'=> ['auth', 'activated', 'role:admin']], function () {
         Route::group(['prefix' => 'qr'], function () {
             Route::get('/generate', 'GenerateController@showGenerate');
             Route::get('/generate/do', 'GenerateController@index');
-	        Route::get('/download', function () {
-		        return response()->download(storage_path('pdf/file/QR-Codes.pdf'));
-	        });
+            Route::get('/download', function () {
+                return response()->download(storage_path('pdf/file/QR-Codes.pdf'));
+            });
         });
 
         Route::get('/ranking', 'RankingController@showRanking');
@@ -137,5 +137,5 @@ Route::group(['middleware'=> ['auth', 'activated', 'role:admin']], function () {
     Route::get('php', 'AdminDetailsController@listPHPInfo');
     Route::get('routes', 'AdminDetailsController@listRoutes');
 
-	Route::get('/ajax/ranking', 'AJAX@ranking');
+    Route::get('/ajax/ranking', 'AJAX@ranking');
 });
