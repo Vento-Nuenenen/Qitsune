@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Showing Themes
+  Zeige Themen
 @endsection
 
 @section('template_linked_css')
@@ -20,7 +20,6 @@
         .users-table.table-responsive table {
             margin-bottom: 0;
         }
-
     </style>
 @endsection
 
@@ -30,14 +29,11 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-
                         {{ trans('themes.themesTitle') }} <strong>{{ count($themes) }}</strong> {{ trans('themes.themes') }}
-
                         <a href="/themes/create" class="btn btn-default btn-xs pull-right">
                             <i class="fa fa-fw fa-plus" aria-hidden="true"></i>
                             {{ trans('themes.btnAddTheme') }}
                         </a>
-
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive users-table">

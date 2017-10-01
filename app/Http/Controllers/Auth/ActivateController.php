@@ -174,9 +174,7 @@ class ActivateController extends Controller
             ->with('message', trans('auth.successActivated'));
         }
 
-        return redirect()->route(self::getUserHomeRoute())
-            ->with('status', 'success')
-            ->with('message', trans('auth.successActivated'));
+        return redirect()->route(self::getUserHomeRoute())->with('status', 'success')->with('message', trans('auth.successActivated'));
     }
 
     public function resend()
@@ -186,9 +184,7 @@ class ActivateController extends Controller
         $currentRoute = Route::currentRouteName();
 
         if ($user->activated == false) {
-            $activationsCount = Activation::where('user_id', $user->id)
-                ->where('created_at', '>=', Carbon::now()->subHours(config('settings.timePeriod')))
-                ->count();
+            $activationsCount = Activation::where('user_id', $user->id)->where('created_at', '>=', Carbon::now()->subHours(config('settings.timePeriod')))->count();
 
             if ($activationsCount >= config('settings.maxAttempts')) {
                 Log::info('Exceded max resends in last '.config('settings.timePeriod').' hours. '.$currentRoute.'. ', [$user]);
@@ -239,8 +235,6 @@ class ActivateController extends Controller
             return view('auth.exceeded')->with($data);
         }
 
-        return $this->activeRedirect($user, $currentRoute)
-            ->with('status', 'info')
-            ->with('message', trans('auth.alreadyActivated'));
+        return $this->activeRedirect($user, $currentRoute)->with('status', 'info')->with('message', trans('auth.alreadyActivated'));
     }
 }

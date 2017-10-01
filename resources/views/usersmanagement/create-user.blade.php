@@ -14,19 +14,14 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
           <div class="panel-heading">
-
-            Create New User
-
+              Erstelle neuen Benutzer
             <a href="/users" class="btn btn-info btn-xs pull-right">
               <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
               Back <span class="hidden-xs">to</span><span class="hidden-xs"> Users</span>
             </a>
-
           </div>
           <div class="panel-body">
-
             {!! Form::open(array('action' => 'UsersManagementController@store')) !!}
-
               <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
                 {!! Form::label('name', trans('forms.create_user_label_username'), array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
@@ -138,11 +133,8 @@
                   @endif
                 </div>
               </div>
-
               {!! Form::button('<i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;' . trans('forms.create_user_button_text'), array('class' => 'btn btn-success btn-flat margin-bottom-1 pull-right','type' => 'submit', )) !!}
-
-            {!! Form::close() !!}
-
+              {!! Form::close() !!}
           </div>
         </div>
       </div>

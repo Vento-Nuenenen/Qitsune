@@ -5,7 +5,6 @@
 @endsection
 
 @section('template_fastload_css')
-
 	.list-group-responsive span:not(.label) {
 		display: block;
 		overflow-y: auto;
@@ -23,7 +22,6 @@
 	.theme-details-list span {
 	  	margin-left: 5.5em;
 	}
-
 @endsection
 
 @php
@@ -40,7 +38,6 @@
 @endphp
 
 @section('content')
-
 <div class="container">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
@@ -57,7 +54,6 @@
 					    <h1 class="text-center">
 					        {{ $theme->name }}
 					    </h1>
-
 					    <h4 class="text-center margin-bottom-2">
 					        <span class="badge">{{ count($themeUsers) }}</span> {{ trans('themes.showUsers') }}
 					    </h4>
@@ -89,7 +85,6 @@
 							<h4 class="text-center margin-bottom-2">
 							   	<i class="fa fa-users fa-fw" aria-hidden="true"></i> Theme Users
 							</h4>
-
 							<ul class="list-group">
 								@foreach ($themeUsers as $themeUser)
 								    <li class="list-group-item"><i class="fa fa-user fa-fw margin-right-1" aria-hidden="true"></i> {{ $themeUser->name }}</li>
@@ -121,8 +116,6 @@
 @endsection
 
 @section('footer_scripts')
-
 	@include('scripts.delete-modal-script')
 	@include('scripts.tooltips')
-
 @endsection

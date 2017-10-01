@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
 @section('template_title')
-  	Theme {{ $theme->name }}
+  	Thema {{ $theme->name }}
 @endsection
 
 @section('template_fastload_css')
-
 @endsection
 
 @php
@@ -32,9 +31,7 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-
 						<strong>{{ trans('themes.editTitle') }}</strong> {{ $theme->name }}
-
 						<a href="/themes/{{$theme->id}}" class="btn btn-primary btn-xs pull-right" style="margin-left: 1em;">
 						  	<i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
 						 	Back  <span class="hidden-xs">to Theme</span>
@@ -44,15 +41,10 @@
 							<i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
 							<span class="hidden-xs">Back to </span>Themes
 						</a>
-
 					</div>
-
 					{!! Form::model($theme, array('action' => array('ThemesManagementController@update', $theme->id), 'method' => 'PUT')) !!}
-
 						{!! csrf_field() !!}
-
 						<div class="panel-body">
-
 							<div class="form-group has-feedback row {{ $errors->has('status') ? ' has-error ' : '' }} @if($theme->id == 1) disabled @endif ">
 								{!! Form::label('status', trans('themes.statusLabel'), array('class' => 'col-md-3 control-label')); !!}
 								<div class="col-md-9">
@@ -62,7 +54,6 @@
 										<input type="radio" name="status" value="1" {{ $themeActive['true'] }}>
 										<input type="radio" name="status" value="0" {{ $themeActive['false'] }}>
 									</label>
-
 									@if ($errors->has('status'))
 										<span class="help-block">
 											<strong>{{ $errors->first('status') }}</strong>
@@ -70,7 +61,6 @@
 									@endif
 								</div>
 							</div>
-
 						  	<div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
 							    {!! Form::label('name', trans('themes.nameLabel') , array('class' => 'col-md-3 control-label')); !!}
 							    <div class="col-md-9">
@@ -85,7 +75,6 @@
 									@endif
 							    </div>
 						  	</div>
-
 						  	<div class="form-group has-feedback row {{ $errors->has('link') ? ' has-error ' : '' }}">
 							    {!! Form::label('link', trans('themes.linkLabel') , array('class' => 'col-md-3 control-label')); !!}
 							    <div class="col-md-9">
@@ -100,7 +89,6 @@
 									@endif
 							    </div>
 						  	</div>
-
 						  	<div class="form-group has-feedback row {{ $errors->has('notes') ? ' has-error ' : '' }}">
 							    {!! Form::label('notes', trans('themes.notesLabel') , array('class' => 'col-md-3 control-label')); !!}
 							    <div class="col-md-9">
@@ -115,7 +103,6 @@
 									@endif
 							    </div>
 						  	</div>
-
 						</div>
 						<div class="panel-footer">
 
@@ -126,9 +113,7 @@
 						    </div>
 						  </div>
 						</div>
-
 					{!! Form::close() !!}
-
 				</div>
 			</div>
 		</div>
@@ -136,7 +121,6 @@
 
 	@include('modals.modal-save')
 	@include('modals.modal-delete')
-
 @endsection
 
 @section('footer_scripts')

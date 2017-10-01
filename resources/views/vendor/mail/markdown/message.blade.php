@@ -5,10 +5,8 @@
             {{ config('app.name') }}
         @endcomponent
     @endslot
-
     {{-- Body --}}
     {{ $slot }}
-
     {{-- Subcopy --}}
     @if (isset($subcopy))
         @slot('subcopy')
@@ -17,7 +15,6 @@
             @endcomponent
         @endslot
     @endif
-
     {{-- Footer --}}
     @slot('footer')
         @component('mail::footer')

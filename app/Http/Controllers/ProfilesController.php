@@ -43,10 +43,6 @@ class ProfilesController extends Controller
     {
         return Validator::make($data, [
             'theme_id'          => '',
-            'location'          => '',
-            'bio'               => 'max:500',
-            'twitter_username'  => 'max:50',
-            'github_username'   => 'max:50',
             'avatar'            => '',
             'avatar_status'     => '',
         ]);
@@ -132,7 +128,7 @@ class ProfilesController extends Controller
     {
         $user = $this->getUserByUsername($username);
 
-        $input = Input::only('theme_id', 'location', 'bio', 'twitter_username', 'github_username', 'avatar_status');
+        $input = Input::only('theme_id', 'avatar_status');
 
         $ipAddress = new CaptureIpTrait();
 
@@ -154,7 +150,7 @@ class ProfilesController extends Controller
 
         $user->save();
 
-        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateSuccess'));
+        return redirect('profile/'.$user->name_gen.'/edit')->with('success', trans('profile.updateSuccess'));
     }
 
     /**
@@ -183,7 +179,6 @@ class ProfilesController extends Controller
     {
         $currentUser = \Auth::user();
         $user = User::findOrFail($id);
-        $emailCheck = ($request->input('email') != '') && ($request->input('email') != $user->email);
         $ipAddress = new CaptureIpTrait();
 
         $validator = Validator::make($request->all(), [
@@ -206,7 +201,7 @@ class ProfilesController extends Controller
 
         $user->save();
 
-        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateAccountSuccess'));
+        return redirect('profile/'.$user->name_gen.'/edit')->with('success', trans('profile.updateAccountSuccess'));
     }
 
     /**
@@ -320,7 +315,7 @@ class ProfilesController extends Controller
         );
 
         if ($user->id != $currentUser->id) {
-            return redirect('profile/'.$user->name.'/edit')->with('error', trans('profile.errorDeleteNotYour'));
+            return redirect('profile/'.$user->name_gen.'/edit')->with('error', trans('profile.errorDeleteNotYour'));
         }
 
         if ($validator->fails()) {
