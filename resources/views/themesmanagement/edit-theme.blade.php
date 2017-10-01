@@ -9,7 +9,6 @@
 @endsection
 
 @php
-
     $themeActive = [
 		'checked' => '',
 		'value' => 0,
@@ -25,12 +24,9 @@
 			'false'	=> ''
         ];
     }
-
 @endphp
 
-
 @section('content')
-
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
@@ -144,10 +140,8 @@
 @endsection
 
 @section('footer_scripts')
-
 	@include('scripts.delete-modal-script')
 	@include('scripts.save-modal-script')
 	@include('scripts.check-changed')
 	@include('scripts.toggleStatus')
-
 @endsection

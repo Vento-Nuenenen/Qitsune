@@ -34,10 +34,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'scoutname',
         'first_name',
         'last_name',
-        'email',
+	    'name_gen',
         'password',
         'activated',
         'token',

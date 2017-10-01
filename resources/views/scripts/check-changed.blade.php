@@ -1,24 +1,22 @@
 <script type="text/javascript">
-  $('.btn-change-pw').click(function(event) {
+  $('.btn-change-pw').click(function(event){
     event.preventDefault();
     $('.pw-change-container').slideToggle(100);
     $(this).find('.fa').toggleClass('fa-times');
     $(this).find('.fa').toggleClass('fa-lock');
     $(this).find('span').toggleText('', 'Cancel');
   });
-  $("input").keyup(function() {
+  $("input").keyup(function(){
     checkChanged();
   });
-  $("select").change(function() {
+  $("select").change(function(){
     checkChanged();
   });
-  function checkChanged() {
+  function checkChanged(){
     if(!$('input').val()){
       $(".btn-save").hide();
-    }
-    else {
+    }else{
       $(".btn-save").show();
     }
   }
-
 </script>

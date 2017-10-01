@@ -6,29 +6,26 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">Registrieren</div>
                 <div class="panel-body">
-
                     {!! Form::open(['route' => 'register', 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'POST'] ) !!}
-
                         {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-sm-4 control-label">Name</label>
+                        <div class="form-group{{ $errors->has('scoutname') ? ' has-error' : '' }}">
+                            <label for="scoutname" class="col-sm-4 control-label">Pfadiname</label>
                             <div class="col-sm-6">
-                                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Username', 'id' => 'name', 'required', 'autofocus']) !!}
-                                @if ($errors->has('name'))
+                                {!! Form::text('scoutname', null, ['class' => 'form-control', 'placeholder' => 'Pfadiname', 'id' => 'scoutname', 'required', 'autofocus']) !!}
+                                @if ($errors->has('scoutname'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('scoutname') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
-                            <label for="first_name" class="col-sm-4 control-label">First Name</label>
+                            <label for="first_name" class="col-sm-4 control-label">Vorname</label>
                             <div class="col-sm-6">
-                                {!! Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => 'First Name', 'id' => 'first_name']) !!}
+                                {!! Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => 'Vorname', 'id' => 'first_name']) !!}
                                 @if ($errors->has('first_name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('first_name') }}</strong>
@@ -38,24 +35,12 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
-                            <label for="last_name" class="col-sm-4 control-label">Last Name</label>
+                            <label for="last_name" class="col-sm-4 control-label">Nachname</label>
                             <div class="col-sm-6">
-                                {!! Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => 'Last Name', 'id' => 'last_name']) !!}
+                                {!! Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => 'Nachname', 'id' => 'last_name']) !!}
                                 @if ($errors->has('last_name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('last_name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-sm-4 control-label">E-Mail Address</label>
-                            <div class="col-sm-6">
-                                {!! Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'placeholder' => 'E-Mail Address', 'required']) !!}
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -93,9 +78,7 @@
                                 </button>
                             </div>
                         </div>
-
                     {!! Form::close() !!}
-
                 </div>
             </div>
         </div>
@@ -105,7 +88,5 @@
 @endsection
 
 @section('footer_scripts')
-
     <script src='https://www.google.com/recaptcha/api.js'></script>
-
 @endsection

@@ -32,7 +32,7 @@
 
             @if (Auth::User() && (Auth::User()->profile) && (Auth::User()->profile->avatar_status == 0))
                 .user-avatar-nav {
-                    background: url({{ Gravatar::get(Auth::user()->email) }}) 50% 50% no-repeat;
+                    background: url({{ Gravatar::get('test@test.ch') }}) 50% 50% no-repeat;
                     background-size: auto 100%;
                 }
             @endif
@@ -41,9 +41,7 @@
 
         {{-- Scripts --}}
         <script>
-            window.Laravel = {!! json_encode([
-                'csrfToken' => csrf_token(),
-            ]) !!};
+            window.Laravel = {!! json_encode(['csrfToken' => csrf_token(),]) !!};
         </script>
 
         @if (Auth::User() && (Auth::User()->profile) && $theme->link != null && $theme->link != 'null')
@@ -55,17 +53,13 @@
     </head>
     <body>
         <div id="app">
-
             @include('partials.nav')
 
             <div class="container">
-
                 @include('partials.form-status')
-
             </div>
 
             @yield('content')
-
         </div>
 
         {{-- Scripts --}}
@@ -73,6 +67,5 @@
         {!! HTML::script('//maps.googleapis.com/maps/api/js?key='.env("GOOGLEMAPS_API_KEY").'&libraries=places&dummy=.js', array('type' => 'text/javascript')) !!}
 
         @yield('footer_scripts')
-
     </body>
 </html>

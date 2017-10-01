@@ -34,6 +34,17 @@
                         </ul>
                     </li>
                 @endrole
+
+                @role('user')
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        QR <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null }}>{!! HTML::link(url('/users'), Lang::get('titles.adminUserList')) !!}</li>
+                    </ul>
+                </li>
+                @endrole
             </ul>
 
             {{-- Right Side Of Navbar --}}

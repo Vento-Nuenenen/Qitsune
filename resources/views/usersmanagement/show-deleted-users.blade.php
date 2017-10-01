@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Showing Users
+  Zeige Benutzer
 @endsection
 
 @section('template_linked_css')
@@ -20,7 +20,6 @@
         .users-table.table-responsive table {
             margin-bottom: .15em;
         }
-
     </style>
 @endsection
 
@@ -32,56 +31,50 @@
                     <div class="panel-heading">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            Showing Deleted Users
+                            Zeige gelöschte Benutzer
 
                             <a href="/users/" class="btn btn-primary btn-xs pull-right">
                                 <i class="fa fa-fw fa-reply" aria-hidden="true"></i>
-                                <span class="hidden-xs">Back to Users</span>
+                                <span class="hidden-xs">Zurück zum Benutzer</span>
                             </a>
                         </div>
                     </div>
 
                     <div class="panel-body">
-
                         @if(count($users) === 0)
-
                             <tr>
                                 <p class="text-center margin-half">
-                                    No Records Found
+                                    Keine Einträge gefunden
                                 </p>
                             </tr>
-
                         @else
-
                             <div class="table-responsive users-table">
                                 <table class="table table-striped table-condensed data-table">
                                     <thead>
                                         <tr>
                                             <th class="hidden-xxs">ID</th>
-                                            <th>Username</th>
-                                            <th class="hidden-xs hidden-sm">Email</th>
-                                            <th class="hidden-xs hidden-sm hidden-md">First Name</th>
-                                            <th class="hidden-xs hidden-sm hidden-md">Last Name</th>
-                                            <th class="hidden-xs hidden-sm">Role</th>
-                                            <th class="hidden-xs">Deleted</th>
-                                            <th class="hidden-xs">Deleted IP</th>
-                                            <th>Actions</th>
+                                            <th>Pfadiname</th>
+                                            <th class="hidden-xs hidden-sm hidden-md">Vorname</th>
+                                            <th class="hidden-xs hidden-sm hidden-md">Nachname</th>
+                                            <th class="hidden-xs hidden-sm">Generierter Name</th>
+                                            <th class="hidden-xs hidden-sm">Rolle</th>
+                                            <th class="hidden-xs">Gelöscht</th>
+                                            <th class="hidden-xs">Gelöscht von IP</th>
+                                            <th>Aktionen</th>
                                             <th></th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
                                         @foreach($users as $user)
                                             <tr>
                                                 <td class="hidden-xxs">{{$user->id}}</td>
-                                                <td>{{$user->name}}</td>
-                                                <td class="hidden-xs hidden-sm"><a href="mailto:{{ $user->email }}" title="email {{ $user->email }}">{{ $user->email }}</a></td>
+                                                <td>{{$user->scoutname}}</td>
                                                 <td class="hidden-xs hidden-sm hidden-md">{{$user->first_name}}</td>
                                                 <td class="hidden-xs hidden-sm hidden-md">{{$user->last_name}}</td>
+                                                <td class="hidden-xs hidden-sm">{{ $user->name_gen }}</td>
                                                 <td class="hidden-xs hidden-sm">
                                                     @foreach ($user->roles as $user_role)
-
                                                         @if ($user_role->name == 'User')
                                                             @php $labelClass = 'primary' @endphp
 
@@ -97,7 +90,6 @@
                                                         @endif
 
                                                         <span class="label label-{{$labelClass}}">{{ $user_role->name }}</span>
-
                                                     @endforeach
                                                 </td>
                                                 <td class="hidden-xs">{{$user->deleted_at}}</td>
@@ -120,30 +112,23 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-
                                     </tbody>
                                 </table>
                             </div>
-
                         @endif
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     @include('modals.modal-delete')
-
 @endsection
 
 @section('footer_scripts')
-
     @if (count($users) > 10)
         @include('scripts.datatables')
     @endif
     @include('scripts.delete-modal-script')
     @include('scripts.save-modal-script')
     @include('scripts.tooltips')
-
 @endsection

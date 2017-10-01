@@ -14,33 +14,25 @@
 @endsection
 
 @section('content')
-
   <div class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
           <div class="panel-heading">
-
-            <strong>Editing User:</strong> {{ $user->name }}
-
+            <strong>Bearbeite Benutzer:</strong> {{ $user->name_gen }}
             <a href="/users/{{$user->id}}" class="btn btn-primary btn-xs pull-right" style="margin-left: 1em;">
               <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
-             Back  <span class="hidden-xs">to User</span>
+             Zurück <span class="hidden-xs">zum Benutzer</span>
             </a>
 
             <a href="/users" class="btn btn-info btn-xs pull-right">
               <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
-              <span class="hidden-xs">Back to </span>Users
+              <span class="hidden-xs">Zurück zum </span>Benutzer
             </a>
-
           </div>
-
           {!! Form::model($user, array('action' => array('UsersManagementController@update', $user->id), 'method' => 'PUT')) !!}
-
             {!! csrf_field() !!}
-
             <div class="panel-body">
-
               <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
                 {!! Form::label('name', 'Username' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
@@ -144,7 +136,7 @@
                 <div class="col-xs-6">
                   <a href="#" class="btn btn-default btn-block margin-bottom-1 btn-change-pw" title="Change Password">
                     <i class="fa fa-fw fa-lock" aria-hidden="true"></i>
-                    <span></span> Change Password
+                    <span></span> Passwort ändern
                   </a>
                 </div>
                 <div class="col-xs-6">
@@ -162,13 +154,10 @@
 
   @include('modals.modal-save')
   @include('modals.modal-delete')
-
 @endsection
 
 @section('footer_scripts')
-
   @include('scripts.delete-modal-script')
   @include('scripts.save-modal-script')
   @include('scripts.check-changed')
-
 @endsection

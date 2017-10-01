@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-	{{ $user->name }}'s Profile
+	{{ $user->gen_name }}'s Profile
 @endsection
 
 @section('template_fastload_css')
@@ -26,7 +26,7 @@
 					</div>
 					<div class="panel-body">
 
-    					<img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get($user->email) }} @endif" alt="{{ $user->name }}" class="user-avatar">
+    					<img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get('test@test.ch') }} @endif" alt="{{ $user->name_gen }}" class="user-avatar">
 
 						<dl class="user-info">
 
@@ -34,7 +34,7 @@
 								{{ trans('profile.showProfileUsername') }}
 							</dt>
 							<dd>
-								{{ $user->name }}
+								{{ $user->name_gen }}
 							</dd>
 
 							<dt>
@@ -53,61 +53,13 @@
 								</dd>
 							@endif
 
-							<dt>
-								{{ trans('profile.showProfileEmail') }}
-							</dt>
-							<dd>
-								{{ $user->email }}
-							</dd>
-
 							@if ($user->profile)
-
 								@if ($user->profile->theme_id)
 									<dt>
 										{{ trans('profile.showProfileTheme') }}
 									</dt>
 									<dd>
 										{{ $currentTheme->name }}
-									</dd>
-								@endif
-
-								@if ($user->profile->location)
-									<dt>
-										{{ trans('profile.showProfileLocation') }}
-									</dt>
-									<dd>
-										{{ $user->profile->location }} <br />
-										Latitude: <span id="latitude"></span> / Longitude: <span id="longitude"></span> <br />
-
-										<div id="map-canvas"></div>
-
-									</dd>
-								@endif
-
-								@if ($user->profile->bio)
-									<dt>
-										{{ trans('profile.showProfileBio') }}
-									</dt>
-									<dd>
-										{{ $user->profile->bio }}
-									</dd>
-								@endif
-
-								@if ($user->profile->twitter_username)
-									<dt>
-										{{ trans('profile.showProfileTwitterUsername') }}
-									</dt>
-									<dd>
-										{!! HTML::link('https://twitter.com/'.$user->profile->twitter_username, $user->profile->twitter_username, array('class' => 'twitter-link', 'target' => '_blank')) !!}
-									</dd>
-								@endif
-
-								@if ($user->profile->github_username)
-									<dt>
-										{{ trans('profile.showProfileGitHubUsername') }}
-									</dt>
-									<dd>
-										{!! HTML::link('https://github.com/'.$user->profile->github_username, $user->profile->github_username, array('class' => 'github-link', 'target' => '_blank')) !!}
 									</dd>
 								@endif
 							@endif
@@ -117,13 +69,13 @@
 						@if ($user->profile)
 							@if (Auth::user()->id == $user->id)
 
-								{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
+								{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name_gen.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
 
 							@endif
 						@else
 
 							<p>{{ trans('profile.noProfileYet') }}</p>
-							{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-plus ', trans('titles.createProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
+							{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name_gen.'/edit'), 'fa fa-fw fa-plus ', trans('titles.createProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
 
 						@endif
 

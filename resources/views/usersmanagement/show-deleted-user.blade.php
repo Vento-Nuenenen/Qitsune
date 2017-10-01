@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Showing User {{ $user->name }}
+  Zeige Benutzer {{ $user->name_gen }}
 @endsection
 
 @php
@@ -9,18 +9,14 @@
 
   if ($user->level() >= 2) {
       $levelAmount = 'Levels:';
-
   }
 @endphp
 
 @section('content')
-
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-
         <div class="panel panel-danger">
-
           <div class="panel-heading">
             <a href="/users/deleted/" class="btn btn-primary btn-xs pull-right">
               <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
@@ -33,7 +29,7 @@
             <div class="well">
               <div class="row">
                 <div class="col-sm-6">
-                  <img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get($user->email) }} @endif" alt="{{ $user->name }}" id="" class="img-circle center-block margin-bottom-2 margin-top-1 user-image">
+                  <img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get('test@test.ch') }} @endif" alt="{{ $user->name_gen }}" id="" class="img-circle center-block margin-bottom-2 margin-top-1 user-image">
                 </div>
 
                 <div class="col-sm-6">
@@ -45,12 +41,11 @@
                       {{ $user->first_name }} {{ $user->last_name }}
                     </strong>
                     <br />
-                    {{ HTML::mailto($user->email, $user->email) }}
+                    {{ $user->name_gen }}
                   </p>
 
                   @if ($user->profile)
                     <div class="text-center text-left-tablet margin-bottom-1">
-
                       {!! Form::model($user, array('action' => array('SoftDeletesController@update', $user->id), 'method' => 'PUT', 'class' => 'form-inline')) !!}
                           {!! Form::button('<i class="fa fa-refresh fa-fw" aria-hidden="true"></i> Restore User', array('class' => 'btn btn-success btn-block btn-sm', 'type' => 'submit', 'data-toggle' => 'tooltip', 'title' => 'Restore User')) !!}
                       {!! Form::close() !!}
@@ -59,10 +54,8 @@
                           {!! Form::hidden('_method', 'DELETE') !!}
                           {!! Form::button('<i class="fa fa-user-times fa-fw" aria-hidden="true"></i> Delete User', array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Permanently Delete User', 'data-message' => 'Are you sure you want to permanently delete this user?')) !!}
                       {!! Form::close() !!}
-
                     </div>
                   @endif
-
                 </div>
               </div>
             </div>
@@ -105,8 +98,7 @@
             @endif
 
 
-            @if ($user->name)
-
+            @if ($user->name_gen)
               <div class="col-sm-5 col-xs-6 text-larger">
                 <strong>
                   {{ trans('usersmanagement.labelUserName') }}
@@ -114,7 +106,7 @@
               </div>
 
               <div class="col-sm-7">
-                {{ $user->name }}
+                {{ $user->name_gen }}
               </div>
 
               <div class="clearfix"></div>
@@ -418,14 +410,10 @@
       </div>
     </div>
   </div>
-
   @include('modals.modal-delete')
-
 @endsection
 
 @section('footer_scripts')
-
   @include('scripts.delete-modal-script')
   @include('scripts.tooltips')
-
 @endsection

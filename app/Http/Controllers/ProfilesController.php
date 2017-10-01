@@ -102,14 +102,10 @@ class ProfilesController extends Controller
         try {
             $user = $this->getUserByUsername($username);
         } catch (ModelNotFoundException $exception) {
-            return view('pages.status')
-                ->with('error', trans('profile.notYourProfile'))
-                ->with('error_title', trans('profile.notYourProfileTitle'));
+            return view('pages.status')->with('error', trans('profile.notYourProfile'))->with('error_title', trans('profile.notYourProfileTitle'));
         }
 
-        $themes = Theme::where('status', 1)
-                        ->orderBy('name', 'asc')
-                        ->get();
+        $themes = Theme::where('status', 1)->orderBy('name', 'asc')->get();
 
         $currentTheme = Theme::find($user->profile->theme_id);
 
@@ -196,25 +192,15 @@ class ProfilesController extends Controller
 
         $rules = [];
 
-        if ($emailCheck) {
-            $rules = [
-                'email'     => 'email|max:255|unique:users',
-            ];
-        }
-
         $validator = $this->validator($request->all(), $rules);
 
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
 
-        $user->name = $request->input('name');
+        $user->scoutname = $request->input('scoutname');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
-
-        if ($emailCheck) {
-            $user->email = $request->input('email');
-        }
 
         $user->updated_ip_address = $ipAddress->getClientIp();
 
@@ -261,7 +247,7 @@ class ProfilesController extends Controller
 
         $user->save();
 
-        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updatePWSuccess'));
+        return redirect('profile/'.$user->name_gen.'/edit')->with('success', trans('profile.updatePWSuccess'));
     }
 
     /**

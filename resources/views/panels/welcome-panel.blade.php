@@ -9,15 +9,15 @@
 
 <div class="panel panel-primary @role('admin', true) panel-info  @endrole">
     <div class="panel-heading">
-        Welcome {{ Auth::user()->name }}
+        Welcome {{ Auth::user()->name_gen }}
 
         @role('admin', true)
             <span class="pull-right label label-primary" style="margin-top:4px">
-            Admin Access
+            Admin Zugriff
             </span>
         @else
             <span class="pull-right label label-warning" style="margin-top:4px">
-            User Access
+            User Zugriff
             </span>
         @endrole
     </div>

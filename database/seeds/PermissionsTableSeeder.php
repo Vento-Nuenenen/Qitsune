@@ -13,7 +13,6 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
-
         /*
          * Add Permissions
          *

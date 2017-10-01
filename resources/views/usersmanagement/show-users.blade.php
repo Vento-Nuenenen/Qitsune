@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Showing Users
+  Zeige Benutzer
 @endsection
 
 @section('template_linked_css')
@@ -30,53 +30,45 @@
             <div class="col-sm-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-
-                            Showing All Users
-
+                            Zeige alle Benutzer
                             <div class="btn-group pull-right btn-group-xs">
-
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-ellipsis-v fa-fw" aria-hidden="true"></i>
                                     <span class="sr-only">
-                                        Show Users Management Menu
+                                        Zeige Benutzer Management Menü
                                     </span>
                                 </button>
-
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="/users/create">
                                             <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
-                                            Create New User
+                                            Erstelle neuen Benutzer
                                         </a>
                                     </li>
                                     <li>
                                         <a href="/users/deleted">
                                             <i class="fa fa-fw fa-group" aria-hidden="true"></i>
-                                            Show Deleted User
+                                            Zeige gelöschte Benutzer
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-
                     <div class="panel-body">
-
                         <div class="table-responsive users-table">
                             <table class="table table-striped table-condensed data-table">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Username</th>
-                                        <th class="hidden-xs">Email</th>
-                                        <th class="hidden-xs">First Name</th>
-                                        <th class="hidden-xs">Last Name</th>
-                                        <th>Role</th>
-                                        <th class="hidden-sm hidden-xs hidden-md">Created</th>
-                                        <th class="hidden-sm hidden-xs hidden-md">Updated</th>
-                                        <th>Actions</th>
+                                        <th>Pfadiname</th>
+                                        <th class="hidden-xs">Vorname</th>
+                                        <th class="hidden-xs">Nachname</th>
+                                        <th>Rolle</th>
+                                        <th class="hidden-sm hidden-xs hidden-md">Erstellt</th>
+                                        <th class="hidden-sm hidden-xs hidden-md">Aktualisiert</th>
+                                        <th>Aktionen</th>
                                         <th></th>
                                         <th></th>
                                     </tr>
@@ -85,27 +77,21 @@
                                     @foreach($users as $user)
                                         <tr>
                                             <td>{{$user->id}}</td>
-                                            <td>{{$user->name}}</td>
-                                            <td class="hidden-xs"><a href="mailto:{{ $user->email }}" title="email {{ $user->email }}">{{ $user->email }}</a></td>
+                                            <td>{{$user->scoutname}}</td>
                                             <td class="hidden-xs">{{$user->first_name}}</td>
                                             <td class="hidden-xs">{{$user->last_name}}</td>
+                                            <td class="hidden-xs">{{$user->name_gen}}</td>
                                             <td>
                                                 @foreach ($user->roles as $user_role)
-
                                                     @if ($user_role->name == 'User')
                                                         @php $labelClass = 'primary' @endphp
-
                                                     @elseif ($user_role->name == 'Admin')
                                                         @php $labelClass = 'warning' @endphp
-
                                                     @elseif ($user_role->name == 'Unverified')
                                                         @php $labelClass = 'danger' @endphp
-
                                                     @else
                                                         @php $labelClass = 'default' @endphp
-
                                                     @endif
-
                                                     <span class="label label-{{$labelClass}}">{{ $user_role->name }}</span>
 
                                                 @endforeach
@@ -120,12 +106,12 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('users/' . $user->id) }}" data-toggle="tooltip" title="Show">
-                                                    <i class="fa fa-eye fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Show</span><span class="hidden-xs hidden-sm hidden-md"> User</span>
+                                                    <i class="fa fa-eye fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Show</span><span class="hidden-xs hidden-sm hidden-md">Benutzer</span>
                                                 </a>
                                             </td>
                                             <td>
                                                 <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('users/' . $user->id . '/edit') }}" data-toggle="tooltip" title="Edit">
-                                                    <i class="fa fa-pencil fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Edit</span><span class="hidden-xs hidden-sm hidden-md"> User</span>
+                                                    <i class="fa fa-pencil fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Edit</span><span class="hidden-xs hidden-sm hidden-md">Benutzer</span>
                                                 </a>
                                             </td>
                                         </tr>
