@@ -156,23 +156,25 @@ class UsersManagementController extends Controller
     {
         $currentUser = Auth::user();
         $user = User::find($id);
-        $nameCheck = ($request->input('name_gen') != '') && ($request->input('name_gen') != $user->name_gen);
         $ipAddress = new CaptureIpTrait();
 
-        if ($nameCheck) {
-            $validator = Validator::make($request->all(), [
-                'name'      => 'required|max:255',
-                'password'  => 'present|confirmed|min:6',
-            ]);
-        }
+	    $validator = Validator::make($request->all(), [
+		    'scoutname' => 'nullable|string|max:255',
+		    'first_name'      => 'required|string|max:255',
+		    'last_name'      => 'required|string|max:255',
+		    'password'  => 'nullable|string|min:6|confirmed',
+	    ]);
 
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
 
+	    $name_gen = (($request->input('scoutname') != null) ? $request->input('first_name').'_'.$request->input('scoutname').'_'.$request->input('last_name') : $request->input('first_name').'_'.$request->input('last_name'));
+
         $user->scoutname = $request->input('scoutname');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
+	    $user->name_gen = $name_gen;
 
         if ($request->input('password') != null) {
             $user->password = bcrypt($request->input('password'));

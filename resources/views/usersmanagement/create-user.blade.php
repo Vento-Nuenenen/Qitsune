@@ -8,7 +8,6 @@
 @endsection
 
 @section('content')
-
   <div class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
@@ -17,41 +16,25 @@
               Erstelle neuen Benutzer
             <a href="/users" class="btn btn-info btn-xs pull-right">
               <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
-              Back <span class="hidden-xs">to</span><span class="hidden-xs"> Users</span>
+              Zurück <span class="hidden-xs">zu den</span><span class="hidden-xs"> Benutzern</span>
             </a>
           </div>
           <div class="panel-body">
             {!! Form::open(array('action' => 'UsersManagementController@store')) !!}
-              <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
-                {!! Form::label('name', trans('forms.create_user_label_username'), array('class' => 'col-md-3 control-label')); !!}
+              <div class="form-group has-feedback row {{ $errors->has('scoutname') ? ' has-error ' : '' }}">
+                {!! Form::label('scoutname', trans('forms.create_user_label_scoutname'), array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    {!! Form::text('name', NULL, array('id' => 'name', 'class' => 'form-control', 'placeholder' => trans('forms.create_user_ph_username'))) !!}
-                    <label class="input-group-addon" for="name"><i class="fa fa-fw {{ trans('forms.create_user_icon_username') }}" aria-hidden="true"></i></label>
+                    {!! Form::text('scoutname', NULL, array('id' => 'scoutname', 'class' => 'form-control', 'placeholder' => trans('forms.create_user_ph_scoutname'))) !!}
+                    <label class="input-group-addon" for="name"><i class="fa fa-fw {{ trans('forms.create_user_icon_scoutname') }}" aria-hidden="true"></i></label>
                   </div>
-                  @if ($errors->has('name'))
+                  @if ($errors->has('scoutname'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
+                        <strong>{{ $errors->first('scoutname') }}</strong>
                     </span>
                   @endif
                 </div>
               </div>
-
-              <div class="form-group has-feedback row {{ $errors->has('email') ? ' has-error ' : '' }}">
-                {!! Form::label('email', trans('forms.create_user_label_email'), array('class' => 'col-md-3 control-label')); !!}
-                <div class="col-md-9">
-                  <div class="input-group">
-                    {!! Form::text('email', NULL, array('id' => 'email', 'class' => 'form-control', 'placeholder' => trans('forms.create_user_ph_email'))) !!}
-                    <label class="input-group-addon" for="email"><i class="fa fa-fw {{ trans('forms.create_user_icon_email') }}" aria-hidden="true"></i></label>
-                  </div>
-                  @if ($errors->has('email'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
-                    </span>
-                  @endif
-                </div>
-              </div>
-
               <div class="form-group has-feedback row {{ $errors->has('first_name') ? ' has-error ' : '' }}">
                 {!! Form::label('first_name', trans('forms.create_user_label_firstname'), array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
@@ -66,7 +49,6 @@
                   @endif
                 </div>
               </div>
-
               <div class="form-group has-feedback row {{ $errors->has('last_name') ? ' has-error ' : '' }}">
                 {!! Form::label('last_name', trans('forms.create_user_label_lastname'), array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
@@ -81,7 +63,6 @@
                   @endif
                 </div>
               </div>
-
               <div class="form-group has-feedback row {{ $errors->has('role') ? ' has-error ' : '' }}">
                 {!! Form::label('role', trans('forms.create_user_label_role'), array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
@@ -103,7 +84,6 @@
                   @endif
                 </div>
               </div>
-
               <div class="form-group has-feedback row {{ $errors->has('password') ? ' has-error ' : '' }}">
                 {!! Form::label('password', trans('forms.create_user_label_password'), array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
@@ -118,7 +98,6 @@
                   @endif
                 </div>
               </div>
-
               <div class="form-group has-feedback row {{ $errors->has('password_confirmation') ? ' has-error ' : '' }}">
                 {!! Form::label('password_confirmation', trans('forms.create_user_label_pw_confirmation'), array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
@@ -140,7 +119,6 @@
       </div>
     </div>
   </div>
-
 @endsection
 
 @section('footer_scripts')

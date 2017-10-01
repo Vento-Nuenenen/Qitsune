@@ -65,6 +65,7 @@
                                         <th>Pfadiname</th>
                                         <th class="hidden-xs">Vorname</th>
                                         <th class="hidden-xs">Nachname</th>
+	                                    <th class="hidden-xs">Generierter Name</th>
                                         <th>Rolle</th>
                                         <th class="hidden-sm hidden-xs hidden-md">Erstellt</th>
                                         <th class="hidden-sm hidden-xs hidden-md">Aktualisiert</th>

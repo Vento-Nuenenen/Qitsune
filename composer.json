@@ -6,7 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "appstract/laravel-opcache": "^1.2",
         "barryvdh/laravel-debugbar": "^3.0",
+        "codedge/laravel-fpdf": "^1.2",
         "creativeorange/gravatar": "~1.0",
         "doctrine/dbal": "^2.5",
         "fideloper/proxy": "~3.3",
@@ -20,6 +22,7 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5",
         "rap2hpoutre/laravel-log-viewer": "^0.10.4",
+        "simplesoftwareio/simple-qrcode": "^1.5",
         "socialiteproviders/37signals": "^3.0",
         "socialiteproviders/generators": "^2.0",
         "socialiteproviders/instagram": "^3.0",

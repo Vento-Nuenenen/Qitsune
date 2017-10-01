@@ -87,8 +87,7 @@ Route::group(['middleware'=> ['auth', 'activated', 'currentUser']], function () 
 
     Route::group(['prefix' => 'user'], function () {
         Route::group(['prefix' => 'qr'], function () {
-            Route::get('/scan', 'ScanController@showScan');
-            Route::get('/', 'ScanController@showScan');
+            Route::get('/scan/{uniqKey}', 'ScanController@showScan');
         });
 
         Route::get('/description', 'DescriptionController@showDescription');
@@ -124,7 +123,10 @@ Route::group(['middleware'=> ['auth', 'activated', 'role:admin']], function () {
     Route::group(['prefix' => 'leader'], function () {
         Route::group(['prefix' => 'qr'], function () {
             Route::get('/generate', 'GenerateController@showGenerate');
-            Route::get('/', 'GenerateController@showGenerate');
+            Route::get('/generate/do', 'GenerateController@index');
+	        Route::get('/download', function () {
+		        return response()->download(storage_path('pdf/file/QR-Codes.pdf'));
+	        });
         });
 
         Route::get('/ranking', 'RankingController@showRanking');
@@ -134,4 +136,6 @@ Route::group(['middleware'=> ['auth', 'activated', 'role:admin']], function () {
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
     Route::get('php', 'AdminDetailsController@listPHPInfo');
     Route::get('routes', 'AdminDetailsController@listRoutes');
+
+	Route::get('/ajax/ranking', 'AJAX@ranking');
 });

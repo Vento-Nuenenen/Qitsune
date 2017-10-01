@@ -12,13 +12,9 @@ return [
     */
 
     // CREATE NEW USER FORM
-    'create_user_label_email'             => 'Benutzer Email',
-    'create_user_ph_email'                => 'Benutzer Email',
-    'create_user_icon_email'              => 'fa-envelope',
-
-    'create_user_label_username'           => 'Benutzername',
-    'create_user_ph_username'              => 'Benutzername',
-    'create_user_icon_username'            => 'fa-user',
+    'create_user_label_scoutname'           => 'Pfadiname',
+    'create_user_ph_scoutname'              => 'Pfadiname',
+    'create_user_icon_scoutname'            => 'fa-user',
 
     'create_user_label_firstname'         => 'Vorname',
     'create_user_ph_firstname'            => 'Vorname',
@@ -53,11 +49,8 @@ return [
     // EDIT USER AS ADMINISTRATOR FORM
     'edit-user-admin-title'                => 'Benutzer Informationen anpassen',
 
-    'label-username'                     => 'Benutzername',
-    'ph-username'                        => 'Benutzername',
-
-    'label-useremail'                     => 'Benutzer Email',
-    'ph-useremail'                        => 'Benutzer Email',
+    'label-scoutname'                     => 'Pfadiname',
+    'ph-scoutname'                        => 'Pfadiname',
 
     'label-userrole_id'                    => 'Benutzer Zugriffs Level',
     'option-label'                         => 'Wähle ein Level',
@@ -68,5 +61,4 @@ return [
 
     'submit-btn-icon'                      => 'fa-save',
     'username-icon'                        => 'fa-user',
-    'useremail-icon'                       => 'fa-envelope-o',
 ];

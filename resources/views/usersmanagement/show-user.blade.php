@@ -16,7 +16,6 @@
     <div class="row">
       <div class="col-md-12">
         <div class="panel @if ($user->activated == 1) panel-success @else panel-danger @endif">
-
           <div class="panel-heading">
             <a href="/users/" class="btn btn-primary btn-xs pull-right">
               <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
@@ -25,13 +24,11 @@
             {{ trans('usersmanagement.usersPanelTitle') }}
           </div>
           <div class="panel-body">
-
             <div class="well">
               <div class="row">
                 <div class="col-sm-6">
                   <img src="@if ($user->profile && $user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get('test@test.ch') }} @endif" alt="{{ $user->name_gen }}" id="" class="img-circle center-block margin-bottom-2 margin-top-1 user-image">
                 </div>
-
                 <div class="col-sm-6">
                   <h4 class="text-muted margin-top-sm-1 text-center text-left-tablet">
                     {{ $user->scoutname }}
@@ -41,12 +38,11 @@
                       {{ $user->first_name }} {{ $user->last_name }}
                     </strong>
                     <br />
-                    {{ HTML::mailto($user->email, $user->name_gen) }}
+                    {{ $user->name_gen }}
                   </p>
 
                   @if ($user->profile)
                     <div class="text-center text-left-tablet margin-bottom-1">
-
                       <a href="{{ url('/profile/'.$user->name_gen) }}" class="btn btn-sm btn-info">
                         <i class="fa fa-eye fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm hidden-md"> {{ trans('usersmanagement.viewProfile') }}</span>
                       </a>

@@ -26,8 +26,17 @@
                             <li {{ Request::is('users/create') ? 'class=active' : null }}>{!! HTML::link(url('/users/create'), Lang::get('titles.adminNewUser')) !!}</li>
                             <li {{ Request::is('themes','themes/create') ? 'class=active' : null }}>{!! HTML::link(url('/themes'), Lang::get('titles.adminThemesList')) !!}</li>
                             <li {{ Request::is('logs') ? 'class=active' : null }}>{!! HTML::link(url('/logs'), Lang::get('titles.adminLogs')) !!}</li>
-                            <li {{ Request::is('php') ? 'class=active' : null }}>{!! HTML::link(url('/php'), Lang::get('titles.adminPHP')) !!}</li>
                             <li {{ Request::is('routes') ? 'class=active' : null }}>{!! HTML::link(url('/routes'), Lang::get('titles.adminRoutes')) !!}</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            QR <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li {{ Request::is('user/description') ? 'class=active' : null }}>{!! HTML::link(url('/user/description'), Lang::get('titles.qrDescription')) !!}</li>
+	                        <li {{ Request::is('leader/ranking') ? 'class=active' : null }}>{!! HTML::link(url('/leader/ranking'), Lang::get('titles.qrRanking')) !!}</li>
+	                        <li {{ Request::is('leader/qr/generate') ? 'class=active' : null }}>{!! HTML::link(url('/leader/qr/generate'), Lang::get('titles.qrGenerator')) !!}</li>
                         </ul>
                     </li>
                 @endrole
@@ -38,7 +47,7 @@
                         QR <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null }}>{!! HTML::link(url('/users'), Lang::get('titles.adminUserList')) !!}</li>
+                        <li {{ Request::is('user/description') ? 'class=active' : null }}>{!! HTML::link(url('/user/description'), Lang::get('titles.qrDescription')) !!}</li>
                     </ul>
                 </li>
                 @endrole

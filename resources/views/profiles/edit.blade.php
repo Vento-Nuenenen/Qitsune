@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
@@ -16,7 +15,6 @@
 								<i class="fa fa-ellipsis-v fa-fw" aria-hidden="true"></i>
 								<span class="sr-only">{{ trans('profile.editTriggerAlt') }}</span>
 							</button>
-
 							<ul class="dropdown-menu">
 								<li class="active">
 									<a data-toggle="pill" href=".edit_profile" class="profile-trigger">
@@ -35,7 +33,6 @@
 								</li>
 							</ul>
 						</div>
-
 						<div class="tab-content">
 							<span class="tab-pane active edit_profile">
 								{{ trans('profile.editProfileTitle') }}
@@ -47,7 +44,6 @@
 								{{ trans('profile.editAccountAdminTitle') }}
 							</span>
 						</div>
-
 					</div>
 					<div class="panel-body">
 						@if ($user->profile)
@@ -91,11 +87,9 @@
 													</div>
 												</div>
 											</div>
-
 											<div class="form-group has-feedback {{ $errors->has('theme') ? ' has-error ' : '' }}">
 												{!! Form::label('theme', trans('profile.label-theme') , array('class' => 'col-sm-4 control-label')); !!}
 												<div class="col-sm-6">
-
 													<select class="form-control" name="theme_id" id="theme_id">
 														@if ($themes->count())
 															@foreach($themes as $theme)
@@ -103,15 +97,12 @@
 															@endforeach
 														@endif
 													</select>
-
 													<span class="glyphicon {{ $errors->has('theme') ? ' glyphicon-asterisk ' : ' ' }} form-control-feedback" aria-hidden="true"></span>
-
 											        @if ($errors->has('theme'))
 											            <span class="help-block">
 											                <strong>{{ $errors->first('theme') }}</strong>
 											            </span>
 											        @endif
-
 												</div>
 											</div>
 											<div class="form-group">
@@ -127,7 +118,6 @@
 															'data-title' 		=> trans('modals.edit_user__modal_text_confirm_title'),
 															'data-message' 		=> trans('modals.edit_user__modal_text_confirm_message')
 													)) !!}
-
 												</div>
 											</div>
 										{!! Form::close() !!}
@@ -136,20 +126,11 @@
 										{!! Form::model($user, array('action' => array('ProfilesController@updateUserAccount', $user->id), 'method' => 'PUT', 'id' => 'user_basics_form')) !!}
 											{!! csrf_field() !!}
 								            <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
-								                {!! Form::label('name', 'Username' , array('class' => 'col-md-3 control-label')); !!}
+								                {!! Form::label('scoutname', 'Pfadiname' , array('class' => 'col-md-3 control-label')); !!}
 								                <div class="col-md-9">
 								                  	<div class="input-group">
-								                    	{!! Form::text('name', old('name'), array('id' => 'name', 'class' => 'form-control', 'placeholder' => trans('forms.ph-username'))) !!}
-								                    	<label class="input-group-addon" for="name"><i class="fa fa-fw fa-user }}" aria-hidden="true"></i></label>
-								                  	</div>
-								                </div>
-								            </div>
-								            <div class="form-group has-feedback row {{ $errors->has('email') ? ' has-error ' : '' }}">
-								                {!! Form::label('email', 'E-mail' , array('class' => 'col-md-3 control-label')); !!}
-								                <div class="col-md-9">
-								                  	<div class="input-group">
-								                    	{!! Form::text('email', old('email'), array('id' => 'email', 'class' => 'form-control', 'placeholder' => trans('forms.ph-useremail'))) !!}
-								                    	<label class="input-group-addon" for="email"><i class="fa fa-fw fa-envelope " aria-hidden="true"></i></label>
+								                    	{!! Form::text('scoutname', old('scoutname'), array('id' => 'scoutname', 'class' => 'form-control', 'placeholder' => trans('forms.ph-scoutname'))) !!}
+								                    	<label class="input-group-addon" for="scoutname"><i class="fa fa-fw fa-user }}" aria-hidden="true"></i></label>
 								                  	</div>
 								                </div>
 								            </div>
@@ -384,7 +365,7 @@
 		$('#password, #password_confirmation').hidePassword(true);
 
 		$('#password').password({
-			shortPass: 'The password is too short',
+			shortPass: 'Das Passwort ist zu kurz',
 			badPass: 'Weak - Try combining letters & numbers',
 			goodPass: 'Medium - Try using special charecters',
 			strongPass: 'Strong password',
