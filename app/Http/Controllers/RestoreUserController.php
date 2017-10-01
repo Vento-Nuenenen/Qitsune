@@ -57,6 +57,6 @@ class RestoreUserController extends ProfilesController
 
         $user->restore();
 
-        return redirect('/login')->with('success', trans('profile.successUserRestore', ['username' => $user->name]));
+        return redirect('/login')->with('success', trans('profile.successUserRestore', ['username' => $user->name_gen]));
     }
 }

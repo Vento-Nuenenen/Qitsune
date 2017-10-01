@@ -23,17 +23,19 @@ class ActivateController extends Controller
     private static $activationView = 'auth.activation';
     private static $activationRoute = 'activation-required';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+	/**
+	 * Create a new controller instance.
+	 *
+	 */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public static function getUserHomeRoute()
+	/**
+	 * @return string
+	 */
+	public static function getUserHomeRoute()
     {
         return self::$userHomeRoute;
     }
@@ -59,14 +61,10 @@ class ActivateController extends Controller
             Log::info('Activated user attempted to visit '.$currentRoute.'. ', [$user]);
 
             if ($user->isAdmin()) {
-                return redirect()->route(self::getAdminHomeRoute())
-                ->with('status', 'info')
-                ->with('message', trans('auth.alreadyActivated'));
+                return redirect()->route(self::getAdminHomeRoute())->with('status', 'info')->with('message', trans('auth.alreadyActivated'));
             }
 
-            return redirect()->route(self::getUserHomeRoute())
-                ->with('status', 'info')
-                ->with('message', trans('auth.alreadyActivated'));
+            return redirect()->route(self::getUserHomeRoute())->with('status', 'info')->with('message', trans('auth.alreadyActivated'));
         }
 
         return false;
@@ -103,9 +101,7 @@ class ActivateController extends Controller
         }
 
         if ($user->activated == false) {
-            $activationsCount = Activation::where('user_id', $user->id)
-                ->where('created_at', '>=', Carbon::now()->subHours(config('settings.timePeriod')))
-                ->count();
+            $activationsCount = Activation::where('user_id', $user->id)->where('created_at', '>=', Carbon::now()->subHours(config('settings.timePeriod')))->count();
 
             if ($activationsCount > config('settings.timePeriod')) {
                 Log::info('Exceded max resends in last '.config('settings.timePeriod').' hours. '.$currentRoute.'. ', [$user]);
@@ -123,7 +119,7 @@ class ActivateController extends Controller
 
         $data = [
             'name_gen' => $user->name_gen,
-            'date'     => $lastActivation->created_at->format('m/d/Y'), //
+            'date'     => $lastActivation->created_at->format('m/d/Y'),
         ];
 
         return view($this->getActivationView())->with($data);
@@ -142,16 +138,12 @@ class ActivateController extends Controller
             return $rCheck;
         }
 
-        $activation = Activation::where('token', $token)->get()
-            ->where('user_id', $user->id)
-            ->first();
+        $activation = Activation::where('token', $token)->get()->where('user_id', $user->id)->first();
 
         if (empty($activation)) {
             Log::info('Registered user attempted to activate with an invalid token: '.$currentRoute.'. ', [$user]);
 
-            return redirect()->route(self::getActivationRoute())
-                ->with('status', 'danger')
-                ->with('message', trans('auth.invalidToken'));
+            return redirect()->route(self::getActivationRoute())->with('status', 'danger')->with('message', trans('auth.invalidToken'));
         }
 
         $user->activated = true;
@@ -169,9 +161,7 @@ class ActivateController extends Controller
         Log::info('Registered user successfully activated. '.$currentRoute.'. ', [$user]);
 
         if ($user->isAdmin()) {
-            return redirect()->route(self::$getAdminHomeRoute())
-            ->with('status', 'success')
-            ->with('message', trans('auth.successActivated'));
+            return redirect()->route(self::getAdminHomeRoute())->with('status', 'success')->with('message', trans('auth.successActivated'));
         }
 
         return redirect()->route(self::getUserHomeRoute())->with('status', 'success')->with('message', trans('auth.successActivated'));
@@ -201,16 +191,12 @@ class ActivateController extends Controller
 
             Log::info('Activation resent to registered user. '.$currentRoute.'. ', [$user]);
 
-            return redirect()->route(self::getActivationRoute())
-                ->with('status', 'success')
-                ->with('message', trans('auth.activationSent'));
+            return redirect()->route(self::getActivationRoute())->with('status', 'success')->with('message', trans('auth.activationSent'));
         }
 
         Log::info('Activated user attempte to navigate to '.$currentRoute.'. ', [$user]);
 
-        return $this->activeRedirect($user, $currentRoute)
-            ->with('status', 'info')
-            ->with('message', trans('auth.alreadyActivated'));
+        return $this->activeRedirect($user, $currentRoute)->with('status', 'info')->with('message', trans('auth.alreadyActivated'));
     }
 
     public function exceeded()
@@ -219,9 +205,7 @@ class ActivateController extends Controller
         $currentRoute = Route::currentRouteName();
         $timePeriod = config('settings.timePeriod');
         $lastActivation = Activation::where('user_id', $user->id)->get()->last();
-        $activationsCount = Activation::where('user_id', $user->id)
-            ->where('created_at', '>=', Carbon::now()->subHours($timePeriod))
-            ->count();
+        $activationsCount = Activation::where('user_id', $user->id)->where('created_at', '>=', Carbon::now()->subHours($timePeriod))->count();
 
         if ($activationsCount >= config('settings.maxAttempts')) {
             Log::info('Locked non-activated user attempted to visit '.$currentRoute.'. ', [$user]);

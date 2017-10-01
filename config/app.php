@@ -250,7 +250,6 @@ return [
         'Uuid'         => Webpatser\Uuid\Uuid::class,
         'QrCode'       => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'PDF'          => Codedge\Fpdf\Facades\Fpdf::class,
-        'GeneratePDF'  => APP\Http\Controllers\GeneratePDF::class,
     ],
 
 ];

@@ -125,7 +125,7 @@
 									<div class="tab-pane fade edit_settings">
 										{!! Form::model($user, array('action' => array('ProfilesController@updateUserAccount', $user->id), 'method' => 'PUT', 'id' => 'user_basics_form')) !!}
 											{!! csrf_field() !!}
-								            <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
+								            <div class="form-group has-feedback row {{ $errors->has('scoutname') ? ' has-error ' : '' }}">
 								                {!! Form::label('scoutname', 'Pfadiname' , array('class' => 'col-md-3 control-label')); !!}
 								                <div class="col-md-9">
 								                  	<div class="input-group">

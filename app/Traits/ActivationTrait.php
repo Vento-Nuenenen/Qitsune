@@ -20,7 +20,7 @@ trait ActivationTrait
 
     protected function validateEmail(User $user)
     {
-        $validator = Validator::make(['email' => $user->email], ['email' => 'required|email']);
+        $validator = Validator::make(['name_gen' => $user->name_gen], ['name_gen' => 'required|text']);
 
         if ($validator->fails()) {
             return false;

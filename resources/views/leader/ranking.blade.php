@@ -31,16 +31,24 @@
                                 <th>
                                     Punkte
                                 </th>
+	                            <th>
+		                            Rang
+	                            </th>
                             </tr>
                             @section('dynamicRanking')
                                 @for($i = 0; $i < $userRank; ++$i)
                                     @php ($j = $i)
                                     <tr>
                                         <td>{{ ++$j }}</td>
-                                        <td>{{ $rankArray[$i]['prename'] }}</td>
+                                        <td>{{ $rankArray[$i]['first_name'] }}</td>
                                         <td>{{ $rankArray[$i]['scoutname'] }}</td>
-                                        <td>{{ $rankArray[$i]['surname'] }}
-                                        <td>{{ $rankArray[$i]['rank'] }}</td>
+	                                    <td>{{ $rankArray[$i]['last_name'] }}</td>
+	                                    <td>{{ $rankArray[$i]['total_points'] }}</td>
+	                                    @if(isset($rankArray[$i]['rank']))
+                                            <td>{{ $rankArray[$i]['rank'] }}</td>
+										@else
+	                                        <td></td>
+	                                    @endif
                                     </tr>
                                 @endfor
                             @show

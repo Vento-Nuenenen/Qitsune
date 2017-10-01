@@ -17,23 +17,16 @@ return [
     'throttle' => 'Das Passwort wurde zu oft falsch Eingegeben. Bitte probiere es in :secons Sekunden noch einmal.',
 
     // Activation items
-    'sentEmail'         => 'Wir haben eine Mail an die Adresse :email gesendet.',
-    'clickInEmail'      => 'Bitte Klicke auf den Link um die Aktivierung des Kontos durchzuführen.',
-    'anEmailWasSent'    => 'Eine Mail wurde an die Adresse :email am :date gesendet.',
-    'clickHereResend'   => 'Klick hier um die Mail erneut zu senden.',
     'successActivated'  => 'Dein Konto wurde erfolgreich aktiviert.',
     'unsuccessful'      => 'Dein Konto konnte nicht aktiviert werden; Bitte probiere es erneut.',
     'notCreated'        => 'Dein Konto konnte nicht erstellt werden; Bitte probiere es erneut.',
     'tooManyEmails'     => 'Zu viele aktivierungs Mails wurden an die Adresse :email. <br />Bitte probiere es erneut in <span class="label label-danger">:hours Stunden</span>.',
     'regThanks'         => 'Danke für die Registrierung,',
-    'invalidToken'      => 'Invalides Aktivierungstoken.',
-    'activationSent'    => 'Aktivieruns Mail wurde gesendet.',
     'alreadyActivated'  => 'Bereits aktiviert.',
 
     // Labels
     'whoops'            => 'Hoppla! ',
     'someProblems'      => 'Es sind Probleme mit deinen Eingaben aufgetreten.',
-    'email'             => 'E-Mail Addressen',
     'password'          => 'Passwort',
     'rememberMe'        => ' Eingelogt bleiben',
     'login'             => 'Login',
@@ -47,7 +40,6 @@ return [
 
     // Placeholders
     'ph_name'           => 'Pfadiname',
-    'ph_email'          => 'E-mail Addresse',
     'ph_firstname'      => 'Vorname',
     'ph_lastname'       => 'Nachname',
     'ph_password'       => 'Passwort',
@@ -64,14 +56,12 @@ return [
     'clickHereActivate' => 'Klick hier um dein Konto zu aktivieren: ',
 
     // Validators
-    'scoutNameRequired'  => 'Benutzername ist notwendig',
+    'scoutNameRequired'  => 'Pfadiname ist notwendig',
     'fNameRequired'      => 'Vorname ist notwendig',
     'lNameRequired'      => 'Nachname ist notwendig',
     'passwordRequired'   => 'Passwort ist notwendig',
     'PasswordMin'        => 'Passwort muss mindestens sechs zeichen enthalten',
     'PasswordMax'        => 'Passwort darf höchstens 20 Zeichen enthalten',
-    'captchaRequire'     => 'Captcha ist notwendig',
-    'CaptchaWrong'       => 'Falsches captcha, bitte Probiere es erneut.',
     'roleRequired'       => 'Benutzer-Rolle ist notwendig.',
 
 ];

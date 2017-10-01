@@ -30,9 +30,4 @@ class AdminDetailsController extends Controller
 
         return view('pages.admin.route-details', $data);
     }
-
-    public function listPHPInfo()
-    {
-        return view('pages.admin.php-details');
-    }
 }

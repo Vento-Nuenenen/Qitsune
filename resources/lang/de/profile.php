@@ -23,7 +23,6 @@ return [
     'showProfileUsername'          => 'Pfadiname',
     'showProfileFirstName'         => 'Vorname',
     'showProfileLastName'          => 'Nachname',
-    'showProfileEmail'             => 'E-mail Addresse',
     'showProfileTheme'             => 'Thema',
 
     // USER profile page
@@ -38,17 +37,17 @@ return [
 
     // User Account Settings Tab
     'editTriggerAlt'               => 'Verstecke das User Menu',
-    'editAccountTitle'             => 'Account Settings',
-    'editAccountAdminTitle'        => 'Account Administration',
-    'updateAccountSuccess'         => 'Your account has been successfully updated',
-    'submitProfileButton'          => 'Save Changes',
+    'editAccountTitle'             => 'Profil Einstellungen',
+    'editAccountAdminTitle'        => 'Profil Administration',
+    'updateAccountSuccess'         => 'Dein Profil wurde erfolgreich aktualisiert',
+    'submitProfileButton'          => 'Speichere änderungen',
 
     // User Account Admin Tab
-    'submitPWButton'               => 'Update Password',
-    'changePwTitle'                => 'Change Password',
-    'changePwPill'                 => 'Change Password',
-    'deleteAccountPill'            => 'Delete Account',
-    'updatePWSuccess'              => 'Your password has been successfully updated',
+    'submitPWButton'               => 'Passwort aktualisieren',
+    'changePwTitle'                => 'Passwort ändern',
+    'changePwPill'                 => 'Passwort ändern',
+    'deleteAccountPill'            => 'Konto löschen',
+    'updatePWSuccess'              => 'Dein Passwort wurde erfolgreich aktualisiert',
 
     // Delete Account Tab
     'deleteAccountTitle'           => 'Konto löschen',

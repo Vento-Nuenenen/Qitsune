@@ -16,7 +16,7 @@ return [
     'password' => 'Das Passwort muss mindestesn sechs Zeichen enthalten und muss mit dem Konfirm-Feld übereinstimmen.',
     'reset'    => 'Dein Passwort wurde zurückgesetzt!',
     'sent'     => 'Wir haben dir einen Reset-Link zugesendet!',
-    'token'    => 'Der angegeben Reset-TOken ist falsch.',
+    'token'    => 'Der angegeben Reset-Token ist falsch.',
     'user'     => 'Wir können die Eingegebene E-Mail Adresse nicht finden.',
 
 ];

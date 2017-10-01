@@ -10,6 +10,7 @@ use App\Traits\CaptureIpTrait;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
 use jeremykenedy\LaravelRoles\Models\Role;
+use App\Models\Profile;
 
 class RegisterController extends Controller
 {
@@ -80,7 +81,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $ipAddress = new CaptureIpTrait();
-        $role = Role::where('slug', '=', 'unverified')->first();
+        $role = Role::where('slug', '=', 'user')->first();
+	    $profile = new Profile();
 
         $name_gen = (($data['scoutname'] != null) ? $data['first_name'].'_'.$data['scoutname'].'_'.$data['last_name'] : $data['first_name'].'_'.$data['last_name']);
 
@@ -96,7 +98,7 @@ class RegisterController extends Controller
             ]);
 
         $user->attachRole($role);
-        //$this->initiateEmailActivation($user);
+	    $user->profile()->save($profile);
 
         return $user;
     }
