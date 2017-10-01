@@ -122,7 +122,7 @@ class GenerateController extends Controller
 				PDF::Image(storage_path().'/pdf/codes/'.++$i.'.png');
 				PDF::SetY(210);
 				PDF::SetX(20);
-				PDF::Image(storage_path().'/pdf/logo.png', PDF::GetX() + 1);
+				PDF::Image(storage_path().'/pdf/logo.png');
 			}
 		}
 

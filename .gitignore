@@ -9,3 +9,5 @@
 /storage/framework
 /storage/logs
 /storage/users
+/storage/pdf/codes
+/storage/pdf/file

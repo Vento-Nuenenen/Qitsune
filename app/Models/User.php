@@ -36,7 +36,7 @@ class User extends Authenticatable
         'scoutname',
         'first_name',
         'last_name',
-
+	    'name_gen',
         'password',
         'activated',
         'token',
@@ -54,7 +54,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-
         'password',
         'remember_token',
         'activated',
