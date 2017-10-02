@@ -8,6 +8,8 @@ use DB;
 class ScanController extends Controller
 {
 	/**
+	 * Grant scanned code or return issue
+	 *
 	 * @param $param
 	 * @return $this|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
@@ -37,6 +39,8 @@ class ScanController extends Controller
     }
 
 	/**
+	 * Check if scanned code is available in DB
+	 *
 	 * @param $code
 	 * @param $name_gen
 	 * @return mixed
@@ -46,6 +50,8 @@ class ScanController extends Controller
     }
 
 	/**
+	 * Calculate total points of current user
+	 *
 	 * @param $name_gen
 	 */
 	private function calcTotalPoints($name_gen){
@@ -62,6 +68,8 @@ class ScanController extends Controller
     }
 
 	/**
+	 * Get all grantet points of current user
+	 *
 	 * @param $name_gen
 	 * @return mixed
 	 */
