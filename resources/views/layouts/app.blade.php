@@ -1,76 +1,71 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="{{ config('app.locale') }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+        {{-- CSRF Token --}}
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>@if (trim($__env->yieldContent('template_title')))@yield('template_title') | @endif {{ config('app.name', Lang::get('titles.app')) }}</title>
+        <meta name="description" content="">
+        <meta name="author" content="Jeremy Kenedy">
+        <link rel="shortcut icon" href="/favicon.ico">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default">
+        {{-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --}}
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        {{-- Fonts --}}
+        @yield('template_linked_fonts')
+
+        {{-- Styles --}}
+        <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+
+        @yield('template_linked_css')
+
+        <style type="text/css">
+            @yield('template_fastload_css')
+
+            @if (Auth::User() && (Auth::User()->profile) && (Auth::User()->profile->avatar_status == 0))
+                .user-avatar-nav {
+                    background: url({{ Gravatar::get('test@test.ch') }}) 50% 50% no-repeat;
+                    background-size: auto 100%;
+                }
+            @endif
+
+        </style>
+
+        {{-- Scripts --}}
+        <script>
+            window.Laravel = {!! json_encode(['csrfToken' => csrf_token(),]) !!};
+        </script>
+
+        @if (Auth::User() && (Auth::User()->profile) && $theme->link != null && $theme->link != 'null')
+            <link rel="stylesheet" type="text/css" href="{{ $theme->link }}">
+        @endif
+
+        @yield('head')
+
+    </head>
+    <body>
+        <div id="app">
+            @include('partials.nav')
+
             <div class="container">
-                <div class="navbar-header">
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/home') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-							<ul class="nav navbar-nav">
-								<li>
-									<a href="/home">
-										Home
-									</a>
-								</li>
-								@if(Auth::check() && Auth::user()->fk_role == 1)
-									<li>
-										<a href="/qr">
-											QR Generator
-										</a>
-									</li>
-								@endif
-								<li>
-									<a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-										Logout
-									</a>
-									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-										{{ csrf_field() }}
-									</form>
-								</li>
-							</ul>
-                        @endif
-                    </ul>
-                </div>
+                @include('partials.form-status')
             </div>
-        </nav>
 
-        @yield('content')
-    </div>
+            @yield('content')
+        </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-</body>
+        {{-- Scripts --}}
+        <script src="{{ mix('/js/app.js') }}"></script>
+        {!! HTML::script('//maps.googleapis.com/maps/api/js?key='.env("GOOGLEMAPS_API_KEY").'&libraries=places&dummy=.js', array('type' => 'text/javascript')) !!}
+
+        @yield('footer_scripts')
+    </body>
 </html>

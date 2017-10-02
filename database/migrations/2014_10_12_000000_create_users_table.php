@@ -14,18 +14,25 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
-            $table->integer('rank')->nullable();
-            $table->string('scoutname');
-            $table->string('prename');
-            $table->string('surname');
+            $table->increments('id');
+            $table->integer('total_points')->nullable()->default(null);
+            $table->integer('rank')->nullable()->default(null);
+            $table->string('scoutname')->unique();
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
             $table->string('name_gen')->unique();
-            $table->integer('fk_role')->unsigned()->default(1);
             $table->string('password');
             $table->rememberToken();
+            $table->boolean('activated')->default(true);
+            $table->string('token');
+            $table->ipAddress('signup_ip_address')->nullable();
+            $table->ipAddress('signup_confirmation_ip_address')->nullable();
+            $table->ipAddress('signup_sm_ip_address')->nullable();
+            $table->ipAddress('admin_ip_address')->nullable();
+            $table->ipAddress('updated_ip_address')->nullable();
+            $table->ipAddress('deleted_ip_address')->nullable();
             $table->timestamps();
-
-            $table->index('fk_role');
+            $table->softDeletes();
         });
     }
 

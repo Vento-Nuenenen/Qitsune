@@ -3,9 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Models\Profile;
+use App\Models\User;
+use App\Traits\ActivationTrait;
+use App\Traits\CaptchaTrait;
+use App\Traits\CaptureIpTrait;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
+use jeremykenedy\LaravelRoles\Models\Role;
 
 class RegisterController extends Controller
 {
@@ -18,8 +23,10 @@ class RegisterController extends Controller
     | validation and creation. By default this controller uses a trait to
     | provide this functionality without requiring any additional code.
     |
-    */
+     */
 
+    use ActivationTrait;
+    use CaptchaTrait;
     use RegistersUsers;
 
     /**
@@ -27,7 +34,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/activate';
 
     /**
      * Create a new controller instance.
@@ -36,7 +43,9 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest', [
+            'except' => 'logout',
+        ]);
     }
 
     /**
@@ -48,11 +57,17 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $data['captcha'] = $this->captchaCheck();
+
+        if (!config('settings.reCaptchStatus')) {
+            $data['captcha'] = true;
+        }
+
         return Validator::make($data, [
-            'scoutname' => 'nullable|string|max:255',
-            'prename'   => 'required|string|max:255',
-            'surname'   => 'required|string|max:255',
-            'password'  => 'required|string|min:6|confirmed',
+            'scoutname'    => 'nullable|string|max:255',
+            'first_name'   => 'required|string|max:255',
+            'last_name'    => 'required|string|max:255',
+            'password'     => 'required|string|min:6|confirmed',
         ]);
     }
 
@@ -61,18 +76,30 @@ class RegisterController extends Controller
      *
      * @param array $data
      *
-     * @return \App\User
+     * @return User
      */
     protected function create(array $data)
     {
-        $name_gen = (($data['scoutname'] != null) ? $data['prename'].'_'.$data['scoutname'].'_'.$data['surname'] : $data['prename'].'_'.$data['surname']);
+        $ipAddress = new CaptureIpTrait();
+        $role = Role::where('slug', '=', 'user')->first();
+        $profile = new Profile();
 
-        return User::create([
-            'scoutname' => $data['scoutname'],
-            'prename'   => $data['prename'],
-            'surname'   => $data['surname'],
-            'name_gen'  => $name_gen,
-            'password'  => bcrypt($data['password']),
-        ]);
+        $name_gen = (($data['scoutname'] != null) ? $data['first_name'].'_'.$data['scoutname'].'_'.$data['last_name'] : $data['first_name'].'_'.$data['last_name']);
+
+        $user = User::create([
+                'scoutname'         => $data['scoutname'],
+                'first_name'        => $data['first_name'],
+                'last_name'         => $data['last_name'],
+                'name_gen'          => $name_gen,
+                'password'          => bcrypt($data['password']),
+                'token'             => str_random(64),
+                'signup_ip_address' => $ipAddress->getClientIp(),
+                'activated'         => !config('settings.activation'),
+            ]);
+
+        $user->attachRole($role);
+        $user->profile()->save($profile);
+
+        return $user;
     }
 }
