@@ -74,7 +74,7 @@ class GenerateController extends Controller
      */
     private function generateQR($code, $QRNumber)
     {
-        QrCode::format('png')->size(200)->generate(url('/').'/qr/'.$code, storage_path().'/pdf/codes/'.$QRNumber.'.png');
+        QrCode::format('png')->size(200)->generate(url('/').'/user/qr/scan/'.$code, storage_path().'/pdf/codes/'.$QRNumber.'.png');
     }
 
     /**
