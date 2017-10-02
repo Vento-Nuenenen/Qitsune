@@ -19,10 +19,10 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     $userRole = Role::whereName('User')->first();
 
     return [
-        'name'                           => $faker->unique()->userName,
+        'scoutname'                      => $faker->unique()->userName,
         'first_name'                     => $faker->firstName,
         'last_name'                      => $faker->lastName,
-        'email'                          => $faker->unique()->safeEmail,
+	    'name_gen'                       => $faker->firstName.'_'.$faker->unique()->userName.'_'.$faker->lastName,
         'password'                       => $password ?: $password = bcrypt('secret'),
         'token'                          => str_random(64),
         'activated'                      => true,
@@ -36,9 +36,5 @@ $factory->define(App\Models\Profile::class, function (Faker\Generator $faker) {
     return [
         'user_id'          => factory(App\Models\User::class)->create()->id,
         'theme_id'         => 1,
-        'location'         => $faker->streetAddress,
-        'bio'              => $faker->paragraph(2, true),
-        'twitter_username' => $faker->userName,
-        'github_username'  => $faker->userName,
     ];
 });

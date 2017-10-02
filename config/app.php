@@ -176,9 +176,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        // Laravel\Socialite\SocialiteServiceProvider::class,
-        SocialiteProviders\Manager\ServiceProvider::class,
-        SocialiteProviders\Generators\GeneratorsServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Illuminate\Notifications\NotificationServiceProvider::class,
         App\Providers\MacroServiceProvider::class,
@@ -192,11 +189,8 @@ return [
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         Codedge\Fpdf\FpdfServiceProvider::class,
         Appstract\Opcache\OpcacheServiceProvider::class,
-<<<<<<< HEAD
-        Grimthorr\LaravelToast\ServiceProvider::class,
-=======
 
->>>>>>> admin-panel
+
     ],
 
     /*
@@ -253,14 +247,6 @@ return [
         'Image'        => Intervention\Image\Facades\Image::class,
         'Uuid'         => Webpatser\Uuid\Uuid::class,
         'QrCode'       => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
-<<<<<<< HEAD
-        'Fpdf'         => Codedge\Fpdf\Facades\Fpdf::class,
-        'GeneratePDF'  => APP\Http\Controllers\GeneratePDF::class,
-        'uuid'         => Webpatser\Uuid\Uuid::class,
-        'Toast'        => Grimthorr\LaravelToast\Facade::class,
-=======
         'PDF'          => Codedge\Fpdf\Facades\Fpdf::class,
->>>>>>> admin-panel
     ],
-
 ];
