@@ -190,7 +190,6 @@ return [
         Codedge\Fpdf\FpdfServiceProvider::class,
         Appstract\Opcache\OpcacheServiceProvider::class,
 
-
     ],
 
     /*
