@@ -30,7 +30,7 @@ class GenerateController extends Controller
     {
         $this->preCleanup();
 
-		$countQR = $this->setCodeCount($request['countQR']);
+        $countQR = $this->setCodeCount($request['countQR']);
 
         for ($i = 0; $i < $countQR; ++$i) {
             $code = $this->generateCodes();
@@ -45,10 +45,7 @@ class GenerateController extends Controller
         return back();
     }
 
-	/**
-	 *
-	 */
-	private function preCleanup()
+    private function preCleanup()
     {
         DB::table('game_codes')->delete();
         DB::table('users_codes')->delete();
@@ -60,13 +57,12 @@ class GenerateController extends Controller
         File::delete(File::glob(storage_path().'/pdf/codes/*.png'));
     }
 
-	/**
-	 *
-	 */
-	private function setCodeCount($codeCount){
-		DB::table('game_admin')->insert(['code_count' => $codeCount]);
-		return $codeCount;
-	}
+    private function setCodeCount($codeCount)
+    {
+        DB::table('game_admin')->insert(['code_count' => $codeCount]);
+
+        return $codeCount;
+    }
 
     /**
      * @throws \Exception
