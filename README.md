@@ -15,7 +15,6 @@
 4. Editiere deine `.env` // NOTE: Google API Key will prevent maps error
 5. Führe `composer update` im Root-Verzeichnisse
 6. Führe `php artisan vendor:publish --provider="jeremykenedy\LaravelRoles\RolesServiceProvider" --tag=config` aus
-7. Führe `php artisan vendor:publish --provider="jeremykenedy\LaravelRoles\RolesServiceProvider" --tag=migrations` aus
 8. Führe `php artisan vendor:publish --provider="jeremykenedy\LaravelRoles\RolesServiceProvider" --tag=seeds` aus
 9. Führe `php artisan key:generate` aus
 10. Führe `php artisan migrate` aus
