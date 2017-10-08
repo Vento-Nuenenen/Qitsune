@@ -19,12 +19,13 @@ class GenerateController extends Controller
         return view('leader.generate');
     }
 
-	/**
-	 * @param Request $request
-	 *
-	 * @return \Illuminate\Http\RedirectResponse
-	 * @throws \Exception
-	 */
+    /**
+     * @param Request $request
+     *
+     * @throws \Exception
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function index(Request $request)
     {
         $this->preCleanup();
