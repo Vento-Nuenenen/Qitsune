@@ -14,8 +14,8 @@ class AddFk extends Migration
     public function up()
     {
         Schema::table('users_codes', function (Blueprint $table) {
-            $table->foreign('fk_users')->references('id')->on('users');
-            $table->foreign('fk_game_codes')->references('id')->on('game_codes');
+            $table->foreign('fk_users')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('fk_game_codes')->references('id')->on('game_codes')->onDelete('cascade');
         });
     }
 }

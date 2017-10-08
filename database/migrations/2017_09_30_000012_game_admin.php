@@ -15,9 +15,7 @@ class GameAdmin extends Migration
     {
         Schema::create('game_admin', function (Blueprint $table) {
             $table->increments('id');
-            $table->dateTime('start_time')->nullable();
-            $table->dateTime('endtime')->nullable();
-            $table->integer('code_numbers');
+            $table->integer('code_count');
         });
     }
 
