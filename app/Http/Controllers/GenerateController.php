@@ -12,6 +12,8 @@ use QrCode;
 class GenerateController extends Controller
 {
     /**
+     * Defualt-View anzeigen
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function showGenerate()
@@ -19,13 +21,14 @@ class GenerateController extends Controller
         return view('leader.generate');
     }
 
-    /**
-     * @param Request $request
-     *
-     * @throws \Exception
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
+	/**
+	 * Code-Generierung initiieren
+	 *
+	 * @param Request $request
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 * @throws \Exception
+	 */
     public function index(Request $request)
     {
         $this->preCleanup();
@@ -45,7 +48,10 @@ class GenerateController extends Controller
         return back();
     }
 
-    private function preCleanup()
+	/**
+	 * Alte Daten löschen
+	 */
+	private function preCleanup()
     {
         DB::table('game_codes')->delete();
         DB::table('users_codes')->delete();
@@ -57,14 +63,22 @@ class GenerateController extends Controller
         File::delete(File::glob(storage_path().'/pdf/codes/*.png'));
     }
 
-    private function setCodeCount($codeCount)
+	/**
+	 * Anzahl codes in DB hinterlegen
+	 *
+	 * @param $codeCount
+	 * @return int
+	 */
+	private function setCodeCount($codeCount)
     {
         DB::table('game_admin')->insert(['code_count' => $codeCount]);
 
-        return $codeCount;
+        return intval($codeCount);
     }
 
     /**
+     * UUIDs für die QR-Codes generieren
+     *
      * @throws \Exception
      *
      * @return mixed
@@ -79,6 +93,8 @@ class GenerateController extends Controller
     }
 
     /**
+     * QR-Codes generieren
+     *
      * @param $code
      * @param $QRNumber
      */
@@ -88,6 +104,8 @@ class GenerateController extends Controller
     }
 
     /**
+     * PDF-File generieren
+     *
      * @param $fileCount
      */
     private function generatePDF($fileCount)
@@ -97,8 +115,6 @@ class GenerateController extends Controller
         PDF::SetMargins(10, 10, 10);
         PDF::SetCreator(config('app.name'));
         PDF::SetAuthor(config('app.name'));
-
-        $fileCount = count($fileCount);
 
         for ($i = 0; $i < $fileCount; $i++) {
             $j = $i;
