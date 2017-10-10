@@ -12,7 +12,7 @@ use QrCode;
 class GenerateController extends Controller
 {
     /**
-     * Defualt-View anzeigen
+     * Defualt-View anzeigen.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -21,14 +21,15 @@ class GenerateController extends Controller
         return view('leader.generate');
     }
 
-	/**
-	 * Code-Generierung initiieren
-	 *
-	 * @param Request $request
-	 *
-	 * @return \Illuminate\Http\RedirectResponse
-	 * @throws \Exception
-	 */
+    /**
+     * Code-Generierung initiieren.
+     *
+     * @param Request $request
+     *
+     * @throws \Exception
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function index(Request $request)
     {
         $this->preCleanup();
@@ -48,10 +49,10 @@ class GenerateController extends Controller
         return back();
     }
 
-	/**
-	 * Alte Daten löschen
-	 */
-	private function preCleanup()
+    /**
+     * Alte Daten löschen.
+     */
+    private function preCleanup()
     {
         DB::table('game_codes')->delete();
         DB::table('users_codes')->delete();
@@ -63,13 +64,14 @@ class GenerateController extends Controller
         File::delete(File::glob(storage_path().'/pdf/codes/*.png'));
     }
 
-	/**
-	 * Anzahl codes in DB hinterlegen
-	 *
-	 * @param $codeCount
-	 * @return int
-	 */
-	private function setCodeCount($codeCount)
+    /**
+     * Anzahl codes in DB hinterlegen.
+     *
+     * @param $codeCount
+     *
+     * @return int
+     */
+    private function setCodeCount($codeCount)
     {
         DB::table('game_admin')->insert(['code_count' => $codeCount]);
 
@@ -77,7 +79,7 @@ class GenerateController extends Controller
     }
 
     /**
-     * UUIDs für die QR-Codes generieren
+     * UUIDs für die QR-Codes generieren.
      *
      * @throws \Exception
      *
@@ -93,7 +95,7 @@ class GenerateController extends Controller
     }
 
     /**
-     * QR-Codes generieren
+     * QR-Codes generieren.
      *
      * @param $code
      * @param $QRNumber
@@ -104,7 +106,7 @@ class GenerateController extends Controller
     }
 
     /**
-     * PDF-File generieren
+     * PDF-File generieren.
      *
      * @param $fileCount
      */
