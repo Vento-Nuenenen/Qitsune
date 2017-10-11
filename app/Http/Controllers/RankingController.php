@@ -11,7 +11,7 @@ class RankingController extends Controller
      */
     public function showRanking()
     {
-    	$this->setRank();
+        $this->setRank();
 
         $rankObj = DB::select('SELECT first_name,scoutname,last_name,rank,total_points,start,end FROM users WHERE total_points > 0 ORDER BY rank DESC, total_points DESC;');
         $rankArray = json_decode(json_encode($rankObj), true);
@@ -20,7 +20,8 @@ class RankingController extends Controller
         return view('leader.ranking', ['rankArray' => $rankArray, 'userRank' => $userRank]);
     }
 
-    private function setRank(){
-	    DB::select('SELECT first_name,scoutname,last_name,rank,total_points,start,end FROM users WHERE total_points > 0 ORDER BY rank DESC, total_points DESC;');
+    private function setRank()
+    {
+        DB::select('SELECT first_name,scoutname,last_name,rank,total_points,start,end FROM users WHERE total_points > 0 ORDER BY rank DESC, total_points DESC;');
     }
 }
