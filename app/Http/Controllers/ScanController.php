@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Auth;
+use Carbon\Carbon;
 use DB;
+use App\Http\Controllers\CodeCount;
 
 class ScanController extends Controller
 {
@@ -69,6 +72,16 @@ class ScanController extends Controller
         if ($totalPoints > 0) {
             DB::update('UPDATE users SET total_points = ? WHERE name_gen = ?;', [$totalPoints, $name_gen]);
         }
+
+        if(count($allPoints) == 1){
+        	DB::table('users')->where('id',Auth::User()->id)->limit(1)->update(['start' => Carbon::now()->toDateTimeString()]);
+        }
+
+        $codeCount = CodeCount::getCodeCount();
+
+	    if(count($allPoints) == $codeCount){
+		    DB::table('users')->where('id',Auth::User()->id)->update(['end' => Carbon::now()->toDateTimeString()]);
+	    }
     }
 
     /**

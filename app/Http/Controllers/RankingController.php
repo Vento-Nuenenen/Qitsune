@@ -11,10 +11,16 @@ class RankingController extends Controller
      */
     public function showRanking()
     {
-        $rankObj = DB::select('SELECT first_name,scoutname,last_name,total_points FROM users WHERE total_points > 0 ORDER BY total_points DESC;');
+    	$this->setRank();
+
+        $rankObj = DB::select('SELECT first_name,scoutname,last_name,rank,total_points,start,end FROM users WHERE total_points > 0 ORDER BY rank DESC, total_points DESC;');
         $rankArray = json_decode(json_encode($rankObj), true);
         $userRank = count($rankArray);
 
         return view('leader.ranking', ['rankArray' => $rankArray, 'userRank' => $userRank]);
+    }
+
+    private function setRank(){
+	    DB::select('SELECT first_name,scoutname,last_name,rank,total_points,start,end FROM users WHERE total_points > 0 ORDER BY rank DESC, total_points DESC;');
     }
 }

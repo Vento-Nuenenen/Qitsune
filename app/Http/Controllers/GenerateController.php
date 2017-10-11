@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use jeremykenedy\Uuid\Uuid;
 use PDF;
 use QrCode;
+use App\Http\Controllers\CodeCount;
 
 class GenerateController extends Controller
 {
@@ -34,7 +35,7 @@ class GenerateController extends Controller
     {
         $this->preCleanup();
 
-        $countQR = $this->setCodeCount($request['countQR']);
+        $countQR = CodeCount::setCodeCount($request['countQR']);
 
         for ($i = 0; $i < $countQR; ++$i) {
             $code = $this->generateCodes();
@@ -62,20 +63,6 @@ class GenerateController extends Controller
         DB::table('game_admin')->delete();
 
         File::delete(File::glob(storage_path().'/pdf/codes/*.png'));
-    }
-
-    /**
-     * Anzahl codes in DB hinterlegen.
-     *
-     * @param $codeCount
-     *
-     * @return int
-     */
-    private function setCodeCount($codeCount)
-    {
-        DB::table('game_admin')->insert(['code_count' => $codeCount]);
-
-        return intval($codeCount);
     }
 
     /**

@@ -28,26 +28,38 @@
                                 <th>
                                     Nachname
                                 </th>
-                                <th>
-                                    Punkte
-                                </th>
 	                            <th>
-		                            Rang
+		                            Punkte
 	                            </th>
+                                <th>
+                                    Zeit
+                                </th>
                             </tr>
                             @section('dynamicRanking')
                                 @for($i = 0; $i < $userRank; ++$i)
-                                    @php ($j = $i)
+                                    @php
+	                                    $j = $i
+                                    @endphp
                                     <tr>
                                         <td>{{ ++$j }}</td>
                                         <td>{{ $rankArray[$i]['first_name'] }}</td>
                                         <td>{{ $rankArray[$i]['scoutname'] }}</td>
 	                                    <td>{{ $rankArray[$i]['last_name'] }}</td>
 	                                    <td>{{ $rankArray[$i]['total_points'] }}</td>
-	                                    @if(isset($rankArray[$i]['rank']))
-                                            <td>{{ $rankArray[$i]['rank'] }}</td>
-										@else
-	                                        <td></td>
+	                                    @if(isset($rankArray[$i]['end']))
+											@php
+											$start = \Carbon\Carbon::parse($rankArray[$i]['start']);
+											$end = \Carbon\Carbon::parse($rankArray[$i]['end']);
+											@endphp
+
+											<td>{{$end->diff($start)->format("%H Stunden, %I Minuten, %S Sekunden")}}</td>
+	                                    @else
+		                                    @php
+			                                    $start = \Carbon\Carbon::parse($rankArray[$i]['start']);
+												$now = \Carbon\Carbon::now();
+		                                    @endphp
+
+		                                    <td>{{$now->diff($start)->format('%H Stunden %I Minuten %S Sekunden')}}</td>
 	                                    @endif
                                     </tr>
                                 @endfor
