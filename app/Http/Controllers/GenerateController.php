@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use jeremykenedy\Uuid\Uuid;
 use PDF;
 use QrCode;
-use App\Http\Controllers\CodeCount;
 
 class GenerateController extends Controller
 {
