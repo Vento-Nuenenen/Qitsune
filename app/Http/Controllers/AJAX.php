@@ -8,25 +8,25 @@ class AJAX extends Controller
 {
     public function ranking()
     {
-	    $this->setRank();
+        $this->setRank();
 
-	    $rankObj = DB::select('SELECT * FROM users WHERE total_points > 0 ORDER BY total_points DESC,rank;');
-	    $rankArray = json_decode(json_encode($rankObj), true);
-	    $userRank = count($rankArray);
+        $rankObj = DB::select('SELECT * FROM users WHERE total_points > 0 ORDER BY total_points DESC,rank;');
+        $rankArray = json_decode(json_encode($rankObj), true);
+        $userRank = count($rankArray);
 
-	    return view('leader.ranking', ['rankArray' => $rankArray, 'userRank' => $userRank]);
+        return view('leader.ranking', ['rankArray' => $rankArray, 'userRank' => $userRank]);
 
         return view('leader.ranking', ['rankArray' => $rankArray, 'userRank' => $userRank])->renderSections()['dynamicRanking'];
     }
 
-	private function setRank()
-	{
-		$totalPoints = CodeCount::getTotalPoints();
-		$rankObj = DB::select('SELECT * FROM users WHERE total_points = '.$totalPoints.' ORDER BY TIMEDIFF(start, end) DESC;');
+    private function setRank()
+    {
+        $totalPoints = CodeCount::getTotalPoints();
+        $rankObj = DB::select('SELECT * FROM users WHERE total_points = '.$totalPoints.' ORDER BY TIMEDIFF(start, end) DESC;');
 
-		for($i = 0; $i < count($rankObj); $i++){
-			DB::table('users')->where('name_gen', $rankObj[$i]->name_gen)->update(['rank' => (++$i)]);
-			$i--;
-		}
-	}
+        for ($i = 0; $i < count($rankObj); $i++) {
+            DB::table('users')->where('name_gen', $rankObj[$i]->name_gen)->update(['rank' => (++$i)]);
+            $i--;
+        }
+    }
 }
