@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/Chronyms/Qitsune.svg?branch=admin-panel)](https://travis-ci.org/Chronyms/Qitsune)
 [![StyleCI](https://styleci.io/repos/101512980/shield?branch=admin-panel)](https://styleci.io/repos/101512980)
 [![Build Status](https://scrutinizer-ci.com/g/Chronyms/Qitsune/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Chronyms/Qitsune/build-status/master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Chronyms/Qitsune/badges/quality-score.png?b=admin-panel)](https://scrutinizer-ci.com/g/Chronyms/Qitsune/?branch=admin-panel)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Chronyms/Qitsune/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Chronyms/Qitsune/?branch=master)
 
 #### READY FOR USE!
 
