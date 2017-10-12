@@ -56,7 +56,7 @@ class GenerateController extends Controller
     {
         DB::table('game_codes')->delete();
         DB::table('users_codes')->delete();
-	    DB::table('game_admin')->delete();
+        DB::table('game_admin')->delete();
 
         DB::update('UPDATE users SET rank = NULL;');
         DB::update('UPDATE users SET total_points = NULL;');
