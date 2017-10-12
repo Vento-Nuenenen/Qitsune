@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 class RankingController extends Controller
 {
     /**
-     * Rangliste wird geholt und an View übergeben
+     * Rangliste wird geholt und an View übergeben.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -22,10 +22,10 @@ class RankingController extends Controller
         return view('leader.ranking', ['rankArray' => $rankArray, 'userRank' => $userRank]);
     }
 
-	/**
-	 *  Rang wird berechnet und in DB zugewisen
-	 */
-	private function setRank()
+    /**
+     *  Rang wird berechnet und in DB zugewisen.
+     */
+    private function setRank()
     {
         $totalPoints = CodeCount::getTotalPoints();
         $rankObj = DB::select('SELECT * FROM users WHERE total_points = '.$totalPoints.' ORDER BY TIMEDIFF(start, end) DESC;');
