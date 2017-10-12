@@ -43,4 +43,15 @@ class CodeCount extends Controller
 
         return $totalPoints;
     }
+
+	public static function setRank()
+	{
+		$totalPoints = CodeCount::getTotalPoints();
+		$rankObj = DB::select('SELECT * FROM users WHERE total_points = '.$totalPoints.' ORDER BY TIMEDIFF(start, end) DESC;');
+
+		for ($i = 0; $i < count($rankObj); $i++) {
+			DB::table('users')->where('name_gen', $rankObj[$i]->name_gen)->update(['rank' => (++$i)]);
+			$i--;
+		}
+	}
 }

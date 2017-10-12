@@ -11,7 +11,7 @@ class RankingController extends Controller
      */
     public function showRanking()
     {
-        $this->setRank();
+        CodeCount::setRank();
 
         $rankObj = DB::select('SELECT * FROM users WHERE total_points > 0 ORDER BY total_points DESC,rank;');
         $rankArray = json_decode(json_encode($rankObj), true);
