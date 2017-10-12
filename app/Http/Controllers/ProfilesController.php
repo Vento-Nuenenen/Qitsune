@@ -182,17 +182,9 @@ class ProfilesController extends Controller
      */
     public function updateUserAccount(Request $request, $id)
     {
-        $currentUser = \Auth::user();
         $user = User::findOrFail($id);
         $ipAddress = new CaptureIpTrait();
         $name_gen = (($request->input('scoutname') != null) ? $request->input('first_name').'_'.$request->input('scoutname').'_'.$request->input('last_name') : $request->input('first_name').'_'.$request->input('last_name'));
-
-        $validator = Validator::make($request->all(), [
-            'scoutname'    => 'nullable|string|max:255',
-            'first_name'   => 'required|string|max:255',
-            'last_name'    => 'required|string|max:255',
-            'password'     => 'required|string|min:6|confirmed',
-        ]);
 
         $rules = [];
 
@@ -224,7 +216,6 @@ class ProfilesController extends Controller
      */
     public function updateUserPassword(Request $request, $id)
     {
-        $currentUser = \Auth::user();
         $user = User::findOrFail($id);
         $ipAddress = new CaptureIpTrait();
 
