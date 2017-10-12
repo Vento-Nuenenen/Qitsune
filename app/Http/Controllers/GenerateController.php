@@ -12,7 +12,7 @@ use QrCode;
 class GenerateController extends Controller
 {
     /**
-     * Defualt-View anzeigen.
+     * Default-View anzeigen.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -22,7 +22,7 @@ class GenerateController extends Controller
     }
 
     /**
-     * Code-Generierung initiieren.
+     * Code-Generierung initialisieren.
      *
      * @param Request $request
      *

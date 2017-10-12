@@ -44,6 +44,9 @@ class CodeCount extends Controller
         return $totalPoints;
     }
 
+	/**
+	 *
+	 */
 	public static function setRank()
 	{
 		$totalPoints = CodeCount::getTotalPoints();
