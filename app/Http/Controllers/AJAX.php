@@ -6,10 +6,10 @@ use DB;
 
 class AJAX extends Controller
 {
-	/**
-	 * @return mixed
-	 */
-	public function ranking()
+    /**
+     * @return mixed
+     */
+    public function ranking()
     {
         CodeCount::setRank();
 
