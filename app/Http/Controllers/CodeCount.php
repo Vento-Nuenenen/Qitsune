@@ -15,15 +15,32 @@ class CodeCount extends Controller
      */
     public static function setCodeCount($codeCount)
     {
-        DB::table('game_admin')->insert(['code_count' => $codeCount]);
+        DB::table('game_admin')->insert(['code_count' => $codeCount, 'total_points' => $codeCount]);
 
         return intval($codeCount);
     }
 
-    public static function getCodeCount()
+	/**
+	 * Anzahl codes aus DB holen und ausgeben
+	 *
+	 * @return mixed
+	 */
+	public static function getCodeCount()
     {
         $codeCount = DB::table('game_admin')->select('code_count')->first()->code_count;
 
         return $codeCount;
     }
+
+	/**
+	 * Anzahl codes aus DB holen und ausgeben
+	 *
+	 * @return mixed
+	 */
+	public static function getTotalPoints()
+	{
+		$totalPoints = DB::table('game_admin')->select('total_points')->first()->total_points;
+
+		return $totalPoints;
+	}
 }

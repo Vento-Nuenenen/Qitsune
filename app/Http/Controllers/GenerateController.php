@@ -56,10 +56,12 @@ class GenerateController extends Controller
     {
         DB::table('game_codes')->delete();
         DB::table('users_codes')->delete();
+	    DB::table('game_admin')->delete();
 
         DB::update('UPDATE users SET rank = NULL;');
         DB::update('UPDATE users SET total_points = NULL;');
-        DB::table('game_admin')->delete();
+        DB::update('UPDATE users SET start = NULL;');
+        DB::update('UPDATE users SET end = NULL;');
 
         File::delete(File::glob(storage_path().'/pdf/codes/*.png'));
     }

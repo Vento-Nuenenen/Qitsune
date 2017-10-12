@@ -15,7 +15,7 @@
 
                     <div>
                         Der Folgende QR-Code wurde gefunden: <b>{{ $checkExists[0]->game_code }}</b><br/>
-                        Dieser bringt dir <b>{{$checkExists[0]->points}}</b> Punkte ein.<br/>
+                        Dieser bringt dir <b>{{$checkExists[0]->points}}</b> Punkt/e ein.<br/>
                         <b>Gut gemacht. Such weiter.</b>
                     </div>
                 </div>
