@@ -168,7 +168,7 @@ class ProfilesController extends Controller
     public function validator(array $data)
     {
         return Validator::make($data, [
-            'name'              => 'required|max:255',
+            'pfadiname'              => 'max:255',
         ]);
     }
 

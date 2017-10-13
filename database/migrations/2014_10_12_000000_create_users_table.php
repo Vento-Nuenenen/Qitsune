@@ -17,9 +17,9 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->integer('total_points')->nullable()->default(null);
             $table->integer('rank')->nullable()->default(null);
-            $table->string('scoutname')->unique();
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
+            $table->string('scoutname')->nullable();
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('name_gen')->unique();
             $table->string('password');
             $table->timestamp('start')->nullable();
