@@ -27,11 +27,11 @@ class ScanController extends Controller
                 DB::table('users_codes')->insert(['fk_users' => Auth::user()->id, 'fk_game_codes' => $rawQR[0]->id]);
                 $checkExists = DB::select('SELECT * FROM users RIGHT JOIN users_codes ON users.id = users_codes.fk_users RIGHT JOIN game_codes ON users_codes.fk_game_codes = game_codes.id WHERE name_gen = ? AND game_code = ?;', [Auth::user()->name_gen, $param]);
                 $checkExists = json_decode(json_encode($checkExists));
-                $view = view('user.scan', ['checkExists' => $checkExists,'maxPoints' => $maxPoints,'first' => 1]);
+                $view = view('user.scan', ['checkExists' => $checkExists, 'maxPoints' => $maxPoints, 'first' => 1]);
             } else {
                 $checkExists = DB::select('SELECT * FROM users RIGHT JOIN users_codes ON users.id = users_codes.fk_users RIGHT JOIN game_codes ON users_codes.fk_game_codes = game_codes.id WHERE name_gen = ? AND game_code = ?;', [Auth::user()->name_gen, $param]);
                 $checkExists = json_decode(json_encode($checkExists));
-                $view = view('user.scan', ['checkExists' => $checkExists,'maxPoints' => $maxPoints])->withErrors('Der Code wurde bereits gezählt.');
+                $view = view('user.scan', ['checkExists' => $checkExists, 'maxPoints' => $maxPoints])->withErrors('Der Code wurde bereits gezählt.');
             }
 
             $this->calcTotalPoints(Auth::user()->name_gen);
