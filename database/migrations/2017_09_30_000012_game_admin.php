@@ -16,6 +16,7 @@ class GameAdmin extends Migration
         Schema::create('game_admin', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('code_count');
+            $table->integer('total_points');
         });
     }
 

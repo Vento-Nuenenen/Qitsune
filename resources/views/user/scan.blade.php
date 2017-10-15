@@ -16,7 +16,11 @@
                     <div>
                         Der Folgende QR-Code wurde gefunden: <b>{{ $checkExists[0]->game_code }}</b><br/>
                         Dieser bringt dir <b>{{$checkExists[0]->points}}</b> Punkt/e ein.<br/>
-                        <b>Gut gemacht. Such weiter.</b>
+                        @if(isset($first))
+                            Du hast somit {{ ($checkExists[0]->total_points += 1) }} / {{ $maxPoints }} Codes gefunden.
+                        @else
+                            Du hast somit {{ ($checkExists[0]->total_points) }} / {{ $maxPoints }} Codes gefunden.
+                        @endif
                     </div>
                 </div>
             </div>
