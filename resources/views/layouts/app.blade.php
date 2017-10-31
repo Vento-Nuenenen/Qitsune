@@ -10,14 +10,7 @@
 
         <title>@if (trim($__env->yieldContent('template_title')))@yield('template_title') | @endif {{ config('app.name', Lang::get('titles.app')) }}</title>
         <meta name="description" content="">
-        <meta name="author" content="Jeremy Kenedy">
         <link rel="shortcut icon" href="/favicon.ico">
-
-        {{-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --}}
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
         {{-- Fonts --}}
         @yield('template_linked_fonts')
@@ -29,14 +22,6 @@
 
         <style type="text/css">
             @yield('template_fastload_css')
-
-            @if (Auth::User() && (Auth::User()->profile) && (Auth::User()->profile->avatar_status == 0))
-                .user-avatar-nav {
-                    background: url({{ Gravatar::get('test@test.ch') }}) 50% 50% no-repeat;
-                    background-size: auto 100%;
-                }
-            @endif
-
         </style>
 
         {{-- Scripts --}}
@@ -66,7 +51,6 @@
 
         {{-- Scripts --}}
         <script src="{{ mix('/js/app.js') }}"></script>
-        {!! HTML::script('//maps.googleapis.com/maps/api/js?key='.env("GOOGLEMAPS_API_KEY").'&libraries=places&dummy=.js', array('type' => 'text/javascript')) !!}
 
         @yield('footer_scripts')
     </body>

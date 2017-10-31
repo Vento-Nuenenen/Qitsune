@@ -78,7 +78,3 @@
 		</div>
 	</div>
 @endsection
-
-@section('footer_scripts')
-	@include('scripts.google-maps-geocode-and-map')
-@endsection

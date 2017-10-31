@@ -4,10 +4,6 @@
   Log Information
 @endsection
 
-@section('template_linked_css')
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
-@endsection
-
 @section('content')
   <div class="container-fluid logs-container">
     <div class="row">

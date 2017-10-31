@@ -5,7 +5,6 @@
 @endsection
 
 @section('template_linked_css')
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
     <style type="text/css" media="screen">
         .users-table {
             border: 0;
@@ -125,19 +124,13 @@
             </div>
         </div>
     </div>
-
     @include('modals.modal-delete')
-
 @endsection
 
 @section('footer_scripts')
-
     @if (count($users) > 10)
         @include('scripts.datatables')
     @endif
     @include('scripts.delete-modal-script')
     @include('scripts.save-modal-script')
-    {{--
-        @include('scripts.tooltips')
-    --}}
 @endsection
