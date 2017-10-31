@@ -96,8 +96,8 @@ class ThemesManagementController extends Controller
         }
 
         $data = [
-            'theme'        => $theme,
-            'themeUsers'   => $themeUsers,
+            'theme'      => $theme,
+            'themeUsers' => $themeUsers,
         ];
 
         return view('themesmanagement.show-theme')->with($data);
@@ -123,8 +123,8 @@ class ThemesManagementController extends Controller
         }
 
         $data = [
-            'theme'        => $theme,
-            'themeUsers'   => $themeUsers,
+            'theme'      => $theme,
+            'themeUsers' => $themeUsers,
         ];
 
         return view('themesmanagement.edit-theme')->with($data);
