@@ -28,10 +28,10 @@ return [
      * Goobye email.
      *
      */
-    'goodbyeSubject'    => 'Schade, dass du gehst...',
-    'goodbyeGreeting'   => 'Hallo :username,',
-    'goodbyeMessage'    => 'Wir finden es schade, dich gehen zu sehen. Dein Konto wurde gelöscht. Du kannst innerhalb von '.config('settings.restoreUserCutoff').' Tagen dein Konto wiederherzustellen.',
-    'goodbyeButton'     => 'Konto wiederherstellen',
-    'goodbyeThanks'     => 'Wir hoffen, dass wir dich wieder sehen werden!',
+    'goodbyeSubject'  => 'Schade, dass du gehst...',
+    'goodbyeGreeting' => 'Hallo :username,',
+    'goodbyeMessage'  => 'Wir finden es schade, dich gehen zu sehen. Dein Konto wurde gelöscht. Du kannst innerhalb von '.config('settings.restoreUserCutoff').' Tagen dein Konto wiederherzustellen.',
+    'goodbyeButton'   => 'Konto wiederherstellen',
+    'goodbyeThanks'   => 'Wir hoffen, dass wir dich wieder sehen werden!',
 
 ];

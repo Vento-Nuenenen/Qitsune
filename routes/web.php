@@ -45,18 +45,18 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
 
     // Show users profile - viewable by other users.
     Route::get('profile/{username}', [
-        'as'        => '{username}',
-        'uses'      => 'ProfilesController@show',
+        'as'   => '{username}',
+        'uses' => 'ProfilesController@show',
     ]);
 });
 
 // Registered, activated, and is current user routes.
-Route::group(['middleware'=> ['auth', 'activated', 'currentUser']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function () {
     // User Profile and Account Routes
     Route::resource(
         'profile',
         'ProfilesController', [
-            'only'  => [
+            'only' => [
                 'show',
                 'edit',
                 'update',
@@ -65,21 +65,21 @@ Route::group(['middleware'=> ['auth', 'activated', 'currentUser']], function () 
         ]
     );
     Route::put('profile/{username}/updateUserAccount', [
-        'as'        => '{username}',
-        'uses'      => 'ProfilesController@updateUserAccount',
+        'as'   => '{username}',
+        'uses' => 'ProfilesController@updateUserAccount',
     ]);
     Route::put('profile/{username}/updateUserPassword', [
-        'as'        => '{username}',
-        'uses'      => 'ProfilesController@updateUserPassword',
+        'as'   => '{username}',
+        'uses' => 'ProfilesController@updateUserPassword',
     ]);
     Route::delete('profile/{username}/deleteUserAccount', [
-        'as'        => '{username}',
-        'uses'      => 'ProfilesController@deleteUserAccount',
+        'as'   => '{username}',
+        'uses' => 'ProfilesController@deleteUserAccount',
     ]);
 
     // Route to show user avatar
     Route::get('images/profile/{id}/avatar/{image}', [
-        'uses'      => 'ProfilesController@userProfileAvatar',
+        'uses' => 'ProfilesController@userProfileAvatar',
     ]);
 
     // Route to upload user avatar.
@@ -96,7 +96,7 @@ Route::group(['middleware'=> ['auth', 'activated', 'currentUser']], function () 
 });
 
 // Registered, activated, and is admin routes.
-Route::group(['middleware'=> ['auth', 'activated', 'role:admin']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function () {
     Route::resource('/users/deleted', 'SoftDeletesController', [
         'only' => [
             'index', 'show', 'update', 'destroy',
