@@ -64,10 +64,10 @@ class RegisterController extends Controller
         }
 
         return Validator::make($data, [
-            'scoutname'    => 'nullable|string|max:255',
-            'first_name'   => 'required|string|max:255',
-            'last_name'    => 'required|string|max:255',
-            'password'     => 'required|string|min:6|confirmed',
+            'scoutname'  => 'nullable|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name'  => 'required|string|max:255',
+            'password'   => 'required|string|min:6|confirmed',
         ]);
     }
 

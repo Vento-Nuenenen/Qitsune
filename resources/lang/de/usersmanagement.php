@@ -3,10 +3,10 @@
 return [
 
     // Flash Messages
-    'createSuccess'     => 'Benutzer wurde erfolgreich erstellt!',
-    'updateSuccess'     => 'Benutzer wurde erfolgreich aktualisiert!',
-    'deleteSuccess'     => 'Benutzer wurde erfolgreich gelöscht!',
-    'deleteSelfError'   => 'Du kannst dich nicht selber Löschen!',
+    'createSuccess'   => 'Benutzer wurde erfolgreich erstellt!',
+    'updateSuccess'   => 'Benutzer wurde erfolgreich aktualisiert!',
+    'deleteSuccess'   => 'Benutzer wurde erfolgreich gelöscht!',
+    'deleteSelfError' => 'Du kannst dich nicht selber Löschen!',
 
     // Show User Tab
     'viewProfile'            => 'Profil ansehen',
@@ -38,7 +38,7 @@ return [
     'successDestroy'    => 'Benutzer erfolgreich entfernt.',
     'errorUserNotFound' => 'Benutzer wurde nicht gefunden.',
 
-    'labelUserLevel'     => 'Level',
-    'labelUserLevels'    => 'Level',
+    'labelUserLevel'  => 'Level',
+    'labelUserLevels' => 'Level',
 
 ];

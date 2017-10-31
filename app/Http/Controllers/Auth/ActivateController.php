@@ -210,9 +210,9 @@ class ActivateController extends Controller
             Log::info('Locked non-activated user attempted to visit '.$currentRoute.'. ', [$user]);
 
             $data = [
-                'hours'        => config('settings.timePeriod'),
-                'name_gen'     => $user->name_gen,
-                'lastDate'     => $lastActivation->created_at->format('m/d/Y'),
+                'hours'    => config('settings.timePeriod'),
+                'name_gen' => $user->name_gen,
+                'lastDate' => $lastActivation->created_at->format('m/d/Y'),
             ];
 
             return view('auth.exceeded')->with($data);
