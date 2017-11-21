@@ -36,7 +36,7 @@ class GenerateController extends Controller
 
         $countQR = CodeCount::setCodeCount($request['countQR']);
 
-        for ($i = 0; $i < $countQR; ++$i) {
+        for ($i = 0; $i < $countQR; $i++) {
             $code = $this->generateCodes();
 
             $this->generateQR($code, $i);
