@@ -234,16 +234,16 @@
         },
         {
             "name": "codedge/laravel-fpdf",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codedge/laravel-fpdf.git",
-                "reference": "646f4d8d4763896e60e3022fb29d27abceec79da"
+                "reference": "2d0ca3a04e69a519e6007067a9bbd6d27c220a01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codedge/laravel-fpdf/zipball/646f4d8d4763896e60e3022fb29d27abceec79da",
-                "reference": "646f4d8d4763896e60e3022fb29d27abceec79da",
+                "url": "https://api.github.com/repos/codedge/laravel-fpdf/zipball/2d0ca3a04e69a519e6007067a9bbd6d27c220a01",
+                "reference": "2d0ca3a04e69a519e6007067a9bbd6d27c220a01",
                 "shasum": ""
             },
             "require": {
@@ -272,7 +272,7 @@
                 "laravel",
                 "pdf"
             ],
-            "time": "2017-06-02T21:38:56+00:00"
+            "time": "2017-11-05T00:15:37+00:00"
         },
         {
             "name": "creativeorange/gravatar",
@@ -1664,16 +1664,16 @@
         },
         {
             "name": "laravel/socialite",
-            "version": "v3.0.7",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "d79174513dbf14359b53e44394cf71373ae03433"
+                "reference": "fc1c8d415699e502f3e61cbc61e3250d5bd942eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/d79174513dbf14359b53e44394cf71373ae03433",
-                "reference": "d79174513dbf14359b53e44394cf71373ae03433",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/fc1c8d415699e502f3e61cbc61e3250d5bd942eb",
+                "reference": "fc1c8d415699e502f3e61cbc61e3250d5bd942eb",
                 "shasum": ""
             },
             "require": {
@@ -1722,7 +1722,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2017-07-22T14:44:37+00:00"
+            "time": "2017-11-06T16:02:48+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2739,29 +2739,39 @@
         },
         {
             "name": "simplesoftwareio/simple-qrcode",
-            "version": "1.5.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SimpleSoftwareIO/simple-qrcode.git",
-                "reference": "0d8fbf73f7adc166ec5aabbf898b7327f6c69600"
+                "reference": "90b2282dd29be1e52565e9832dc23af41610ea07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SimpleSoftwareIO/simple-qrcode/zipball/0d8fbf73f7adc166ec5aabbf898b7327f6c69600",
-                "reference": "0d8fbf73f7adc166ec5aabbf898b7327f6c69600",
+                "url": "https://api.github.com/repos/SimpleSoftwareIO/simple-qrcode/zipball/90b2282dd29be1e52565e9832dc23af41610ea07",
+                "reference": "90b2282dd29be1e52565e9832dc23af41610ea07",
                 "shasum": ""
             },
             "require": {
                 "bacon/bacon-qr-code": "1.0.*",
                 "ext-gd": "*",
-                "illuminate/support": ">=4.2.0",
-                "php": ">=5.4.0"
+                "illuminate/support": ">=5.0.0",
+                "php": ">=7.0"
             },
             "require-dev": {
                 "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "~5"
+                "phpunit/phpunit": "~6"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "SimpleSoftwareIO\\QrCode\\QrCodeServiceProvider"
+                    ],
+                    "aliases": {
+                        "QrCode": "SimpleSoftwareIO\\QrCode\\Facades\\QrCode"
+                    }
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "SimpleSoftwareIO\\QrCode\\": "src"
@@ -2786,7 +2796,7 @@
                 "qrcode",
                 "wrapper"
             ],
-            "time": "2016-12-06T01:39:52+00:00"
+            "time": "2017-11-26T15:27:12+00:00"
         },
         {
             "name": "spatie/laravel-cookie-consent",
