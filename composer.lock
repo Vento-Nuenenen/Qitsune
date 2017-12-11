@@ -234,16 +234,16 @@
         },
         {
             "name": "codedge/laravel-fpdf",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codedge/laravel-fpdf.git",
-                "reference": "646f4d8d4763896e60e3022fb29d27abceec79da"
+                "reference": "2d0ca3a04e69a519e6007067a9bbd6d27c220a01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codedge/laravel-fpdf/zipball/646f4d8d4763896e60e3022fb29d27abceec79da",
-                "reference": "646f4d8d4763896e60e3022fb29d27abceec79da",
+                "url": "https://api.github.com/repos/codedge/laravel-fpdf/zipball/2d0ca3a04e69a519e6007067a9bbd6d27c220a01",
+                "reference": "2d0ca3a04e69a519e6007067a9bbd6d27c220a01",
                 "shasum": ""
             },
             "require": {
@@ -272,7 +272,7 @@
                 "laravel",
                 "pdf"
             ],
-            "time": "2017-06-02T21:38:56+00:00"
+            "time": "2017-11-05T00:15:37+00:00"
         },
         {
             "name": "creativeorange/gravatar",
