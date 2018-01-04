@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b78cc36aaa3db3f3576ded83ef71594",
+    "content-hash": "7e9f065046787060e40a6076643a37d1",
     "packages": [
         {
             "name": "appstract/laravel-opcache",
@@ -2752,29 +2752,39 @@
         },
         {
             "name": "simplesoftwareio/simple-qrcode",
-            "version": "1.5.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SimpleSoftwareIO/simple-qrcode.git",
-                "reference": "0d8fbf73f7adc166ec5aabbf898b7327f6c69600"
+                "reference": "90b2282dd29be1e52565e9832dc23af41610ea07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SimpleSoftwareIO/simple-qrcode/zipball/0d8fbf73f7adc166ec5aabbf898b7327f6c69600",
-                "reference": "0d8fbf73f7adc166ec5aabbf898b7327f6c69600",
+                "url": "https://api.github.com/repos/SimpleSoftwareIO/simple-qrcode/zipball/90b2282dd29be1e52565e9832dc23af41610ea07",
+                "reference": "90b2282dd29be1e52565e9832dc23af41610ea07",
                 "shasum": ""
             },
             "require": {
                 "bacon/bacon-qr-code": "1.0.*",
                 "ext-gd": "*",
-                "illuminate/support": ">=4.2.0",
-                "php": ">=5.4.0"
+                "illuminate/support": ">=5.0.0",
+                "php": ">=7.0"
             },
             "require-dev": {
                 "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "~5"
+                "phpunit/phpunit": "~6"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "SimpleSoftwareIO\\QrCode\\QrCodeServiceProvider"
+                    ],
+                    "aliases": {
+                        "QrCode": "SimpleSoftwareIO\\QrCode\\Facades\\QrCode"
+                    }
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "SimpleSoftwareIO\\QrCode\\": "src"
@@ -2799,7 +2809,7 @@
                 "qrcode",
                 "wrapper"
             ],
-            "time": "2016-12-06T01:39:52+00:00"
+            "time": "2017-11-26T15:27:12+00:00"
         },
         {
             "name": "spatie/laravel-cookie-consent",
