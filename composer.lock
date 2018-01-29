@@ -4,28 +4,28 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e9f065046787060e40a6076643a37d1",
+    "content-hash": "ea6af7e257ad926f7df6d9b12da9cf50",
     "packages": [
         {
             "name": "appstract/laravel-opcache",
-            "version": "1.4",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/appstract/laravel-opcache.git",
-                "reference": "fe5206c5da437410262f1eb49ec5c418e4b617c9"
+                "reference": "8e6688d8c953c67cc001dfd134e9f37f2b7b0640"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/appstract/laravel-opcache/zipball/fe5206c5da437410262f1eb49ec5c418e4b617c9",
-                "reference": "fe5206c5da437410262f1eb49ec5c418e4b617c9",
+                "url": "https://api.github.com/repos/appstract/laravel-opcache/zipball/8e6688d8c953c67cc001dfd134e9f37f2b7b0640",
+                "reference": "8e6688d8c953c67cc001dfd134e9f37f2b7b0640",
                 "shasum": ""
             },
             "require": {
                 "appstract/lush-http": "^0.5",
-                "illuminate/console": ">=5.4",
-                "illuminate/filesystem": ">=5.4",
-                "illuminate/routing": ">=5.4",
-                "illuminate/support": ">=5.4",
+                "illuminate/console": ">=5.5",
+                "illuminate/filesystem": ">=5.5",
+                "illuminate/routing": ">=5.5",
+                "illuminate/support": ">=5.5",
                 "php": ">=5.6"
             },
             "require-dev": {
@@ -65,7 +65,7 @@
                 "laravel",
                 "php"
             ],
-            "time": "2017-12-19T12:51:15+00:00"
+            "time": "2018-01-22T15:34:47+00:00"
         },
         {
             "name": "appstract/lush-http",
