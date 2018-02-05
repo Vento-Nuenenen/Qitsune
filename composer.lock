@@ -2813,16 +2813,16 @@
         },
         {
             "name": "spatie/laravel-cookie-consent",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-cookie-consent.git",
-                "reference": "9c7f57ebe297e7d0d640fb70b00eb1b846aa50ae"
+                "reference": "4c1f5bc51ceb20134755dd49a47aa88bf1a6ee68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-cookie-consent/zipball/9c7f57ebe297e7d0d640fb70b00eb1b846aa50ae",
-                "reference": "9c7f57ebe297e7d0d640fb70b00eb1b846aa50ae",
+                "url": "https://api.github.com/repos/spatie/laravel-cookie-consent/zipball/4c1f5bc51ceb20134755dd49a47aa88bf1a6ee68",
+                "reference": "4c1f5bc51ceb20134755dd49a47aa88bf1a6ee68",
                 "shasum": ""
             },
             "require": {
@@ -2877,7 +2877,7 @@
                 "law",
                 "spatie"
             ],
-            "time": "2017-10-24T15:09:27+00:00"
+            "time": "2018-02-02T09:32:28+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
