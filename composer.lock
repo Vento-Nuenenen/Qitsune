@@ -2695,23 +2695,23 @@
         },
         {
             "name": "rap2hpoutre/laravel-log-viewer",
-            "version": "v0.11.0",
+            "version": "v0.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rap2hpoutre/laravel-log-viewer.git",
-                "reference": "2a557969a8a23d6b5320f1716748d9577f27f303"
+                "reference": "9176a9721c37dd794c7ec49a72cdb5985f0ea0e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/2a557969a8a23d6b5320f1716748d9577f27f303",
-                "reference": "2a557969a8a23d6b5320f1716748d9577f27f303",
+                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/9176a9721c37dd794c7ec49a72cdb5985f0ea0e3",
+                "reference": "9176a9721c37dd794c7ec49a72cdb5985f0ea0e3",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "4.2.*|5.*",
                 "php": ">=5.4.0"
             },
-            "type": "library",
+            "type": "laravel-package",
             "extra": {
                 "laravel": {
                     "providers": [
@@ -2746,7 +2746,7 @@
                 "logging",
                 "lumen"
             ],
-            "time": "2017-11-17T10:21:53+00:00"
+            "time": "2018-02-23T12:52:11+00:00"
         },
         {
             "name": "simplesoftwareio/simple-qrcode",
