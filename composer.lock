@@ -1425,20 +1425,20 @@
         },
         {
             "name": "jeremykenedy/laravel-roles",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeremykenedy/laravel-roles.git",
-                "reference": "eb9b4396de9b0fe96686656b714da65f1d0055f1"
+                "reference": "eaf5443d45f8844f6054d503bab8088ed37b6cdb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeremykenedy/laravel-roles/zipball/eb9b4396de9b0fe96686656b714da65f1d0055f1",
-                "reference": "eb9b4396de9b0fe96686656b714da65f1d0055f1",
+                "url": "https://api.github.com/repos/jeremykenedy/laravel-roles/zipball/eaf5443d45f8844f6054d503bab8088ed37b6cdb",
+                "reference": "eaf5443d45f8844f6054d503bab8088ed37b6cdb",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "5.3.*|5.4.*|5.5.*",
+                "laravel/framework": "5.3.*|5.4.*|5.5.*|5.6.*",
                 "php": ">=5.6.4"
             },
             "type": "library",
@@ -1479,7 +1479,7 @@
                 "permissions",
                 "roles"
             ],
-            "time": "2017-09-03T08:58:15+00:00"
+            "time": "2018-02-25T18:37:47+00:00"
         },
         {
             "name": "jeremykenedy/uuid",
