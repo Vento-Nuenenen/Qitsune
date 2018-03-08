@@ -1,4 +1,6 @@
 #### Qitsune is a Laravel 5.5 Application with which you can Play a game
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Chronyms/Qitsune.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/Chronyms/Qitsune.svg?branch=admin-panel)](https://travis-ci.org/Chronyms/Qitsune)
 [![StyleCI](https://styleci.io/repos/101512980/shield?branch=admin-panel)](https://styleci.io/repos/101512980)
 [![Build Status](https://scrutinizer-ci.com/g/Chronyms/Qitsune/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Chronyms/Qitsune/build-status/master)
