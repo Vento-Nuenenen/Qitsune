@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9252ba97014cd358271ebf1f547aa3a7",
+    "content-hash": "e49e1bb0784d939b8d64babfc94dd1b9",
     "packages": [
         {
             "name": "appstract/laravel-opcache",
@@ -284,16 +284,16 @@
         },
         {
             "name": "creativeorange/gravatar",
-            "version": "1.0.10",
+            "version": "v1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/creativeorange/gravatar.git",
-                "reference": "a0e84f0c8e8922ad151168d6ebd8db6a1b2d8cd2"
+                "reference": "9affd46be10f1ebb11d5d9f03440f804c09f2b59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/creativeorange/gravatar/zipball/a0e84f0c8e8922ad151168d6ebd8db6a1b2d8cd2",
-                "reference": "a0e84f0c8e8922ad151168d6ebd8db6a1b2d8cd2",
+                "url": "https://api.github.com/repos/creativeorange/gravatar/zipball/9affd46be10f1ebb11d5d9f03440f804c09f2b59",
+                "reference": "9affd46be10f1ebb11d5d9f03440f804c09f2b59",
                 "shasum": ""
             },
             "require": {
@@ -301,6 +301,16 @@
                 "php": ">=5.4.0"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Creativeorange\\Gravatar\\GravatarServiceProvider"
+                    ],
+                    "aliases": {
+                        "Gravatar": "Creativeorange\\Gravatar\\Facades\\Gravatar"
+                    }
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Creativeorange\\Gravatar\\": "src/"
@@ -318,13 +328,13 @@
                     "role": "Developer"
                 }
             ],
-            "description": "A Laravel 5.0, 5.1, 5.2 and 5.3 gravatar package for retrieving gravatar image URLs or checking the existance of an image.",
+            "description": "Gravatar for Laravel 5.0.x through 5.5.x package for retrieving gravatar image URLs or checking the existance of an image.",
             "keywords": [
                 "avatar",
                 "gravatar",
                 "laravel"
             ],
-            "time": "2017-02-15T22:07:40+00:00"
+            "time": "2017-08-08T22:14:26+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2695,16 +2705,16 @@
         },
         {
             "name": "rap2hpoutre/laravel-log-viewer",
-            "version": "v0.13.0",
+            "version": "v0.14.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rap2hpoutre/laravel-log-viewer.git",
-                "reference": "cda89c06dc5331d06fab863d7cb1c4047ad68357"
+                "reference": "46b322385d7bc45b75019dc80d19bad65c0a10f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/cda89c06dc5331d06fab863d7cb1c4047ad68357",
-                "reference": "cda89c06dc5331d06fab863d7cb1c4047ad68357",
+                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/46b322385d7bc45b75019dc80d19bad65c0a10f7",
+                "reference": "46b322385d7bc45b75019dc80d19bad65c0a10f7",
                 "shasum": ""
             },
             "require": {
@@ -2746,7 +2756,7 @@
                 "logging",
                 "lumen"
             ],
-            "time": "2018-03-07T09:16:17+00:00"
+            "time": "2018-03-20T21:24:28+00:00"
         },
         {
             "name": "simplesoftwareio/simple-qrcode",
