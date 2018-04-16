@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "appstract/laravel-opcache",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/appstract/laravel-opcache.git",
-                "reference": "8e6688d8c953c67cc001dfd134e9f37f2b7b0640"
+                "reference": "3fe6272243c4b0e225757147d7c882affabf8d4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/appstract/laravel-opcache/zipball/8e6688d8c953c67cc001dfd134e9f37f2b7b0640",
-                "reference": "8e6688d8c953c67cc001dfd134e9f37f2b7b0640",
+                "url": "https://api.github.com/repos/appstract/laravel-opcache/zipball/3fe6272243c4b0e225757147d7c882affabf8d4f",
+                "reference": "3fe6272243c4b0e225757147d7c882affabf8d4f",
                 "shasum": ""
             },
             "require": {
@@ -65,7 +65,7 @@
                 "laravel",
                 "php"
             ],
-            "time": "2018-01-22T15:34:47+00:00"
+            "time": "2018-04-14T21:12:45+00:00"
         },
         {
             "name": "appstract/lush-http",
