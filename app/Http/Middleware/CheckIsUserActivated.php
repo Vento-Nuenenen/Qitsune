@@ -3,9 +3,10 @@
 namespace App\Http\Middleware;
 
 use App\Models\Activation;
+use Auth;
 use Carbon\Carbon;
 use Closure;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
@@ -42,15 +43,18 @@ class CheckIsUserActivated
                 if ($user && $user->activated != 1) {
                     Log::info('Non-activated user attempted to visit '.$currentRoute.'. ', [$user]);
 
-                    return redirect()->route('activation-required')->with([
-                        'message' => 'Activation is required. ',
-                        'status'  => 'danger',
-                    ]);
+                    return redirect()->route('activation-required')
+                        ->with([
+                            'message' => 'Activation is required. ',
+                            'status'  => 'danger',
+                        ]);
                 }
             }
 
             if ($user && $user->activated != 1) {
-                $activationsCount = Activation::where('user_id', $user->id)->where('created_at', '>=', Carbon::now()->subHours(config('settings.timePeriod')))->count();
+                $activationsCount = Activation::where('user_id', $user->id)
+                    ->where('created_at', '>=', Carbon::now()->subHours(config('settings.timePeriod')))
+                    ->count();
 
                 if ($activationsCount >= config('settings.maxAttempts')) {
                     return redirect()->route('exceeded');

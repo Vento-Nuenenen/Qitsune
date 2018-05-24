@@ -16,6 +16,12 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\SomeEvent' => [
             'App\Listeners\EventListener',
         ],
+        \SocialiteProviders\Manager\SocialiteWasCalled::class => [
+            'SocialiteProviders\YouTube\YouTubeExtendSocialite@handle',
+            'SocialiteProviders\Twitch\TwitchExtendSocialite@handle',
+            'SocialiteProviders\Instagram\InstagramExtendSocialite@handle',
+            'SocialiteProviders\ThirtySevenSignals\ThirtySevenSignalsExtendSocialite@handle',
+        ],
     ];
 
     /**

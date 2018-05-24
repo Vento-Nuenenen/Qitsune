@@ -14,15 +14,14 @@
 */
 
 // Homepage Route
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
 // Authentication Routes
 Auth::routes();
 
 // Public Routes
-Route::group(['middleware' => 'web'], function () {
+Route::group(['middleware' => ['web', 'activity']], function () {
+
     // Activation Routes
     Route::get('/activate', ['as' => 'activate', 'uses' => 'Auth\ActivateController@initial']);
 
@@ -30,15 +29,24 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/activation', ['as' => 'authenticated.activation-resend', 'uses' => 'Auth\ActivateController@resend']);
     Route::get('/exceeded', ['as' => 'exceeded', 'uses' => 'Auth\ActivateController@exceeded']);
 
+    // Socialite Register Routes
+    Route::get('/social/redirect/{provider}', ['as' => 'social.redirect', 'uses' => 'Auth\SocialController@getSocialRedirect']);
+    Route::get('/social/handle/{provider}', ['as' => 'social.handle', 'uses' => 'Auth\SocialController@getSocialHandle']);
+
     // Route to for user to reactivate their user deleted account.
     Route::get('/re-activate/{token}', ['as' => 'user.reactivate', 'uses' => 'RestoreUserController@userReActivate']);
 });
 
 // Registered and Activated User Routes
-Route::group(['middleware' => ['auth', 'activated']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'activity']], function () {
+
     // Activation Routes
     Route::get('/activation-required', ['uses' => 'Auth\ActivateController@activationRequired'])->name('activation-required');
     Route::get('/logout', ['uses' => 'Auth\LoginController@logout'])->name('logout');
+});
+
+// Registered and Activated User Routes
+Route::group(['middleware' => ['auth', 'activated', 'activity', 'twostep']], function () {
 
     //  Homepage Route - Redirect based on user role is in controller.
     Route::get('/home', ['as' => 'public.home',   'uses' => 'UserController@index']);
@@ -51,7 +59,8 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
 });
 
 // Registered, activated, and is current user routes.
-Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity', 'twostep']], function () {
+
     // User Profile and Account Routes
     Route::resource(
         'profile',
@@ -84,19 +93,10 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
 
     // Route to upload user avatar.
     Route::post('avatar/upload', ['as' => 'avatar.upload', 'uses' => 'ProfilesController@upload']);
-
-    Route::group(['prefix' => 'user'], function () {
-        Route::group(['prefix' => 'qr'], function () {
-            Route::get('/scan/{uniqKey}', 'ScanController@showScan');
-        });
-
-        Route::get('/description', 'DescriptionController@showDescription');
-        Route::get('/', 'DescriptionController@showDescription');
-    });
 });
 
 // Registered, activated, and is admin routes.
-Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 'twostep']], function () {
     Route::resource('/users/deleted', 'SoftDeletesController', [
         'only' => [
             'index', 'show', 'update', 'destroy',
@@ -112,6 +112,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function () 
             'deleted',
         ],
     ]);
+    Route::post('search-users', 'UsersManagementController@search')->name('search-users');
 
     Route::resource('themes', 'ThemesManagementController', [
         'names' => [
@@ -120,22 +121,9 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function () 
         ],
     ]);
 
-    Route::group(['prefix' => 'leader'], function () {
-        Route::group(['prefix' => 'qr'], function () {
-            Route::get('/generate', 'GenerateController@showGenerate');
-            Route::get('/generate/do', 'GenerateController@index');
-            Route::get('/download', function () {
-                return response()->download(storage_path('pdf/file/QR-Codes.pdf'));
-            });
-        });
-
-        Route::get('/ranking', 'RankingController@showRanking');
-        Route::get('/', 'RankingController@showRanking');
-    });
-
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-    Route::get('php', 'AdminDetailsController@listPHPInfo');
     Route::get('routes', 'AdminDetailsController@listRoutes');
-
-    Route::get('/ajax/ranking', 'AJAX@ranking');
+    Route::get('active-users', 'AdminDetailsController@activeUsers');
 });
+
+Route::redirect('/php', '/phpinfo', 301);

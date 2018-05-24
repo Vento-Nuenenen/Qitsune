@@ -20,14 +20,14 @@ class UsersTableSeeder extends Seeder
         $userRole = Role::whereName('User')->first();
 
         // Seed test admin
-        $seededNameGen = 'Admin_Admin_Admin';
-        $user = User::where('name_gen', '=', $seededNameGen)->first();
+        $seededAdminEmail = 'admin@admin.com';
+        $user = User::where('email', '=', $seededAdminEmail)->first();
         if ($user === null) {
             $user = User::create([
-                'scoutname'                      => 'Admin',
-                'first_name'                     => 'Admin',
-                'last_name'                      => 'Admin',
-                'name_gen'                       => 'Admin_Admin_Admin',
+                'name'                           => $faker->userName,
+                'first_name'                     => $faker->firstName,
+                'last_name'                      => $faker->lastName,
+                'email'                          => $seededAdminEmail,
                 'password'                       => Hash::make('password'),
                 'token'                          => str_random(64),
                 'activated'                      => true,
@@ -41,13 +41,13 @@ class UsersTableSeeder extends Seeder
         }
 
         // Seed test user
-        $user = User::where('name_gen', '=', 'Test_Test_Test')->first();
+        $user = User::where('email', '=', 'user@user.com')->first();
         if ($user === null) {
             $user = User::create([
-                'scoutname'                      => 'User',
-                'first_name'                     => 'User',
-                'last_name'                      => 'User',
-                'name_gen'                       => 'User_User_User',
+                'name'                           => $faker->userName,
+                'first_name'                     => $faker->firstName,
+                'last_name'                      => $faker->lastName,
+                'email'                          => 'user@user.com',
                 'password'                       => Hash::make('password'),
                 'token'                          => str_random(64),
                 'activated'                      => true,
@@ -59,5 +59,14 @@ class UsersTableSeeder extends Seeder
             $user->attachRole($userRole);
             $user->save();
         }
+
+        // Seed test users
+        // $user = factory(App\Models\Profile::class, 5)->create();
+        // $users = User::All();
+        // foreach ($users as $user) {
+        //     if (!($user->isAdmin()) && !($user->isUnverified())) {
+        //         $user->attachRole($userRole);
+        //     }
+        // }
     }
 }

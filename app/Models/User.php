@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -33,10 +34,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'scoutname',
+        'name',
         'first_name',
         'last_name',
-        'name_gen',
+        'email',
         'password',
         'activated',
         'token',
@@ -68,8 +69,6 @@ class User extends Authenticatable
      * Build Social Relationships.
      *
      * @var array
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function social()
     {
@@ -80,8 +79,6 @@ class User extends Authenticatable
      * User Profile Relationships.
      *
      * @var array
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function profile()
     {
@@ -90,25 +87,15 @@ class User extends Authenticatable
 
     // User Profile Setup - SHould move these to a trait or interface...
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
     public function profiles()
     {
         return $this->belongsToMany('App\Models\Profile')->withTimestamps();
     }
 
-    /**
-     * @param $name_gen
-     *
-     * @return bool
-     *
-     * @internal param $name
-     */
-    public function hasProfile($name_gen)
+    public function hasProfile($name)
     {
         foreach ($this->profiles as $profile) {
-            if ($profile->name_gen == $name_gen) {
+            if ($profile->name == $name) {
                 return true;
             }
         }
@@ -116,19 +103,11 @@ class User extends Authenticatable
         return false;
     }
 
-    /**
-     * @param $profile
-     */
     public function assignProfile($profile)
     {
         return $this->profiles()->attach($profile);
     }
 
-    /**
-     * @param $profile
-     *
-     * @return int
-     */
     public function removeProfile($profile)
     {
         return $this->profiles()->detach($profile);

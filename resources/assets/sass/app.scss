@@ -1,6 +1,6 @@
 
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
 // Variables
 @import "variables";
@@ -12,8 +12,8 @@
 @import "node_modules/font-awesome/scss/font-awesome";
 
 // Dropzone
-@import "node_modules/dropzone/dist/min/basic.min";
-@import "node_modules/dropzone/dist/min/dropzone.min";
+@import "node_modules/dropzone/src/basic";
+@import "node_modules/dropzone/src/dropzone";
 
 // Bootstrap Social Media Buttons - https://github.com/lipis/bootstrap-social
 @import "node_modules/bootstrap-social/bootstrap-social.scss";

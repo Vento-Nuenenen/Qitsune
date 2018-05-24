@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class RestoreUserController extends ProfilesController
 {
@@ -20,11 +21,12 @@ class RestoreUserController extends ProfilesController
     /**
      * User Account Restore.
      *
-     * @param string $token
+     * @param \Illuminate\Http\Request $request
+     * @param string                   $token
      *
      * @return \Illuminate\Http\Response
      */
-    public function userReActivate($token)
+    public function userReActivate(Request $request, $token)
     {
         $userKeys = new ProfilesController();
         $sepKey = $userKeys->getSeperationKey();
@@ -36,6 +38,7 @@ class RestoreUserController extends ProfilesController
         $level3 = base64_decode($level4);
         $level2 = urldecode($level3);
         $level1[] = explode($sepKey, $level2);
+        $uuid = $level1[0][0];
         $userId = $level1[0][1] / $userIdKey;
         $user = SoftDeletesController::getDeletedUser($userId);
 
@@ -54,6 +57,6 @@ class RestoreUserController extends ProfilesController
 
         $user->restore();
 
-        return redirect('/login')->with('success', trans('profile.successUserRestore', ['username' => $user->name_gen]));
+        return redirect('/login')->with('success', trans('profile.successUserRestore', ['username' => $user->name]));
     }
 }

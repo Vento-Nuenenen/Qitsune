@@ -1,4 +1,5 @@
 <script type="text/javascript">
+
 	Dropzone.autoDiscover = false;
 	Dropzone.options.avatarDropzone = {
 	  paramName: "file",
@@ -58,5 +59,7 @@
 	    });
 	  }
 	};
-	var avatarDropzone = new Dropzone("#avatarDropzone")
+
+	var avatarDropzone = new Dropzone("#avatarDropzone");
+
 </script>

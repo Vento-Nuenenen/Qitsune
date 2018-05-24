@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 class WelcomeController extends Controller
 {
     /**
-     * Applikations-Dashboard anzeigen.
+     * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */

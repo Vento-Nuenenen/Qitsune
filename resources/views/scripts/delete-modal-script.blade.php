@@ -1,4 +1,5 @@
 <script type="text/javascript">
+
 	// CONFIRMATION DELETE MODAL
 	$('#confirmDelete').on('show.bs.modal', function (e) {
 		var message = $(e.relatedTarget).attr('data-message');
@@ -11,4 +12,5 @@
 	$('#confirmDelete').find('.modal-footer #confirm').on('click', function(){
 	  	$(this).data('form').submit();
 	});
+
 </script>

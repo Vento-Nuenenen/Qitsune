@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Zeige Benutzer {{ $user->name_gen }}
+  Showing User {{ $user->name }}
 @endsection
 
 @php
@@ -9,14 +9,18 @@
 
   if ($user->level() >= 2) {
       $levelAmount = 'Levels:';
+
   }
 @endphp
 
 @section('content')
+
   <div class="container">
     <div class="row">
       <div class="col-md-12">
+
         <div class="panel panel-danger">
+
           <div class="panel-heading">
             <a href="/users/deleted/" class="btn btn-primary btn-xs pull-right">
               <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
@@ -29,7 +33,7 @@
             <div class="well">
               <div class="row">
                 <div class="col-sm-6">
-                  <img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get('test@test.ch') }} @endif" alt="{{ $user->name_gen }}" id="" class="img-circle center-block margin-bottom-2 margin-top-1 user-image">
+                  <img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get($user->email) }} @endif" alt="{{ $user->name }}" id="" class="img-circle center-block margin-bottom-2 margin-top-1 user-image">
                 </div>
 
                 <div class="col-sm-6">
@@ -41,11 +45,12 @@
                       {{ $user->first_name }} {{ $user->last_name }}
                     </strong>
                     <br />
-                    {{ $user->name_gen }}
+                    {{ HTML::mailto($user->email, $user->email) }}
                   </p>
 
                   @if ($user->profile)
                     <div class="text-center text-left-tablet margin-bottom-1">
+
                       {!! Form::model($user, array('action' => array('SoftDeletesController@update', $user->id), 'method' => 'PUT', 'class' => 'form-inline')) !!}
                           {!! Form::button('<i class="fa fa-refresh fa-fw" aria-hidden="true"></i> Restore User', array('class' => 'btn btn-success btn-block btn-sm', 'type' => 'submit', 'data-toggle' => 'tooltip', 'title' => 'Restore User')) !!}
                       {!! Form::close() !!}
@@ -54,8 +59,10 @@
                           {!! Form::hidden('_method', 'DELETE') !!}
                           {!! Form::button('<i class="fa fa-user-times fa-fw" aria-hidden="true"></i> Delete User', array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Permanently Delete User', 'data-message' => 'Are you sure you want to permanently delete this user?')) !!}
                       {!! Form::close() !!}
+
                     </div>
                   @endif
+
                 </div>
               </div>
             </div>
@@ -98,7 +105,8 @@
             @endif
 
 
-            @if ($user->name_gen)
+            @if ($user->name)
+
               <div class="col-sm-5 col-xs-6 text-larger">
                 <strong>
                   {{ trans('usersmanagement.labelUserName') }}
@@ -106,7 +114,7 @@
               </div>
 
               <div class="col-sm-7">
-                {{ $user->name_gen }}
+                {{ $user->name }}
               </div>
 
               <div class="clearfix"></div>
@@ -258,25 +266,25 @@
 
             <div class="col-sm-7">
               @if($user->canViewUsers())
-                <span class="label label-primary margin-half margin-left-0"">
+                <span class="label label-primary margin-half margin-left-0">
                   {{ trans('permsandroles.permissionView') }}
                 </span>
               @endif
 
               @if($user->canCreateUsers())
-                <span class="label label-info margin-half margin-left-0"">
+                <span class="label label-info margin-half margin-left-0">
                   {{ trans('permsandroles.permissionCreate') }}
                 </span>
               @endif
 
               @if($user->canEditUsers())
-                <span class="label label-warning margin-half margin-left-0"">
+                <span class="label label-warning margin-half margin-left-0">
                   {{ trans('permsandroles.permissionEdit') }}
                 </span>
               @endif
 
               @if($user->canDeleteUsers())
-                <span class="label label-danger margin-half margin-left-0"">
+                <span class="label label-danger margin-half margin-left-0">
                   {{ trans('permsandroles.permissionDelete') }}
                 </span>
               @endif
@@ -410,10 +418,14 @@
       </div>
     </div>
   </div>
+
   @include('modals.modal-delete')
+
 @endsection
 
 @section('footer_scripts')
+
   @include('scripts.delete-modal-script')
   @include('scripts.tooltips')
+
 @endsection

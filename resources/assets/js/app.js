@@ -6,11 +6,8 @@
  */
 
 require('./bootstrap');
-
 require('hideshowpassword');
-
 Dropzone = require('dropzone');
-
 password = require('password-strength-meter');
 
 /**
@@ -19,11 +16,13 @@ password = require('password-strength-meter');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+// Vue.component('example', require('./components/Example.vue'));
 
-// const app = new Vue({
-//     el: '#app'
-// });
+Vue.component('users-count', require('./components/UsersCount.vue'));
+
+const app = new Vue({
+    el: '#app'
+});
 
 $.fn.extend({
 

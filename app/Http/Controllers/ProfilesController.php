@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use App\Models\Theme;
 use App\Models\User;
+use App\Notifications\SendGoodbyeEmail;
 use App\Traits\CaptureIpTrait;
 use File;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 use Image;
 use jeremykenedy\Uuid\Uuid;
 use Validator;
@@ -40,9 +42,13 @@ class ProfilesController extends Controller
     public function profile_validator(array $data)
     {
         return Validator::make($data, [
-            'theme_id'      => '',
-            'avatar'        => '',
-            'avatar_status' => '',
+            'theme_id'         => '',
+            'location'         => '',
+            'bio'              => 'max:500',
+            'twitter_username' => 'max:50',
+            'github_username'  => 'max:50',
+            'avatar'           => '',
+            'avatar_status'    => '',
         ]);
     }
 
@@ -50,30 +56,26 @@ class ProfilesController extends Controller
      * Fetch user
      * (You can extract this to repository method).
      *
-     * @param $name_gen
+     * @param $username
      *
      * @return mixed
-     *
-     * @internal param $username
      */
-    public function getUserByUsername($name_gen)
+    public function getUserByUsername($username)
     {
-        return User::with('profile')->where('name_gen', $name_gen)->firstOrFail();
+        return User::with('profile')->wherename($username)->firstOrFail();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param $name_gen
+     * @param string $username
      *
      * @return Response
-     *
-     * @internal param string $username
      */
-    public function show($name_gen)
+    public function show($username)
     {
         try {
-            $user = $this->getUserByUsername($name_gen);
+            $user = $this->getUserByUsername($username);
         } catch (ModelNotFoundException $exception) {
             abort(404);
         }
@@ -91,21 +93,23 @@ class ProfilesController extends Controller
     /**
      * /profiles/username/edit.
      *
-     * @param $name_gen
+     * @param $username
      *
      * @return mixed
-     *
-     * @internal param $username
      */
-    public function edit($name_gen)
+    public function edit($username)
     {
         try {
-            $user = $this->getUserByUsername($name_gen);
+            $user = $this->getUserByUsername($username);
         } catch (ModelNotFoundException $exception) {
-            return view('pages.status')->with('error', trans('profile.notYourProfile'))->with('error_title', trans('profile.notYourProfileTitle'));
+            return view('pages.status')
+                ->with('error', trans('profile.notYourProfile'))
+                ->with('error_title', trans('profile.notYourProfileTitle'));
         }
 
-        $themes = Theme::where('status', 1)->orderBy('name', 'asc')->get();
+        $themes = Theme::where('status', 1)
+                        ->orderBy('name', 'asc')
+                        ->get();
 
         $currentTheme = Theme::find($user->profile->theme_id);
 
@@ -122,18 +126,17 @@ class ProfilesController extends Controller
     /**
      * Update a user's profile.
      *
-     * @param $name_gen
-     * @param Request $request
+     * @param $username
+     *
+     * @throws Laracasts\Validation\FormValidationException
      *
      * @return mixed
-     *
-     * @internal param $username
      */
-    public function update($name_gen, Request $request)
+    public function update($username, Request $request)
     {
-        $user = $this->getUserByUsername($name_gen);
+        $user = $this->getUserByUsername($username);
 
-        $input = Input::only('theme_id', 'avatar_status');
+        $input = Input::only('theme_id', 'location', 'bio', 'twitter_username', 'github_username', 'avatar_status');
 
         $ipAddress = new CaptureIpTrait();
 
@@ -155,7 +158,7 @@ class ProfilesController extends Controller
 
         $user->save();
 
-        return redirect('profile/'.$user->name_gen.'/edit')->with('success', trans('profile.updateSuccess'));
+        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateSuccess'));
     }
 
     /**
@@ -168,7 +171,7 @@ class ProfilesController extends Controller
     public function validator(array $data)
     {
         return Validator::make($data, [
-            'pfadiname' => 'max:255',
+            'name' => 'required|max:255',
         ]);
     }
 
@@ -182,11 +185,22 @@ class ProfilesController extends Controller
      */
     public function updateUserAccount(Request $request, $id)
     {
+        $currentUser = \Auth::user();
         $user = User::findOrFail($id);
+        $emailCheck = ($request->input('email') != '') && ($request->input('email') != $user->email);
         $ipAddress = new CaptureIpTrait();
-        $name_gen = (($request->input('scoutname') != null) ? $request->input('first_name').'_'.$request->input('scoutname').'_'.$request->input('last_name') : $request->input('first_name').'_'.$request->input('last_name'));
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+        ]);
 
         $rules = [];
+
+        if ($emailCheck) {
+            $rules = [
+                'email' => 'email|max:255|unique:users',
+            ];
+        }
 
         $validator = $this->validator($request->all(), $rules);
 
@@ -194,16 +208,19 @@ class ProfilesController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
-        $user->scoutname = $request->input('scoutname');
+        $user->name = $request->input('name');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
-        $user->name_gen = $name_gen;
+
+        if ($emailCheck) {
+            $user->email = $request->input('email');
+        }
 
         $user->updated_ip_address = $ipAddress->getClientIp();
 
         $user->save();
 
-        return redirect('profile/'.$user->name_gen.'/edit')->with('success', trans('profile.updateAccountSuccess'));
+        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateAccountSuccess'));
     }
 
     /**
@@ -216,6 +233,7 @@ class ProfilesController extends Controller
      */
     public function updateUserPassword(Request $request, $id)
     {
+        $currentUser = \Auth::user();
         $user = User::findOrFail($id);
         $ipAddress = new CaptureIpTrait();
 
@@ -243,7 +261,7 @@ class ProfilesController extends Controller
 
         $user->save();
 
-        return redirect('profile/'.$user->name_gen.'/edit')->with('success', trans('profile.updatePWSuccess'));
+        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updatePWSuccess'));
     }
 
     /**
@@ -298,8 +316,6 @@ class ProfilesController extends Controller
      * @param \Illuminate\Http\Request $request
      * @param int                      $id
      *
-     * @throws \Exception
-     *
      * @return \Illuminate\Http\Response
      */
     public function deleteUserAccount(Request $request, $id)
@@ -318,7 +334,7 @@ class ProfilesController extends Controller
         );
 
         if ($user->id != $currentUser->id) {
-            return redirect('profile/'.$user->name_gen.'/edit')->with('error', trans('profile.errorDeleteNotYour'));
+            return redirect('profile/'.$user->name.'/edit')->with('error', trans('profile.errorDeleteNotYour'));
         }
 
         if ($validator->fails()) {
@@ -341,6 +357,9 @@ class ProfilesController extends Controller
         $user->deleted_ip_address = $ipAddress->getClientIp();
         $user->save();
 
+        // Send Goodbye email notification
+        $this->sendGoodbyEmail($user, $user->token);
+
         // Soft Delete User
         $user->delete();
 
@@ -349,6 +368,19 @@ class ProfilesController extends Controller
         $request->session()->regenerate();
 
         return redirect('/login/')->with('success', trans('profile.successUserAccountDeleted'));
+    }
+
+    /**
+     * Send GoodBye Email Function via Notify.
+     *
+     * @param array  $user
+     * @param string $token
+     *
+     * @return void
+     */
+    public static function sendGoodbyEmail(User $user, $token)
+    {
+        $user->notify(new SendGoodbyeEmail($token));
     }
 
     /**

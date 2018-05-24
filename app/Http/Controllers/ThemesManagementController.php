@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Theme;
 use App\Models\User;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Validator;

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Bearbeite Benutzer {{ $user->name_gen }}
+  Editing User {{ $user->name }}
 @endsection
 
 @section('template_linked_css')
@@ -14,34 +14,54 @@
 @endsection
 
 @section('content')
+
   <div class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <strong>Bearbeite Benutzer:</strong> {{ $user->name_gen }}
+
+            <strong>Editing User:</strong> {{ $user->name }}
+
             <a href="/users/{{$user->id}}" class="btn btn-primary btn-xs pull-right" style="margin-left: 1em;">
               <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
-             Zurück <span class="hidden-xs">zum Benutzer</span>
+             Back  <span class="hidden-xs">to User</span>
             </a>
 
             <a href="/users" class="btn btn-info btn-xs pull-right">
               <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
-              <span class="hidden-xs">Zurück zu den </span>Benutzern
+              <span class="hidden-xs">Back to </span>Users
             </a>
+
           </div>
+
           {!! Form::model($user, array('action' => array('UsersManagementController@update', $user->id), 'method' => 'PUT')) !!}
+
             {!! csrf_field() !!}
+
             <div class="panel-body">
-              <div class="form-group has-feedback row {{ $errors->has('scoutname') ? ' has-error ' : '' }}">
-                {!! Form::label('scoutname', 'Pfadiname' , array('class' => 'col-md-3 control-label')); !!}
+
+              <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
+                {!! Form::label('name', 'Username' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    {!! Form::text('scoutname', old('scoutname'), array('id' => 'scoutname', 'class' => 'form-control', 'placeholder' => trans('forms.ph-scoutname'))) !!}
-                    <label class="input-group-addon" for="scoutname"><i class="fa fa-fw fa-user }}" aria-hidden="true"></i></label>
+                    {!! Form::text('name', old('name'), array('id' => 'name', 'class' => 'form-control', 'placeholder' => trans('forms.ph-username'))) !!}
+                    <label class="input-group-addon" for="name"><i class="fa fa-fw fa-user }}" aria-hidden="true"></i></label>
                   </div>
                 </div>
               </div>
+
+              <div class="form-group has-feedback row {{ $errors->has('email') ? ' has-error ' : '' }}">
+                {!! Form::label('email', 'E-mail' , array('class' => 'col-md-3 control-label')); !!}
+                <div class="col-md-9">
+                  <div class="input-group">
+                    {!! Form::text('email', old('email'), array('id' => 'email', 'class' => 'form-control', 'placeholder' => trans('forms.ph-useremail'))) !!}
+                    <label class="input-group-addon" for="email"><i class="fa fa-fw fa-envelope " aria-hidden="true"></i></label>
+                  </div>
+                </div>
+              </div>
+
+
               <div class="form-group has-feedback row {{ $errors->has('first_name') ? ' has-error ' : '' }}">
                 {!! Form::label('first_name', trans('forms.create_user_label_firstname'), array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
@@ -56,6 +76,7 @@
                   @endif
                 </div>
               </div>
+
               <div class="form-group has-feedback row {{ $errors->has('last_name') ? ' has-error ' : '' }}">
                 {!! Form::label('last_name', trans('forms.create_user_label_lastname'), array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
@@ -123,7 +144,7 @@
                 <div class="col-xs-6">
                   <a href="#" class="btn btn-default btn-block margin-bottom-1 btn-change-pw" title="Change Password">
                     <i class="fa fa-fw fa-lock" aria-hidden="true"></i>
-                    <span></span> Passwort ändern
+                    <span></span> Change Password
                   </a>
                 </div>
                 <div class="col-xs-6">
@@ -141,10 +162,13 @@
 
   @include('modals.modal-save')
   @include('modals.modal-delete')
+
 @endsection
 
 @section('footer_scripts')
+
   @include('scripts.delete-modal-script')
   @include('scripts.save-modal-script')
   @include('scripts.check-changed')
+
 @endsection
