@@ -14,34 +14,15 @@
 */
 
 // Homepage Route
-Route::get('/', 'WelcomeController@welcome')->name('welcome');
+Route::get('/', function(){return view('auth.login');});
 
 // Authentication Routes
 Auth::routes();
-
-// Public Routes
-Route::group(['middleware' => ['web', 'activity']], function () {
-
-    // Activation Routes
-    Route::get('/activate', ['as' => 'activate', 'uses' => 'Auth\ActivateController@initial']);
-
-    Route::get('/activate/{token}', ['as' => 'authenticated.activate', 'uses' => 'Auth\ActivateController@activate']);
-    Route::get('/activation', ['as' => 'authenticated.activation-resend', 'uses' => 'Auth\ActivateController@resend']);
-    Route::get('/exceeded', ['as' => 'exceeded', 'uses' => 'Auth\ActivateController@exceeded']);
-
-    // Socialite Register Routes
-    Route::get('/social/redirect/{provider}', ['as' => 'social.redirect', 'uses' => 'Auth\SocialController@getSocialRedirect']);
-    Route::get('/social/handle/{provider}', ['as' => 'social.handle', 'uses' => 'Auth\SocialController@getSocialHandle']);
-
-    // Route to for user to reactivate their user deleted account.
-    Route::get('/re-activate/{token}', ['as' => 'user.reactivate', 'uses' => 'RestoreUserController@userReActivate']);
-});
 
 // Registered and Activated User Routes
 Route::group(['middleware' => ['auth', 'activated', 'activity']], function () {
 
     // Activation Routes
-    Route::get('/activation-required', ['uses' => 'Auth\ActivateController@activationRequired'])->name('activation-required');
     Route::get('/logout', ['uses' => 'Auth\LoginController@logout'])->name('logout');
 });
 
@@ -86,13 +67,14 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity', '
         'uses' => 'ProfilesController@deleteUserAccount',
     ]);
 
-    // Route to show user avatar
-    Route::get('images/profile/{id}/avatar/{image}', [
-        'uses' => 'ProfilesController@userProfileAvatar',
-    ]);
+	Route::group(['prefix' => 'user'], function () {
+		Route::group(['prefix' => 'qr'], function () {
+			Route::get('/scan/{uniqKey}', 'ScanController@showScan');
+		});
 
-    // Route to upload user avatar.
-    Route::post('avatar/upload', ['as' => 'avatar.upload', 'uses' => 'ProfilesController@upload']);
+		Route::get('/description', 'DescriptionController@showDescription');
+		Route::get('/', 'DescriptionController@showDescription');
+	});
 });
 
 // Registered, activated, and is admin routes.
@@ -124,6 +106,23 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 't
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
     Route::get('routes', 'AdminDetailsController@listRoutes');
     Route::get('active-users', 'AdminDetailsController@activeUsers');
-});
 
-Route::redirect('/php', '/phpinfo', 301);
+	Route::group(['prefix' => 'leader'], function () {
+		Route::group(['prefix' => 'qr'], function () {
+			Route::get('/generate', 'GenerateController@showGenerate');
+			Route::get('/generate/do', 'GenerateController@index');
+			Route::get('/download', function () {
+				return response()->download(storage_path('pdf/file/QR-Codes.pdf'));
+			});
+		});
+
+		Route::get('/ranking', 'RankingController@showRanking');
+		Route::get('/', 'RankingController@showRanking');
+	});
+
+	Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+	Route::get('php', 'AdminDetailsController@listPHPInfo');
+	Route::get('routes', 'AdminDetailsController@listRoutes');
+
+	Route::get('/ajax/ranking', 'AJAX@ranking');
+});

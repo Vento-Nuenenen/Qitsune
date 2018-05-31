@@ -63,21 +63,18 @@ class UsersManagementController extends Controller
     {
         $validator = Validator::make($request->all(),
             [
-                'name'                  => 'required|max:255|unique:users',
-                'first_name'            => '',
-                'last_name'             => '',
-                'email'                 => 'required|email|max:255|unique:users',
+                'scout_name'            => 'max:255',
+                'first_name'            => 'required|max:255',
+                'last_name'             => 'required|max:255',
                 'password'              => 'required|min:6|max:20|confirmed',
                 'password_confirmation' => 'required|same:password',
                 'role'                  => 'required',
             ],
             [
-                'name.unique'         => trans('auth.userNameTaken'),
-                'name.required'       => trans('auth.userNameRequired'),
+                'scout_name.unique'         => trans('auth.userNameTaken'),
+                'scout_name.required'       => trans('auth.userNameRequired'),
                 'first_name.required' => trans('auth.fNameRequired'),
                 'last_name.required'  => trans('auth.lNameRequired'),
-                'email.required'      => trans('auth.emailRequired'),
-                'email.email'         => trans('auth.emailInvalid'),
                 'password.required'   => trans('auth.passwordRequired'),
                 'password.min'        => trans('auth.PasswordMin'),
                 'password.max'        => trans('auth.PasswordMax'),
@@ -93,10 +90,9 @@ class UsersManagementController extends Controller
         $profile = new Profile();
 
         $user = User::create([
-            'name'             => $request->input('name'),
+            'scout_name'             => $request->input('scout_name'),
             'first_name'       => $request->input('first_name'),
             'last_name'        => $request->input('last_name'),
-            'email'            => $request->input('email'),
             'password'         => bcrypt($request->input('password')),
             'token'            => str_random(64),
             'admin_ip_address' => $ipAddress->getClientIp(),
@@ -164,30 +160,21 @@ class UsersManagementController extends Controller
         $emailCheck = ($request->input('email') != '') && ($request->input('email') != $user->email);
         $ipAddress = new CaptureIpTrait();
 
-        if ($emailCheck) {
-            $validator = Validator::make($request->all(), [
-                'name'     => 'required|max:255',
-                'email'    => 'email|max:255|unique:users',
-                'password' => 'present|confirmed|min:6',
-            ]);
-        } else {
-            $validator = Validator::make($request->all(), [
-                'name'     => 'required|max:255',
-                'password' => 'nullable|confirmed|min:6',
-            ]);
-        }
+        $validator = Validator::make($request->all(), [
+        	'scout_name'    => 'max:255',
+	        'first_name'    => 'required|max:255',
+	        'last_name'     => 'required|max:255',
+	        'password'      => 'nullable|confirmed|min:6',
+        ]);
 
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
 
-        $user->name = $request->input('name');
+        $user->scout_name = $request->input('scout_name');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
-
-        if ($emailCheck) {
-            $user->email = $request->input('email');
-        }
+	    $user->activated = 1;
 
         if ($request->input('password') != null) {
             $user->password = bcrypt($request->input('password'));
@@ -200,16 +187,6 @@ class UsersManagementController extends Controller
         }
 
         $user->updated_ip_address = $ipAddress->getClientIp();
-
-        switch ($userRole) {
-            case 3:
-                $user->activated = 0;
-                break;
-
-            default:
-                $user->activated = 1;
-                break;
-        }
 
         $user->save();
 

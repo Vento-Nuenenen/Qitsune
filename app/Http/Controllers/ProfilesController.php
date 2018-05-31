@@ -43,12 +43,6 @@ class ProfilesController extends Controller
     {
         return Validator::make($data, [
             'theme_id'         => '',
-            'location'         => '',
-            'bio'              => 'max:500',
-            'twitter_username' => 'max:50',
-            'github_username'  => 'max:50',
-            'avatar'           => '',
-            'avatar_status'    => '',
         ]);
     }
 

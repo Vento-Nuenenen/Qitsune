@@ -28,28 +28,19 @@ class Handler extends ExceptionHandler
         \Illuminate\Validation\ValidationException::class,
     ];
 
-    /**
-     * Report or log an exception.
-     *
-     * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
-     *
-     * @param \Exception $exception
-     *
-     * @return void
-     */
+	/**
+	 * Report or log an exception.
+	 *
+	 * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
+	 *
+	 * @param \Exception $exception
+	 *
+	 * @return void
+	 * @throws Exception
+	 */
     public function report(Exception $exception)
     {
-        $enableEmailExceptions = config('exceptions.emailExceptionEnabled');
-
-        if ($enableEmailExceptions === '') {
-            $enableEmailExceptions = config('exceptions.emailExceptionEnabledDefault');
-        }
-
-        if ($enableEmailExceptions && $this->shouldReport($exception)) {
-            $this->sendEmail($exception);
-        }
-
-        parent::report($exception);
+           parent::report($exception);
     }
 
     /**
@@ -96,25 +87,5 @@ class Handler extends ExceptionHandler
         }
 
         return redirect()->guest(route('login'));
-    }
-
-    /**
-     * Sends an email upon exception.
-     *
-     * @param \Exception $exception
-     *
-     * @return void
-     */
-    public function sendEmail(Exception $exception)
-    {
-        try {
-            $e = FlattenException::create($exception);
-            $handler = new SymfonyExceptionHandler();
-            $html = $handler->getHtml($e);
-
-            Mail::send(new ExceptionOccured($html));
-        } catch (Exception $exception) {
-            Log::error($exception);
-        }
     }
 }

@@ -65,22 +65,17 @@ class RegisterController extends Controller
 
         return Validator::make($data,
             [
-                'name'                  => 'required|max:255|unique:users',
-                'first_name'            => '',
-                'last_name'             => '',
-                'email'                 => 'required|email|max:255|unique:users',
+                'scout_name'            => 'max:255',
+                'first_name'            => 'required|max:255',
+                'last_name'             => 'required|max:255',
                 'password'              => 'required|min:6|max:30|confirmed',
                 'password_confirmation' => 'required|same:password',
                 'g-recaptcha-response'  => '',
                 'captcha'               => 'required|min:1',
             ],
             [
-                'name.unique'                   => trans('auth.userNameTaken'),
-                'name.required'                 => trans('auth.userNameRequired'),
                 'first_name.required'           => trans('auth.fNameRequired'),
                 'last_name.required'            => trans('auth.lNameRequired'),
-                'email.required'                => trans('auth.emailRequired'),
-                'email.email'                   => trans('auth.emailInvalid'),
                 'password.required'             => trans('auth.passwordRequired'),
                 'password.min'                  => trans('auth.PasswordMin'),
                 'password.max'                  => trans('auth.PasswordMax'),
@@ -103,7 +98,7 @@ class RegisterController extends Controller
         $role = Role::where('slug', '=', 'unverified')->first();
 
         $user = User::create([
-                'name'              => $data['name'],
+                'scout_name'        => $data['scout_name'],
                 'first_name'        => $data['first_name'],
                 'last_name'         => $data['last_name'],
                 'email'             => $data['email'],

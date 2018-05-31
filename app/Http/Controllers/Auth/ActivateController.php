@@ -84,7 +84,6 @@ class ActivateController extends Controller
         }
 
         $data = [
-            'email' => $user->email,
             'date'  => $lastActivation->created_at->format('m/d/Y'),
         ];
 
@@ -111,7 +110,6 @@ class ActivateController extends Controller
                 Log::info('Exceded max resends in last '.config('settings.timePeriod').' hours. '.$currentRoute.'. ', [$user]);
 
                 $data = [
-                    'email' => $user->email,
                     'hours' => config('settings.timePeriod'),
                 ];
 
@@ -122,7 +120,6 @@ class ActivateController extends Controller
         Log::info('Registered attempted to navigate while unactivate. '.$currentRoute.'. ', [$user]);
 
         $data = [
-            'email' => $user->email,
             'date'  => $lastActivation ? $lastActivation->created_at->format('m/d/Y') : null, //
         ];
 
@@ -194,7 +191,6 @@ class ActivateController extends Controller
                 Log::info('Exceded max resends in last '.config('settings.timePeriod').' hours. '.$currentRoute.'. ', [$user]);
 
                 $data = [
-                    'email' => $user->email,
                     'hours' => config('settings.timePeriod'),
                 ];
 
@@ -232,7 +228,6 @@ class ActivateController extends Controller
 
             $data = [
                 'hours'    => config('settings.timePeriod'),
-                'email'    => $user->email,
                 'lastDate' => $lastActivation->created_at->format('m/d/Y'),
             ];
 
