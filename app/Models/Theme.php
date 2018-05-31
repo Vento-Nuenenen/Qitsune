@@ -67,12 +67,13 @@ class Theme extends Model
             $merge);
     }
 
-	/**
-	 * Build Theme Relationships.
-	 *
-	 * @var array
-	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
-	 */
+    /**
+     * Build Theme Relationships.
+     *
+     * @var array
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function profile()
     {
         return $this->hasMany('App\Models\Profile');

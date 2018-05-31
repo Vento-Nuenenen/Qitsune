@@ -14,7 +14,9 @@
 */
 
 // Homepage Route
-Route::get('/', function(){return view('auth.login');});
+Route::get('/', function () {
+    return view('auth.login');
+});
 
 // Authentication Routes
 Auth::routes();
@@ -67,14 +69,14 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity', '
         'uses' => 'ProfilesController@deleteUserAccount',
     ]);
 
-	Route::group(['prefix' => 'user'], function () {
-		Route::group(['prefix' => 'qr'], function () {
-			Route::get('/scan/{uniqKey}', 'ScanController@showScan');
-		});
+    Route::group(['prefix' => 'user'], function () {
+        Route::group(['prefix' => 'qr'], function () {
+            Route::get('/scan/{uniqKey}', 'ScanController@showScan');
+        });
 
-		Route::get('/description', 'DescriptionController@showDescription');
-		Route::get('/', 'DescriptionController@showDescription');
-	});
+        Route::get('/description', 'DescriptionController@showDescription');
+        Route::get('/', 'DescriptionController@showDescription');
+    });
 });
 
 // Registered, activated, and is admin routes.
@@ -107,22 +109,22 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 't
     Route::get('routes', 'AdminDetailsController@listRoutes');
     Route::get('active-users', 'AdminDetailsController@activeUsers');
 
-	Route::group(['prefix' => 'leader'], function () {
-		Route::group(['prefix' => 'qr'], function () {
-			Route::get('/generate', 'GenerateController@showGenerate');
-			Route::get('/generate/do', 'GenerateController@index');
-			Route::get('/download', function () {
-				return response()->download(storage_path('pdf/file/QR-Codes.pdf'));
-			});
-		});
+    Route::group(['prefix' => 'leader'], function () {
+        Route::group(['prefix' => 'qr'], function () {
+            Route::get('/generate', 'GenerateController@showGenerate');
+            Route::get('/generate/do', 'GenerateController@index');
+            Route::get('/download', function () {
+                return response()->download(storage_path('pdf/file/QR-Codes.pdf'));
+            });
+        });
 
-		Route::get('/ranking', 'RankingController@showRanking');
-		Route::get('/', 'RankingController@showRanking');
-	});
+        Route::get('/ranking', 'RankingController@showRanking');
+        Route::get('/', 'RankingController@showRanking');
+    });
 
-	Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-	Route::get('php', 'AdminDetailsController@listPHPInfo');
-	Route::get('routes', 'AdminDetailsController@listRoutes');
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+    Route::get('php', 'AdminDetailsController@listPHPInfo');
+    Route::get('routes', 'AdminDetailsController@listRoutes');
 
-	Route::get('/ajax/ranking', 'AJAX@ranking');
+    Route::get('/ajax/ranking', 'AJAX@ranking');
 });

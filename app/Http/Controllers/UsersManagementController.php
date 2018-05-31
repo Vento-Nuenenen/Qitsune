@@ -73,12 +73,12 @@ class UsersManagementController extends Controller
             [
                 'scout_name.unique'         => trans('auth.userNameTaken'),
                 'scout_name.required'       => trans('auth.userNameRequired'),
-                'first_name.required' => trans('auth.fNameRequired'),
-                'last_name.required'  => trans('auth.lNameRequired'),
-                'password.required'   => trans('auth.passwordRequired'),
-                'password.min'        => trans('auth.PasswordMin'),
-                'password.max'        => trans('auth.PasswordMax'),
-                'role.required'       => trans('auth.roleRequired'),
+                'first_name.required'       => trans('auth.fNameRequired'),
+                'last_name.required'        => trans('auth.lNameRequired'),
+                'password.required'         => trans('auth.passwordRequired'),
+                'password.min'              => trans('auth.PasswordMin'),
+                'password.max'              => trans('auth.PasswordMax'),
+                'role.required'             => trans('auth.roleRequired'),
             ]
         );
 
@@ -91,12 +91,12 @@ class UsersManagementController extends Controller
 
         $user = User::create([
             'scout_name'             => $request->input('scout_name'),
-            'first_name'       => $request->input('first_name'),
-            'last_name'        => $request->input('last_name'),
-            'password'         => bcrypt($request->input('password')),
-            'token'            => str_random(64),
-            'admin_ip_address' => $ipAddress->getClientIp(),
-            'activated'        => 1,
+            'first_name'             => $request->input('first_name'),
+            'last_name'              => $request->input('last_name'),
+            'password'               => bcrypt($request->input('password')),
+            'token'                  => str_random(64),
+            'admin_ip_address'       => $ipAddress->getClientIp(),
+            'activated'              => 1,
         ]);
 
         $user->profile()->save($profile);
@@ -161,10 +161,10 @@ class UsersManagementController extends Controller
         $ipAddress = new CaptureIpTrait();
 
         $validator = Validator::make($request->all(), [
-        	'scout_name'    => 'max:255',
-	        'first_name'    => 'required|max:255',
-	        'last_name'     => 'required|max:255',
-	        'password'      => 'nullable|confirmed|min:6',
+            'scout_name'    => 'max:255',
+            'first_name'    => 'required|max:255',
+            'last_name'     => 'required|max:255',
+            'password'      => 'nullable|confirmed|min:6',
         ]);
 
         if ($validator->fails()) {
@@ -174,7 +174,7 @@ class UsersManagementController extends Controller
         $user->scout_name = $request->input('scout_name');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
-	    $user->activated = 1;
+        $user->activated = 1;
 
         if ($request->input('password') != null) {
             $user->password = bcrypt($request->input('password'));
