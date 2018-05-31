@@ -22,7 +22,7 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
         'scout_name'                     => $faker->unique()->userName,
         'first_name'                     => $faker->firstName,
         'last_name'                      => $faker->lastName,
-	    'name_gen'                       => $faker->firstName.'_'.$faker->unique()->userName.'_'.$faker->lastName,
+        'name_gen'                       => $faker->firstName.'_'.$faker->unique()->userName.'_'.$faker->lastName,
         'email'                          => $faker->unique()->safeEmail,
         'password'                       => $password ?: $password = bcrypt('secret'),
         'token'                          => str_random(64),

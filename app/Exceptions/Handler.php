@@ -2,15 +2,11 @@
 
 namespace App\Exceptions;
 
-use App\Mail\ExceptionOccured;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Support\Facades\Log;
-use Mail;
 use Response;
-use Symfony\Component\Debug\Exception\FlattenException;
-use Symfony\Component\Debug\ExceptionHandler as SymfonyExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
@@ -28,19 +24,20 @@ class Handler extends ExceptionHandler
         \Illuminate\Validation\ValidationException::class,
     ];
 
-	/**
-	 * Report or log an exception.
-	 *
-	 * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
-	 *
-	 * @param \Exception $exception
-	 *
-	 * @return void
-	 * @throws Exception
-	 */
+    /**
+     * Report or log an exception.
+     *
+     * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
+     *
+     * @param \Exception $exception
+     *
+     * @throws Exception
+     *
+     * @return void
+     */
     public function report(Exception $exception)
     {
-           parent::report($exception);
+        parent::report($exception);
     }
 
     /**
