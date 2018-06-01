@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class GameAdmin extends Migration
 {
@@ -13,11 +13,11 @@ class GameAdmin extends Migration
      */
     public function up()
     {
-	    Schema::create('game_admin', function (Blueprint $table) {
-		    $table->increments('id');
-		    $table->integer('code_count');
-		    $table->integer('total_points');
-	    });
+        Schema::create('game_admin', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('code_count');
+            $table->integer('total_points');
+        });
     }
 
     /**
@@ -27,6 +27,6 @@ class GameAdmin extends Migration
      */
     public function down()
     {
-	    Schema::dropIfExists('game_admin');
+        Schema::dropIfExists('game_admin');
     }
 }

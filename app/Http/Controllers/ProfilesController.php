@@ -7,12 +7,9 @@ use App\Models\Theme;
 use App\Models\User;
 use App\Notifications\SendGoodbyeEmail;
 use App\Traits\CaptureIpTrait;
-use File;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
-use Image;
 use jeremykenedy\Uuid\Uuid;
 use Validator;
 use View;
@@ -178,8 +175,8 @@ class ProfilesController extends Controller
 
         $validator = Validator::make($request->all(), [
             'scout_name' => 'max:255',
-	        'first_name' => 'required|max:255',
-	        'last_name'  => 'required|max:255',
+            'first_name' => 'required|max:255',
+            'last_name'  => 'required|max:255',
         ]);
 
         $rules = [];
@@ -241,15 +238,16 @@ class ProfilesController extends Controller
         return redirect('profile/'.$user->name_gen.'/edit')->with('success', trans('profile.updatePWSuccess'));
     }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param \Illuminate\Http\Request $request
-	 * @param int $id
-	 *
-	 * @return \Illuminate\Http\Response
-	 * @throws \Exception
-	 */
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
+     * @throws \Exception
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function deleteUserAccount(Request $request, $id)
     {
         $currentUser = \Auth::user();

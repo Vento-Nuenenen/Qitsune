@@ -88,14 +88,14 @@ class UsersManagementController extends Controller
 
         $ipAddress = new CaptureIpTrait();
         $profile = new Profile();
-	    $name_gen = (($request->input('scout_name') != null) ? $request->input('first_name').'_'.$request->input('scout_name').'_'.$request->input('last_name') : $request->input('first_name').'_'.$request->input('last_name'));
+        $name_gen = (($request->input('scout_name') != null) ? $request->input('first_name').'_'.$request->input('scout_name').'_'.$request->input('last_name') : $request->input('first_name').'_'.$request->input('last_name'));
 
-	    $user = User::create([
+        $user = User::create([
             'scout_name'             => $request->input('scout_name'),
             'first_name'             => $request->input('first_name'),
             'last_name'              => $request->input('last_name'),
             'name_gen'               => $name_gen,
-	        'password'               => bcrypt($request->input('password')),
+            'password'               => bcrypt($request->input('password')),
             'token'                  => str_random(64),
             'admin_ip_address'       => $ipAddress->getClientIp(),
             'activated'              => 1,
@@ -173,9 +173,9 @@ class UsersManagementController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
-	    $name_gen = (($request->input('scout_name') != null) ? $request->input('first_name').'_'.$request->input('scout_name').'_'.$request->input('last_name') : $request->input('first_name').'_'.$request->input('last_name'));
+        $name_gen = (($request->input('scout_name') != null) ? $request->input('first_name').'_'.$request->input('scout_name').'_'.$request->input('last_name') : $request->input('first_name').'_'.$request->input('last_name'));
 
-	    $user->scout_name = $request->input('scout_name');
+        $user->scout_name = $request->input('scout_name');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
         $user->name_gen = $name_gen;
