@@ -170,9 +170,9 @@ return [
         App\Providers\LocalEnvironmentServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         jeremykenedy\laravelexceptionnotifier\LaravelExceptionNotifier::class,
-	    SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
-	    Codedge\Fpdf\FpdfServiceProvider::class,
-	    Appstract\Opcache\OpcacheServiceProvider::class,
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        Codedge\Fpdf\FpdfServiceProvider::class,
+        Appstract\Opcache\OpcacheServiceProvider::class,
 
     ],
 
@@ -225,8 +225,8 @@ return [
         'Input'        => Illuminate\Support\Facades\Input::class,
         'Image'        => Intervention\Image\Facades\Image::class,
         'Uuid'         => Webpatser\Uuid\Uuid::class,
-	    'QrCode'       => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
-	    'PDF'          => Codedge\Fpdf\Facades\Fpdf::class,
+        'QrCode'       => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'PDF'          => Codedge\Fpdf\Facades\Fpdf::class,
     ],
 
 ];
