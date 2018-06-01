@@ -15,9 +15,6 @@ password = require('password-strength-meter');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-// Vue.component('example', require('./components/Example.vue'));
-
 Vue.component('users-count', require('./components/UsersCount.vue'));
 
 const app = new Vue({
@@ -25,7 +22,6 @@ const app = new Vue({
 });
 
 $.fn.extend({
-
 	toggleText: function(a, b){
 	  	return this.text(this.text() == b ? a : b);
 	},

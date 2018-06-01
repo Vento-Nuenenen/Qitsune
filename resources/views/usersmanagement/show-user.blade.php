@@ -31,10 +31,6 @@
             <div class="well">
               <div class="row">
                 <div class="col-sm-6">
-                  <img src="@if ($user->profile && $user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get($user->email) }} @endif" alt="{{ $user->name }}" id="" class="img-circle center-block margin-bottom-2 margin-top-1 user-image">
-                </div>
-
-                <div class="col-sm-6">
                   <h4 class="text-muted margin-top-sm-1 text-center text-left-tablet">
                     {{ $user->scout_name }}
                   </h4>
