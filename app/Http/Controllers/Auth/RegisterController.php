@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Traits\ActivationTrait;
-use App\Traits\CaptchaTrait;
 use App\Traits\CaptureIpTrait;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -95,8 +94,8 @@ class RegisterController extends Controller
                 'scout_name'        => $data['scout_name'],
                 'first_name'        => $data['first_name'],
                 'last_name'         => $data['last_name'],
-	            'name_gen'          => $name_gen,
- 	            'password'          => Hash::make($data['password']),
+                'name_gen'          => $name_gen,
+                'password'          => Hash::make($data['password']),
                 'token'             => str_random(64),
                 'signup_ip_address' => $ipAddress->getClientIp(),
                 'activated'         => !config('settings.activation'),

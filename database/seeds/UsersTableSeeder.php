@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
         $userRole = Role::whereName('User')->first();
 
         // Seed test admin
-	    $seededNameGen = 'Admin_Admin_Admin';
+        $seededNameGen = 'Admin_Admin_Admin';
         $user = User::where('name_gen', '=', $seededNameGen)->first();
         if ($user === null) {
             $user = User::create([
