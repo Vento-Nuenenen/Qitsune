@@ -155,7 +155,6 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         // Laravel\Socialite\SocialiteServiceProvider::class,
@@ -189,12 +188,10 @@ return [
     */
 
     'aliases' => [
-
         'App'          => Illuminate\Support\Facades\App::class,
         'Artisan'      => Illuminate\Support\Facades\Artisan::class,
         'Auth'         => Illuminate\Support\Facades\Auth::class,
         'Blade'        => Illuminate\Support\Facades\Blade::class,
-        'Broadcast'    => Illuminate\Support\Facades\Broadcast::class,
         'Bus'          => Illuminate\Support\Facades\Bus::class,
         'Cache'        => Illuminate\Support\Facades\Cache::class,
         'Config'       => Illuminate\Support\Facades\Config::class,
@@ -225,9 +222,7 @@ return [
         'View'         => Illuminate\Support\Facades\View::class,
         'Form'         => \Collective\Html\FormFacade::class,
         'HTML'         => \Collective\Html\HtmlFacade::class,
-        'Socialite'    => Laravel\Socialite\Facades\Socialite::class,
         'Input'        => Illuminate\Support\Facades\Input::class,
-        'Gravatar'     => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Image'        => Intervention\Image\Facades\Image::class,
         'Uuid'         => Webpatser\Uuid\Uuid::class,
 	    'QrCode'       => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
