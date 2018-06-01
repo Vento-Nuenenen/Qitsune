@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-	{{ $user->name }}'s Profile
+	{{ $user->name_gen }}'s Profile
 @endsection
 
 @section('template_fastload_css')
@@ -26,7 +26,14 @@
 								{{ trans('profile.showProfileUsername') }}
 							</dt>
 							<dd>
-								{{ $user->name }}
+								{{ $user->name_gen }}
+							</dd>
+
+							<dt>
+								Pfadiname
+							</dt>
+							<dd>
+								{{ $user->scout_name }}
 							</dd>
 
 							<dt>

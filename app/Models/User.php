@@ -37,7 +37,7 @@ class User extends Authenticatable
         'scout_name',
         'first_name',
         'last_name',
-        'email',
+        'name_gen',
         'password',
         'activated',
         'token',
@@ -66,18 +66,6 @@ class User extends Authenticatable
     ];
 
     /**
-     * Build Social Relationships.
-     *
-     * @var array
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function social()
-    {
-        return $this->hasMany('App\Models\Social');
-    }
-
-    /**
      * User Profile Relationships.
      *
      * @var array
@@ -96,10 +84,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Profile')->withTimestamps();
     }
 
-    public function hasProfile($name)
+    public function hasProfile($name_gen)
     {
         foreach ($this->profiles as $profile) {
-            if ($profile->name == $name) {
+            if ($profile->name_gen == $name_gen) {
                 return true;
             }
         }

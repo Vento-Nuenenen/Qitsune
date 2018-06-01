@@ -49,6 +49,8 @@
 
         </div>
 
+        @include('cookieConsent::index')
+
         {{-- Scripts --}}
         <script src="{{ mix('/js/app.js') }}"></script>
 

@@ -32,6 +32,27 @@
                             <li {{ Request::is('active-users') ? 'class=active' : null }}>{!! HTML::link(url('/active-users'), Lang::get('titles.activeUsers')) !!}</li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            QR <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li {{ Request::is('user/description') ? 'class=active' : null }}>{!! HTML::link(url('/user/description'), Lang::get('titles.qrDescription')) !!}</li>
+                            <li {{ Request::is('leader/ranking') ? 'class=active' : null }}>{!! HTML::link(url('/leader/ranking'), Lang::get('titles.qrRanking')) !!}</li>
+                            <li {{ Request::is('leader/qr/generate') ? 'class=active' : null }}>{!! HTML::link(url('/leader/qr/generate'), Lang::get('titles.qrGenerator')) !!}</li>
+                        </ul>
+                    </li>
+                @endrole
+
+                @role('user')
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        QR <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li {{ Request::is('user/description') ? 'class=active' : null }}>{!! HTML::link(url('/user/description'), Lang::get('titles.qrDescription')) !!}</li>
+                    </ul>
+                </li>
                 @endrole
             </ul>
 
@@ -51,7 +72,7 @@
                                 <div class="user-avatar-nav"></div>
                             @endif
 
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            {{ Auth::user()->name_gen }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ? 'class=active' : null }}>

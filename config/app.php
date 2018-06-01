@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Qitsune'),
 
     /*
     |--------------------------------------------------------------------------
@@ -171,6 +171,9 @@ return [
         App\Providers\LocalEnvironmentServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         jeremykenedy\laravelexceptionnotifier\LaravelExceptionNotifier::class,
+	    SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+	    Codedge\Fpdf\FpdfServiceProvider::class,
+	    Appstract\Opcache\OpcacheServiceProvider::class,
 
     ],
 
@@ -227,6 +230,8 @@ return [
         'Gravatar'     => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Image'        => Intervention\Image\Facades\Image::class,
         'Uuid'         => Webpatser\Uuid\Uuid::class,
+	    'QrCode'       => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+	    'PDF'          => Codedge\Fpdf\Facades\Fpdf::class,
     ],
 
 ];

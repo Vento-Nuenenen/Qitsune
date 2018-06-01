@@ -13,13 +13,13 @@
 
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-sm-4 control-label">Pfadiname</label>
+                        <div class="form-group{{ $errors->has('scout_name') ? ' has-error' : '' }}">
+                            <label for="scout_name" class="col-sm-4 control-label">Pfadiname</label>
                             <div class="col-sm-6">
-                                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Username', 'id' => 'name', 'required', 'autofocus']) !!}
-                                @if ($errors->has('name'))
+                                {!! Form::text('scout_name', null, ['class' => 'form-control', 'placeholder' => 'Pfadiname', 'id' => 'scout_name', 'required', 'autofocus']) !!}
+                                @if ($errors->has('scout_name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('scout_name') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -49,18 +49,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-sm-4 control-label">E-Mail Address</label>
-                            <div class="col-sm-6">
-                                {!! Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'placeholder' => 'E-Mail Address', 'required']) !!}
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-sm-4 control-label">Passwort</label>
                             <div class="col-sm-6">
@@ -79,13 +67,7 @@
                                 {!! Form::password('password_confirmation', ['class' => 'form-control', 'id' => 'password-confirm', 'placeholder' => 'Confirm Password', 'required']) !!}
                             </div>
                         </div>
-                        @if(config('settings.reCaptchStatus'))
-                            <div class="form-group">
-                                <div class="col-sm-6 col-sm-offset-4">
-                                    <div class="g-recaptcha" data-sitekey="{{ config('settings.reCaptchSite') }}"></div>
-                                </div>
-                            </div>
-                        @endif
+
                         <div class="form-group margin-bottom-2">
                             <div class="col-sm-6 col-sm-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -99,8 +81,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('footer_scripts')
-    <script src='https://www.google.com/recaptcha/api.js'></script>
 @endsection

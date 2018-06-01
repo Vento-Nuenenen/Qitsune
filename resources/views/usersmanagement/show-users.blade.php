@@ -72,8 +72,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>ID</th>
-                                        <th>Username</th>
-                                        <th class="hidden-xs">Email</th>
+                                        <th>Pfadiname</th>
                                         <th class="hidden-xs">First Name</th>
                                         <th class="hidden-xs">Last Name</th>
                                         <th>Role</th>
@@ -88,8 +87,7 @@
                                     @foreach($users as $user)
                                         <tr>
                                             <td>{{$user->id}}</td>
-                                            <td>{{$user->name}}</td>
-                                            <td class="hidden-xs"><a href="mailto:{{ $user->email }}" title="email {{ $user->email }}">{{ $user->email }}</a></td>
+                                            <td>{{$user->scout_name}}</td>
                                             <td class="hidden-xs">{{$user->first_name}}</td>
                                             <td class="hidden-xs">{{$user->last_name}}</td>
                                             <td>

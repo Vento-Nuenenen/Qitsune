@@ -38,7 +38,6 @@ class RestoreUserController extends ProfilesController
         $level3 = base64_decode($level4);
         $level2 = urldecode($level3);
         $level1[] = explode($sepKey, $level2);
-        $uuid = $level1[0][0];
         $userId = $level1[0][1] / $userIdKey;
         $user = SoftDeletesController::getDeletedUser($userId);
 

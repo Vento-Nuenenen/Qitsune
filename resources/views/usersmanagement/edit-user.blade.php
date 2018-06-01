@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Editing User {{ $user->name }}
+  Editing User {{ $user->name_gen }}
 @endsection
 
 @section('template_linked_css')
@@ -21,7 +21,7 @@
         <div class="panel panel-default">
           <div class="panel-heading">
 
-            <strong>Editing User:</strong> {{ $user->name }}
+            <strong>Editing User:</strong> {{ $user->name_gen }}
 
             <a href="/users/{{$user->id}}" class="btn btn-primary btn-xs pull-right" style="margin-left: 1em;">
               <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
@@ -42,11 +42,11 @@
             <div class="panel-body">
 
               <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
-                {!! Form::label('name', 'Username' , array('class' => 'col-md-3 control-label')); !!}
+                {!! Form::label('scout_name', 'Pfadiname' , array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
                   <div class="input-group">
-                    {!! Form::text('name', old('name'), array('id' => 'name', 'class' => 'form-control', 'placeholder' => trans('forms.ph-username'))) !!}
-                    <label class="input-group-addon" for="name"><i class="fa fa-fw fa-user }}" aria-hidden="true"></i></label>
+                    {!! Form::text('scout_name', old('scout_name'), array('id' => 'scout_name', 'class' => 'form-control', 'placeholder' => trans('forms.ph-username'))) !!}
+                    <label class="input-group-addon" for="scout_name"><i class="fa fa-fw fa-user }}" aria-hidden="true"></i></label>
                   </div>
                 </div>
               </div>

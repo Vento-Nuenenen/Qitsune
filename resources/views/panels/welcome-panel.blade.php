@@ -8,7 +8,7 @@
 
 <div class="panel panel-primary @role('admin', true) panel-info  @endrole">
     <div class="panel-heading">
-        Welcome {{ Auth::user()->name }}
+        Welcome {{ Auth::user()->name_gen }}
     </div>
     <div class="panel-body">
         Test

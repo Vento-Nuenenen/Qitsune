@@ -26,7 +26,6 @@ class RegisterController extends Controller
      */
 
     use ActivationTrait;
-    use CaptchaTrait;
     use RegistersUsers;
 
     /**
@@ -57,12 +56,6 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        $data['captcha'] = $this->captchaCheck();
-
-        if (!config('settings.reCaptchStatus')) {
-            $data['captcha'] = true;
-        }
-
         return Validator::make($data,
             [
                 'scout_name'            => 'max:255',
@@ -70,7 +63,6 @@ class RegisterController extends Controller
                 'last_name'             => 'required|max:255',
                 'password'              => 'required|min:6|max:30|confirmed',
                 'password_confirmation' => 'required|same:password',
-                'g-recaptcha-response'  => '',
                 'captcha'               => 'required|min:1',
             ],
             [
@@ -95,14 +87,16 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $ipAddress = new CaptureIpTrait();
-        $role = Role::where('slug', '=', 'unverified')->first();
+        $role = Role::where('slug', '=', 'user')->first();
+
+        $name_gen = (($data['scout_name'] != null) ? $data['first_name'].'_'.$data['scout_name'].'_'.$data['last_name'] : $data['first_name'].'_'.$data['last_name']);
 
         $user = User::create([
                 'scout_name'        => $data['scout_name'],
                 'first_name'        => $data['first_name'],
                 'last_name'         => $data['last_name'],
-                'email'             => $data['email'],
-                'password'          => Hash::make($data['password']),
+	            'name_gen'          => $name_gen,
+ 	            'password'          => Hash::make($data['password']),
                 'token'             => str_random(64),
                 'signup_ip_address' => $ipAddress->getClientIp(),
                 'activated'         => !config('settings.activation'),

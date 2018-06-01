@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Showing User {{ $user->name }}
+  Showing User {{ $user->name_gen }}
 @endsection
 
 @php
@@ -36,20 +36,18 @@
 
                 <div class="col-sm-6">
                   <h4 class="text-muted margin-top-sm-1 text-center text-left-tablet">
-                    {{ $user->name }}
+                    {{ $user->scout_name }}
                   </h4>
                   <p class="text-center text-left-tablet">
                     <strong>
                       {{ $user->first_name }} {{ $user->last_name }}
                     </strong>
-                    <br />
-                    {{ HTML::mailto($user->email, $user->email) }}
                   </p>
 
                   @if ($user->profile)
                     <div class="text-center text-left-tablet margin-bottom-1">
 
-                      <a href="{{ url('/profile/'.$user->name) }}" class="btn btn-sm btn-info">
+                      <a href="{{ url('/profile/'.$user->name_gen) }}" class="btn btn-sm btn-info">
                         <i class="fa fa-eye fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm hidden-md"> {{ trans('usersmanagement.viewProfile') }}</span>
                       </a>
 
@@ -72,7 +70,7 @@
             <div class="clearfix"></div>
             <div class="border-bottom"></div>
 
-            @if ($user->name)
+            @if ($user->name_gen)
 
               <div class="col-sm-5 col-xs-6 text-larger">
                 <strong>
@@ -81,28 +79,11 @@
               </div>
 
               <div class="col-sm-7">
-                {{ $user->name }}
+                {{ $user->name_gen }}
               </div>
 
               <div class="clearfix"></div>
               <div class="border-bottom"></div>
-
-            @endif
-
-            @if ($user->email)
-
-            <div class="col-sm-5 col-xs-6 text-larger">
-              <strong>
-                {{ trans('usersmanagement.labelEmail') }}
-              </strong>
-            </div>
-
-            <div class="col-sm-7">
-              {{ HTML::mailto($user->email, $user->email) }}
-            </div>
-
-            <div class="clearfix"></div>
-            <div class="border-bottom"></div>
 
             @endif
 

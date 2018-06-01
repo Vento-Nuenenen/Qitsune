@@ -54,4 +54,14 @@ class LoginController extends Controller
 
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }
+
+	/**
+	 * Override the username method used to validate login.
+	 *
+	 * @return string
+	 */
+	public function username()
+	{
+		return 'name_gen';
+	}
 }

@@ -56,16 +56,16 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity', '
             ],
         ]
     );
-    Route::put('profile/{username}/updateUserAccount', [
-        'as'   => '{username}',
+    Route::put('profile/{name_gen}/updateUserAccount', [
+        'as'   => '{name_gen}',
         'uses' => 'ProfilesController@updateUserAccount',
     ]);
-    Route::put('profile/{username}/updateUserPassword', [
-        'as'   => '{username}',
+    Route::put('profile/{name_gen}/updateUserPassword', [
+        'as'   => '{name_gen}',
         'uses' => 'ProfilesController@updateUserPassword',
     ]);
-    Route::delete('profile/{username}/deleteUserAccount', [
-        'as'   => '{username}',
+    Route::delete('profile/{name_gen}/deleteUserAccount', [
+        'as'   => '{name_gen}',
         'uses' => 'ProfilesController@deleteUserAccount',
     ]);
 

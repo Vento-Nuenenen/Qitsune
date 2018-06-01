@@ -20,14 +20,14 @@ class UsersTableSeeder extends Seeder
         $userRole = Role::whereName('User')->first();
 
         // Seed test admin
-        $seededAdminEmail = 'admin@admin.com';
-        $user = User::where('email', '=', $seededAdminEmail)->first();
+	    $seededNameGen = 'Admin_Admin_Admin';
+        $user = User::where('name_gen', '=', $seededNameGen)->first();
         if ($user === null) {
             $user = User::create([
-                'name'                           => $faker->userName,
+                'scout_name'                     => $faker->userName,
                 'first_name'                     => $faker->firstName,
                 'last_name'                      => $faker->lastName,
-                'email'                          => $seededAdminEmail,
+                'name_gen'                       => $seededNameGen,
                 'password'                       => Hash::make('password'),
                 'token'                          => str_random(64),
                 'activated'                      => true,
@@ -41,13 +41,13 @@ class UsersTableSeeder extends Seeder
         }
 
         // Seed test user
-        $user = User::where('email', '=', 'user@user.com')->first();
+        $user = User::where('name_gen', '=', 'Test_Test_Test')->first();
         if ($user === null) {
             $user = User::create([
-                'name'                           => $faker->userName,
+                'scout_name'                     => $faker->userName,
                 'first_name'                     => $faker->firstName,
                 'last_name'                      => $faker->lastName,
-                'email'                          => 'user@user.com',
+                'name_gen'                       => 'Test_Test_Test',
                 'password'                       => Hash::make('password'),
                 'token'                          => str_random(64),
                 'activated'                      => true,
@@ -59,14 +59,5 @@ class UsersTableSeeder extends Seeder
             $user->attachRole($userRole);
             $user->save();
         }
-
-        // Seed test users
-        // $user = factory(App\Models\Profile::class, 5)->create();
-        // $users = User::All();
-        // foreach ($users as $user) {
-        //     if (!($user->isAdmin()) && !($user->isUnverified())) {
-        //         $user->attachRole($userRole);
-        //     }
-        // }
     }
 }
