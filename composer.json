@@ -21,7 +21,7 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5",
-        "rap2hpoutre/laravel-log-viewer": "^0.14.3",
+        "rap2hpoutre/laravel-log-viewer": "^0.15.0",
         "simplesoftwareio/simple-qrcode": "^2.0",
         "spatie/laravel-cookie-consent": "^2.0"
     },
