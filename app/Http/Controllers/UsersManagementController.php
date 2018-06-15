@@ -147,13 +147,14 @@ class UsersManagementController extends Controller
         return view('usersmanagement.edit-user')->with($data);
     }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param Request $request
-	 * @param $id
-	 * @return \Illuminate\Http\RedirectResponse
-	 */
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request $request
+     * @param $id
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Request $request, $id)
     {
         $user = User::find($id);

@@ -81,12 +81,13 @@ class ProfilesController extends Controller
         return view('profiles.show')->with($data);
     }
 
-	/**
-	 * /profiles/username/edit.
-	 *
-	 * @param $name_gen
-	 * @return mixed
-	 */
+    /**
+     * /profiles/username/edit.
+     *
+     * @param $name_gen
+     *
+     * @return mixed
+     */
     public function edit($name_gen)
     {
         try {
@@ -113,13 +114,14 @@ class ProfilesController extends Controller
         return view('profiles.edit')->with($data);
     }
 
-	/**
-	 * Update a user's profile.
-	 *
-	 * @param $name_gen
-	 * @param Request $request
-	 * @return mixed
-	 */
+    /**
+     * Update a user's profile.
+     *
+     * @param $name_gen
+     * @param Request $request
+     *
+     * @return mixed
+     */
     public function update($name_gen, Request $request)
     {
         $user = $this->getUserByUsername($name_gen);
