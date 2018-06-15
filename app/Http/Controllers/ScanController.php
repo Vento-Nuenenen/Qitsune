@@ -7,7 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
     class ScanController extends Controller
     {
-        public function showScan($param)
+	    /**
+	     * @param $param
+	     * @return $this|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	     */
+	    public function showScan($param)
         {
             $rawQR = DB::select('SELECT * FROM game_codes WHERE  game_code = ?', [$param]);
             $checkExists = $this->checkCodeExists($param, Auth::user()->name_gen);
@@ -33,12 +37,20 @@ use Illuminate\Support\Facades\Auth;
             }
         }
 
-        private function checkCodeExists($code, $name_gen)
+	    /**
+	     * @param $code
+	     * @param $name_gen
+	     * @return array
+	     */
+	    private function checkCodeExists($code,$name_gen)
         {
             return DB::select('SELECT * FROM users RIGHT JOIN users_codes ON users.id = users_codes.fk_users RIGHT JOIN game_codes ON users_codes.fk_game_codes = game_codes.id WHERE name_gen = ? AND game_code = ?;', [$name_gen, $code]);
         }
 
-        private function calcTotalPoints($name_gen)
+	    /**
+	     * @param $name_gen
+	     */
+	    private function calcTotalPoints($name_gen)
         {
             $allPoints = $this->getAllPointsPerUser($name_gen);
 
@@ -55,14 +67,18 @@ use Illuminate\Support\Facades\Auth;
                 DB::table('users')->where('id', Auth::User()->id)->limit(1)->update(['start' => Carbon::now()->toDateTimeString()]);
             }
 
-            $codeCount = CodeCount::getCodeCount();
+            $codeCount = $this->getCodeCount();
 
             if (count($allPoints) == $codeCount) {
                 DB::table('users')->where('id', Auth::User()->id)->update(['end' => Carbon::now()->toDateTimeString()]);
             }
         }
 
-        private function getAllPointsPerUser($name_gen)
+	    /**
+	     * @param $name_gen
+	     * @return mixed
+	     */
+	    private function getAllPointsPerUser($name_gen)
         {
             $pointsPerUser = DB::select('SELECT points,name_gen FROM users LEFT JOIN users_codes ON users.id = users_codes.fk_users LEFT JOIN game_codes ON users_codes.fk_game_codes = game_codes.id WHERE users.name_gen = ?;', [$name_gen]);
 

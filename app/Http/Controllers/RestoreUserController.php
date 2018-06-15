@@ -18,15 +18,14 @@ class RestoreUserController extends ProfilesController
         $this->middleware('web');
     }
 
-    /**
-     * User Account Restore.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param string                   $token
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function userReActivate(Request $request, $token)
+	/**
+	 * User Account Restore.
+	 *
+	 * @param string $token
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+    public function userReActivate($token)
     {
         $userKeys = new ProfilesController();
         $sepKey = $userKeys->getSeperationKey();

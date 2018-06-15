@@ -147,19 +147,16 @@ class UsersManagementController extends Controller
         return view('usersmanagement.edit-user')->with($data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int                      $id
-     *
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param Request $request
+	 * @param $id
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
     public function update(Request $request, $id)
     {
-        $currentUser = Auth::user();
         $user = User::find($id);
-        $emailCheck = ($request->input('email') != '') && ($request->input('email') != $user->email);
         $ipAddress = new CaptureIpTrait();
 
         $validator = Validator::make($request->all(), [

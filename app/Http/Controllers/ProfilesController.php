@@ -81,13 +81,12 @@ class ProfilesController extends Controller
         return view('profiles.show')->with($data);
     }
 
-    /**
-     * /profiles/username/edit.
-     *
-     * @param $username
-     *
-     * @return mixed
-     */
+	/**
+	 * /profiles/username/edit.
+	 *
+	 * @param $name_gen
+	 * @return mixed
+	 */
     public function edit($name_gen)
     {
         try {
@@ -114,15 +113,13 @@ class ProfilesController extends Controller
         return view('profiles.edit')->with($data);
     }
 
-    /**
-     * Update a user's profile.
-     *
-     * @param $username
-     *
-     * @throws Laracasts\Validation\FormValidationException
-     *
-     * @return mixed
-     */
+	/**
+	 * Update a user's profile.
+	 *
+	 * @param $name_gen
+	 * @param Request $request
+	 * @return mixed
+	 */
     public function update($name_gen, Request $request)
     {
         $user = $this->getUserByUsername($name_gen);
@@ -190,6 +187,7 @@ class ProfilesController extends Controller
         $user->scout_name = $request->input('scout_name');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
+        $user->name_gen = $name_gen;
 
         $user->updated_ip_address = $ipAddress->getClientIp();
 
