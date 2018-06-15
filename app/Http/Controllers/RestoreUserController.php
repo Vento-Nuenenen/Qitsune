@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class RestoreUserController extends ProfilesController
 {
@@ -18,13 +17,13 @@ class RestoreUserController extends ProfilesController
         $this->middleware('web');
     }
 
-	/**
-	 * User Account Restore.
-	 *
-	 * @param string $token
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
+    /**
+     * User Account Restore.
+     *
+     * @param string $token
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function userReActivate($token)
     {
         $userKeys = new ProfilesController();
