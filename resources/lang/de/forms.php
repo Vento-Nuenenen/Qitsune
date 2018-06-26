@@ -11,79 +11,54 @@ return [
     |
     */
 
-    // CREATE NEW USER FORM
-    'create_user_label_email' => 'User Email',
-    'create_user_ph_email'    => 'User Email',
-    'create_user_icon_email'  => 'fa-envelope',
+	// CREATE NEW USER FORM
+	'create_user_label_scoutname' => 'Pfadiname',
+	'create_user_ph_scoutname'    => 'Pfadiname',
+	'create_user_icon_scoutname'  => 'fa-user',
 
-    'create_user_label_username' => 'Username',
-    'create_user_ph_username'    => 'Username',
-    'create_user_icon_username'  => 'fa-user',
+	'create_user_label_firstname' => 'Vorname',
+	'create_user_ph_firstname'    => 'Vorname',
+	'create_user_icon_firstname'  => 'fa-user',
 
-    'create_user_label_firstname' => 'First Name',
-    'create_user_ph_firstname'    => 'First Name',
-    'create_user_icon_firstname'  => 'fa-user',
+	'create_user_label_lastname' => 'Nachname',
+	'create_user_ph_lastname'    => 'Nachname',
+	'create_user_icon_lastname'  => 'fa-user',
 
-    'create_user_label_lastname' => 'Last Name',
-    'create_user_ph_lastname'    => 'Last Name',
-    'create_user_icon_lastname'  => 'fa-user',
+	'create_user_label_password' => 'Passwort',
+	'create_user_ph_password'    => 'Passwort',
+	'create_user_icon_password'  => 'fa-lock',
 
-    'create_user_label_password' => 'Password',
-    'create_user_ph_password'    => 'Password',
-    'create_user_icon_password'  => 'fa-lock',
+	'create_user_label_pw_confirmation' => 'Passwort bestätigen',
+	'create_user_ph_pw_confirmation'    => 'Passwort bestätigen',
+	'create_user_icon_pw_confirmation'  => 'fa-lock',
 
-    'create_user_label_pw_confirmation' => 'Confirm Password',
-    'create_user_ph_pw_confirmation'    => 'Confirm Password',
-    'create_user_icon_pw_confirmation'  => 'fa-lock',
+	'create_user_label_career_title' => 'Benutzer Beruf',
+	'create_user_ph_career_title'    => 'Benutzer Beruf',
+	'create_user_icon_career_title'  => 'fa-briefcase',
 
-    'create_user_label_location' => 'User Location',
-    'create_user_ph_location'    => 'User Location',
-    'create_user_icon_location'  => 'fa-map-marker',
+	'create_user_label_education' => 'Benutzer Ausbildung',
+	'create_user_ph_education'    => 'Benutzer Ausbildung',
+	'create_user_icon_education'  => 'fa-graduation-cap',
 
-    'create_user_label_bio' => 'User Bio',
-    'create_user_ph_bio'    => 'User Bio',
-    'create_user_icon_bio'  => 'fa-pencil',
+	'create_user_label_role' => 'Benutzer Rolle',
+	'create_user_ph_role'    => 'Benutzer Rolle wählen',
+	'create_user_icon_role'  => 'fa-shield',
 
-    'create_user_label_twitter_username' => 'User Twitter Username',
-    'create_user_ph_twitter_username'    => 'User Twitter Username',
-    'create_user_icon_twitter_username'  => 'fa-twitter',
+	'create_user_button_text' => 'Neuen Benutzer erstellen',
 
-    'create_user_label_github_username' => 'User GitHub Username',
-    'create_user_ph_github_username'    => 'User GitHub Username',
-    'create_user_icon_github_username'  => 'fa-github',
+	// EDIT USER AS ADMINISTRATOR FORM
+	'edit-user-admin-title' => 'Benutzer Informationen anpassen',
 
-    'create_user_label_career_title' => 'User Occupation',
-    'create_user_ph_career_title'    => 'User Occupation',
-    'create_user_icon_career_title'  => 'fa-briefcase',
+	'label-scoutname' => 'Pfadiname',
+	'ph-scoutname'    => 'Pfadiname',
 
-    'create_user_label_education' => 'User Education',
-    'create_user_ph_education'    => 'User Education',
-    'create_user_icon_education'  => 'fa-graduation-cap',
+	'label-userrole_id' => 'Benutzer Zugriffs Level',
+	'option-label'      => 'Wähle ein Level',
+	'option-user'       => 'Benutzer',
+	'option-editor'     => 'Editor',
+	'option-admin'      => 'Administrator',
+	'submit-btn-text'   => 'Bearbeite den Benutzer!',
 
-    'create_user_label_role' => 'User Role',
-    'create_user_ph_role'    => 'Select User Role',
-    'create_user_icon_role'  => 'fa-shield',
-
-    'create_user_button_text' => 'Create New User',
-
-    // EDIT USER AS ADMINISTRATOR FORM
-    'edit-user-admin-title' => 'Edit User Information',
-
-    'label-username' => 'Username',
-    'ph-username'    => 'Username',
-
-    'label-useremail' => 'User Email',
-    'ph-useremail'    => 'User Email',
-
-    'label-userrole_id' => 'User Access Level',
-    'option-label'      => 'Select a Level',
-    'option-user'       => 'User',
-    'option-editor'     => 'Editor',
-    'option-admin'      => 'Administrator',
-    'submit-btn-text'   => 'Edit the User!',
-
-    'submit-btn-icon' => 'fa-save',
-    'username-icon'   => 'fa-user',
-    'useremail-icon'  => 'fa-envelope-o',
-
+	'submit-btn-icon' => 'fa-save',
+	'username-icon'   => 'fa-user',
 ];

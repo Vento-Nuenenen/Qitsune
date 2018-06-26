@@ -13,68 +13,54 @@ return [
     |
     */
 
-    'failed'   => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+	'failed'   => 'Diese Daten stimmen nicht mit unseren Infos überein.',
+	'throttle' => 'Das Passwort wurde zu oft falsch Eingegeben. Bitte probiere es in :secons Sekunden noch einmal.',
 
-    // Activation items
-    'sentEmail'        => 'We have sent an email to :email.',
-    'clickInEmail'     => 'Please click the link in it to activate your account.',
-    'anEmailWasSent'   => 'An email was sent to :email on :date.',
-    'clickHereResend'  => 'Click here to resend the email.',
-    'successActivated' => 'Success, your account has been activated.',
-    'unsuccessful'     => 'Your account could not be activated; please try again.',
-    'notCreated'       => 'Your account could not be created; please try again.',
-    'tooManyEmails'    => 'Too many activation emails have been sent to :email. <br />Please try again in <span class="label label-danger">:hours hours</span>.',
-    'regThanks'        => 'Thank you for registering, ',
-    'invalidToken'     => 'Invalid activation token. ',
-    'activationSent'   => 'Activation email sent. ',
-    'alreadyActivated' => 'Already activated. ',
+	// Activation items
+	'successActivated' => 'Dein Konto wurde erfolgreich aktiviert.',
+	'unsuccessful'     => 'Dein Konto konnte nicht aktiviert werden; Bitte probiere es erneut.',
+	'notCreated'       => 'Dein Konto konnte nicht erstellt werden; Bitte probiere es erneut.',
+	'tooManyEmails'    => 'Zu viele aktivierungs Mails wurden an die Adresse :email. <br />Bitte probiere es erneut in <span class="label label-danger">:hours Stunden</span>.',
+	'regThanks'        => 'Danke für die Registrierung,',
+	'alreadyActivated' => 'Bereits aktiviert.',
 
-    // Labels
-    'whoops'          => 'Whoops! ',
-    'someProblems'    => 'There were some problems with your input.',
-    'email'           => 'E-Mail Address',
-    'password'        => 'Password',
-    'rememberMe'      => ' Remember Me',
-    'login'           => 'Login',
-    'forgot'          => 'Forgot Your Password?',
-    'forgot_message'  => 'Password Troubles?',
-    'name'            => 'Username',
-    'first_name'      => 'First Name',
-    'last_name'       => 'Last Name',
-    'confirmPassword' => 'Confirm Password',
-    'register'        => 'Register',
+	// Labels
+	'whoops'          => 'Hoppla! ',
+	'someProblems'    => 'Es sind Probleme mit deinen Eingaben aufgetreten.',
+	'password'        => 'Passwort',
+	'rememberMe'      => ' Eingelogt bleiben',
+	'login'           => 'Login',
+	'forgot'          => 'Passwort vergessen?',
+	'forgot_message'  => 'Passwort probleme?',
+	'name'            => 'Pfadiname',
+	'first_name'      => 'Vorname',
+	'last_name'       => 'Nachname',
+	'confirmPassword' => 'Passwort bestätigen',
+	'register'        => 'Registrieren',
 
-    // Placeholders
-    'ph_name'          => 'Username',
-    'ph_email'         => 'E-mail Address',
-    'ph_firstname'     => 'First Name',
-    'ph_lastname'      => 'Last Name',
-    'ph_password'      => 'Password',
-    'ph_password_conf' => 'Confirm Password',
+	// Placeholders
+	'ph_name'          => 'Pfadiname',
+	'ph_firstname'     => 'Vorname',
+	'ph_lastname'      => 'Nachname',
+	'ph_password'      => 'Passwort',
+	'ph_password_conf' => 'Passwort bestätigen',
 
-    // User flash messages
-    'sendResetLink' => 'Send Password Reset Link',
-    'resetPassword' => 'Reset Password',
-    'loggedIn'      => 'You are logged in!',
+	// User flash messages
+	'sendResetLink' => 'Sende einen Passwort Reset Link',
+	'resetPassword' => 'Passwort zurücksetzen',
+	'loggedIn'      => 'Du wurdest Eingelogt!',
 
-    // email links
-    'pleaseActivate'    => 'Please activate your account.',
-    'clickHereReset'    => 'Click here to reset your password: ',
-    'clickHereActivate' => 'Click here to activate your account: ',
+	// email links
+	'pleaseActivate'    => 'Bitte aktiviere dein Konto.',
+	'clickHereReset'    => 'Klick hier um dein Passwort zurück zu setzen: ',
+	'clickHereActivate' => 'Klick hier um dein Konto zu aktivieren: ',
 
-    // Validators
-    'userNameTaken'    => 'Username is taken',
-    'userNameRequired' => 'Username is required',
-    'fNameRequired'    => 'First Name is required',
-    'lNameRequired'    => 'Last Name is required',
-    'emailRequired'    => 'Email is required',
-    'emailInvalid'     => 'Email is invalid',
-    'passwordRequired' => 'Password is required',
-    'PasswordMin'      => 'Password needs to have at least 6 characters',
-    'PasswordMax'      => 'Password maximum length is 20 characters',
-    'captchaRequire'   => 'Captcha is required',
-    'CaptchaWrong'     => 'Wrong captcha, please try again.',
-    'roleRequired'     => 'User role is required.',
-
+	// Validators
+	'scoutNameRequired' => 'Pfadiname ist notwendig',
+	'fNameRequired'     => 'Vorname ist notwendig',
+	'lNameRequired'     => 'Nachname ist notwendig',
+	'passwordRequired'  => 'Passwort ist notwendig',
+	'PasswordMin'       => 'Passwort muss mindestens sechs zeichen enthalten',
+	'PasswordMax'       => 'Passwort darf höchstens 20 Zeichen enthalten',
+	'roleRequired'      => 'Benutzer-Rolle ist notwendig.',
 ];

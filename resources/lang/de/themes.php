@@ -9,58 +9,58 @@ return [
     |
     */
 
-    // Messages
-    'createSuccess'   => 'Theme created! ',
-    'updateSuccess'   => 'Theme updated! ',
-    'deleteSuccess'   => 'Theme deleted! ',
-    'deleteSelfError' => 'You cannot delete the default theme. ',
+	// Messages
+	'createSuccess'   => 'Thema erstellt!',
+	'updateSuccess'   => 'Thema aktualisiert!',
+	'deleteSuccess'   => 'Thema gelöscht!',
+	'deleteSelfError' => 'Du kannst das Standart-Themanicht löschen.',
 
-    // Shared
-    'statusLabel'    => 'Theme Status',
-    'statusEnabled'  => 'Enabled',
-    'statusDisabled' => 'Disabled',
+	// Shared
+	'statusLabel'    => 'Thema Status',
+	'statusEnabled'  => 'Aktiviert',
+	'statusDisabled' => 'Deaktiviert',
 
-    'nameLabel'       => 'Theme Name *',
-    'namePlaceholder' => 'Enter Theme Name',
+	'nameLabel'       => 'Thema Name *',
+	'namePlaceholder' => 'Gib einen Thema Namen ein',
 
-    'linkLabel'       => 'Theme CSS Link *',
-    'linkPlaceholder' => 'Enter CSS Link',
+	'linkLabel'       => 'Thema CSS Link *',
+	'linkPlaceholder' => 'Gib einen CSS Link ein',
 
-    'notesLabel'       => 'Theme Notes',
-    'notesPlaceholder' => 'Enter Theme Notes',
+	'notesLabel'       => 'Thema Notitzen',
+	'notesPlaceholder' => 'Gib eine Notitz ein',
 
-    'themes' => 'Themes',
+	'themes' => 'Themen',
 
-    // Add Theme
-    'btnAddTheme' => 'Add Theme',
+	// Add Theme
+	'btnAddTheme' => 'Thema hinzufügen',
 
-    // Edit Theme
-    'editTitle' => 'Editing Theme:',
-    'editSave'  => 'Save Theme Changes',
+	// Edit Theme
+	'editTitle' => 'Thema editieren:',
+	'editSave'  => 'Thema Anpassungen speichern',
 
-    // Show Theme
-    'showHeadTitle'    => 'Theme',
-    'showTitle'        => 'Theme Information',
-    'showBackBtn'      => 'Back to Themes',
-    'showUsers'        => 'Theme Users',
-    'showStatus'       => 'Status',
-    'showLink'         => 'CSS Link',
-    'showNotes'        => 'Notes',
-    'showAdded'        => 'Added',
-    'showUpdated'      => 'Updated',
-    'confirmDeleteHdr' => 'Delete Theme',
-    'confirmDelete'    => 'Are you sure you want to delete this theme?',
+	// Show Theme
+	'showHeadTitle'    => 'Thema',
+	'showTitle'        => 'Thema Information',
+	'showBackBtn'      => 'Zurück zu den Themen',
+	'showUsers'        => 'Thema Benutzer',
+	'showStatus'       => 'Status',
+	'showLink'         => 'CSS Link',
+	'showNotes'        => 'Notitzen',
+	'showAdded'        => 'Hinzugefügt',
+	'showUpdated'      => 'Aktualisiert',
+	'confirmDeleteHdr' => 'Thema löschen',
+	'confirmDelete'    => 'Bist du sicher, dass du dieses Thema löschen willst?',
 
-    // Show Themes
-    'themesTitle'     => 'Showing All',
-    'themesStatus'    => 'Status',
-    'themesUsers'     => 'Users',
-    'themesName'      => 'Name',
-    'themesLink'      => 'CSS Link',
-    'themesActions'   => 'Actions',
-    'themesBtnShow'   => 'Show Theme',
-    'themesBtnEdit'   => 'Edit Theme',
-    'themesBtnDelete' => '',
-    'themesBtnEdits'  => '',
+	// Show Themes
+	'themesTitle'     => 'Zeige Alle',
+	'themesStatus'    => 'Status',
+	'themesUsers'     => 'Benutzer',
+	'themesName'      => 'Name',
+	'themesLink'      => 'CSS Link',
+	'themesActions'   => 'Aktionen',
+	'themesBtnShow'   => 'Zeige Thema',
+	'themesBtnEdit'   => 'Bearbeite Thema',
+	'themesBtnDelete' => '',
+	'themesBtnEdits'  => '',
 
 ];

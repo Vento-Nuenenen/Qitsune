@@ -2,34 +2,38 @@
 
 return [
 
-    'app'               => 'Laravel',
-    'app2'              => 'Auth 4.0',
+    'app'               => 'Qitsune',
+    'app2'              => 'Qitsune',
     'home'              => 'Home',
     'login'             => 'Login',
     'logout'            => 'Logout',
-    'register'          => 'Register',
-    'resetPword'        => 'Reset Password',
-    'toggleNav'         => 'Toggle Navigation',
-    'profile'           => 'Profile',
-    'editProfile'       => 'Edit Profile',
-    'createProfile'     => 'Create Profile',
+    'register'          => 'Registrieren',
+	'resetPword'    => 'Password zurücksetzen',
+	'toggleNav'     => 'Navigation ausblenden',
+	'profile'       => 'Profile',
+	'editProfile'   => 'Profile anpassen',
+	'createProfile' => 'Profile erstellen',
 
-    'activation'        => 'Registration Started  | Activation Required',
-    'exceeded'          => 'Activation Error',
+	'activation' => 'Registration gestartet  | Aktivierung notwendig',
+	'exceeded'   => 'Aktivierungsfehler',
 
-    'editProfile'       => 'Edit Profile',
-    'createProfile'     => 'Create Profile',
-    'adminUserList'     => 'Users Administration',
-    'adminEditUsers'    => 'Edit Users',
-    'adminNewUser'      => 'Create New User',
+	'editProfile'    => 'Profile editieren',
+	'createProfile'  => 'Profile erstellen',
+	'adminUserList'  => 'Benutzer Administrieren',
+	'adminEditUsers' => 'Benutzer editieren',
+	'adminNewUser'   => 'Neuen Benutzer erstellen',
 
-    'adminThemesList'   => 'Themes',
-    'adminThemesAdd'    => 'Add New Theme',
+	'adminThemesList' => 'Themen',
+	'adminThemesAdd'  => 'Neues Thema hinzufügen',
 
-    'adminLogs'         => 'Log Files',
+    'adminLogs'         => 'Log Dateien',
     'adminActivity'     => 'Activity Log',
     'adminPHP'          => 'PHP Information',
     'adminRoutes'       => 'Routing Details',
+
+	'qrDescription' => 'Anleitung',
+	'qrRanking'     => 'Rangliste',
+	'qrGenerator'   => 'Codes Generieren',
 
     'activeUsers'       => 'Active Users',
 ];
