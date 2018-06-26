@@ -41,10 +41,10 @@ return [
             'level'  => 'debug',
         ],
 
-	    'airbrake' => [
-		    'driver' => 'custom',
-		    'via' => Kouz\LaravelAirbrake\AirbrakeLogger::class,
-		    'level' => 'error',
-	    ],
+        'airbrake' => [
+            'driver' => 'custom',
+            'via'    => Kouz\LaravelAirbrake\AirbrakeLogger::class,
+            'level'  => 'error',
+        ],
     ],
 ];

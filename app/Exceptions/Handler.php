@@ -37,12 +37,12 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-	    if ($this->shouldReport($exception)) {
-		    $airbrakeNotifier = \App::make('Airbrake\Notifier');
-		    $airbrakeNotifier->notify($exception);
-	    }
+        if ($this->shouldReport($exception)) {
+            $airbrakeNotifier = \App::make('Airbrake\Notifier');
+            $airbrakeNotifier->notify($exception);
+        }
 
-	    parent::report($exception);
+        parent::report($exception);
     }
 
     /**
