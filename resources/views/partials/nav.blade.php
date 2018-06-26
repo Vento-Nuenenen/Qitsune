@@ -67,7 +67,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 
                             @if ((Auth::User()->profile) && Auth::user()->profile->avatar_status == 1)
-                                <img src="{{ Auth::user()->profile->avatar }}" alt="{{ Auth::user()->name }}" class="user-avatar-nav">
+                                <img src="{{ Auth::user()->profile->avatar }}" alt="{{ Auth::user()->name_gen }}" class="user-avatar-nav">
                             @else
                                 <div class="user-avatar-nav"></div>
                             @endif
@@ -75,8 +75,8 @@
                             {{ Auth::user()->name_gen }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ? 'class=active' : null }}>
-                                {!! HTML::link(url('/profile/'.Auth::user()->name), trans('titles.profile')) !!}
+                            <li {{ Request::is('profile/'.Auth::user()->name_gen, 'profile/'.Auth::user()->name_gen . '/edit') ? 'class=active' : null }}>
+                                {!! HTML::link(url('/profile/'.Auth::user()->name_gen), trans('titles.profile')) !!}
                             </li>
                             <li>
                                 <a href="{{ route('logout') }}"
