@@ -1,25 +1,25 @@
 <?php
-    /**
-     * Created by PhpStorm.
-     * User: caspa
-     * Date: 31.05.2018
-     * Time: 11:35.
-     */
+/**
+ * Created by PhpStorm.
+ * User: caspa
+ * Date: 31.05.2018
+ * Time: 11:35.
+ */
 
 namespace App\Http\Controllers;
 
 use DB;
 
-    class AJAX extends Controller
+class AJAX extends Controller
+{
+    public function ranking()
     {
-        public function ranking()
-        {
-            CodeCount::setRank();
+        CodeCount::setRank();
 
-            $rankObj = DB::select('SELECT * FROM users WHERE total_points > 0 ORDER BY total_points DESC,rank;');
-            $rankArray = json_decode(json_encode($rankObj), true);
-            $userRank = count($rankArray);
+        $rankObj = DB::select('SELECT * FROM users WHERE total_points > 0 ORDER BY total_points DESC,rank;');
+        $rankArray = json_decode(json_encode($rankObj), true);
+        $userRank = count($rankArray);
 
-            return view('leader.ranking', ['rankArray' => $rankArray, 'userRank' => $userRank])->renderSections()['dynamicRanking'];
-        }
+        return view('leader.ranking', ['rankArray' => $rankArray, 'userRank' => $userRank])->renderSections()['dynamicRanking'];
     }
+}

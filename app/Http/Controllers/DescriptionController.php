@@ -1,10 +1,10 @@
 <?php
-    /**
-     * Created by PhpStorm.
-     * User: caspa
-     * Date: 31.05.2018
-     * Time: 12:09.
-     */
+/**
+ * Created by PhpStorm.
+ * User: caspa
+ * Date: 31.05.2018
+ * Time: 12:09.
+ */
 
 namespace App\Http\Controllers;
 
