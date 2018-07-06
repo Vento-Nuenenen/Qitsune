@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "chart.js": "^2.7.1",
-    "dropzone": "^4.3.0",
+    "dropzone": "^5.5.0",
     "hideshowpassword": "^2.0.4",
     "moment": "^2.22.2",
     "password-strength-meter": "^1.2.1"
