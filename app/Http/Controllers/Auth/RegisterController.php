@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Traits\ActivationTrait;
-use App\Traits\CaptureIpTrait;
-use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use jeremykenedy\LaravelRoles\Models\Role;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -22,9 +19,8 @@ class RegisterController extends Controller
     | validation and creation. By default this controller uses a trait to
     | provide this functionality without requiring any additional code.
     |
-     */
+    */
 
-    use ActivationTrait;
     use RegistersUsers;
 
     /**
@@ -32,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/activate';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -41,69 +37,36 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', [
-            'except' => 'logout',
-        ]);
+        $this->middleware('guest');
     }
 
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param array $data
-     *
+     * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
-        return Validator::make($data,
-            [
-                'scout_name'            => 'max:255',
-                'first_name'            => 'required|max:255',
-                'last_name'             => 'required|max:255',
-                'password'              => 'required|min:6|max:30|confirmed',
-                'password_confirmation' => 'required|same:password',
-                'captcha'               => 'required|min:1',
-            ],
-            [
-                'first_name.required'           => trans('auth.fNameRequired'),
-                'last_name.required'            => trans('auth.lNameRequired'),
-                'password.required'             => trans('auth.passwordRequired'),
-                'password.min'                  => trans('auth.PasswordMin'),
-                'password.max'                  => trans('auth.PasswordMax'),
-                'g-recaptcha-response.required' => trans('auth.captchaRequire'),
-                'captcha.min'                   => trans('auth.CaptchaWrong'),
-            ]
-        );
+        return Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param array $data
-     *
-     * @return User
+     * @param  array  $data
+     * @return \App\User
      */
     protected function create(array $data)
     {
-        $ipAddress = new CaptureIpTrait();
-        $role = Role::where('slug', '=', 'user')->first();
-
-        $name_gen = (($data['scout_name'] != null) ? $data['first_name'].'_'.$data['scout_name'].'_'.$data['last_name'] : $data['first_name'].'_'.$data['last_name']);
-
-        $user = User::create([
-                'scout_name'        => $data['scout_name'],
-                'first_name'        => $data['first_name'],
-                'last_name'         => $data['last_name'],
-                'name_gen'          => $name_gen,
-                'password'          => Hash::make($data['password']),
-                'token'             => str_random(64),
-                'signup_ip_address' => $ipAddress->getClientIp(),
-                'activated'         => !config('settings.activation'),
-            ]);
-
-        $user->attachRole($role);
-        $this->initiateEmailActivation($user);
-
-        return $user;
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
     }
 }
