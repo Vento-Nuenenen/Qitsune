@@ -39,6 +39,6 @@ class LoginController extends Controller
 
     public function username()
     {
-      return 'name_gen';
+        return 'name_gen';
     }
 }
