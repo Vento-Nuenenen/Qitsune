@@ -39,9 +39,13 @@ class CodeCount extends Controller
      */
     public static function getTotalPoints()
     {
-        $totalPoints = DB::table('game_admin')->select('total_points')->first()->total_points;
+        $totalPoints = DB::table('game_admin')->select('total_points')->first();
 
-        return $totalPoints;
+        if($totalPoints){
+	        return $totalPoints->total_points;
+        }else{
+        	return 0;
+        }
     }
 
     public static function setRank()

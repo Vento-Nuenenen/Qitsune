@@ -9,7 +9,6 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>@if (trim($__env->yieldContent('template_title')))@yield('template_title') | @endif {{ config('app.name', Lang::get('titles.app')) }}</title>
-        <meta name="description" content="">
         <link rel="shortcut icon" href="/favicon.ico">
 
         {{-- Fonts --}}
@@ -34,7 +33,6 @@
         @endif
 
         @yield('head')
-
     </head>
     <body>
         <div id="app">
@@ -46,8 +44,6 @@
 
             @yield('content')
         </div>
-
-        @include('cookieConsent::index')
 
         {{-- Scripts --}}
         <script src="{{ mix('/js/app.js') }}"></script>

@@ -19,7 +19,6 @@
         .users-table.table-responsive table {
             margin-bottom: 0;
         }
-
     </style>
 @endsection
 

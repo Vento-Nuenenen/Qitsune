@@ -5,13 +5,11 @@
 @endsection
 
 @section('template_fastload_css')
-
 	#map-canvas{
 		min-height: 300px;
 		height: 100%;
 		width: 100%;
 	}
-
 @endsection
 
 @section('content')
@@ -20,23 +18,16 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-
 						{{ trans('profile.showProfileTitle',['username' => $user->name_gen]) }}
-
 					</div>
 					<div class="panel-body">
-
-    					<img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get('test@test.ch') }} @endif" alt="{{ $user->name_gen }}" class="user-avatar">
-
 						<dl class="user-info">
-
 							<dt>
 								{{ trans('profile.showProfileUsername') }}
 							</dt>
 							<dd>
 								{{ $user->name_gen }}
 							</dd>
-
 							<dt>
 								{{ trans('profile.showProfileFirstName') }}
 							</dt>

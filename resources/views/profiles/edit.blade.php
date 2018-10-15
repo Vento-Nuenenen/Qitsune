@@ -17,11 +17,6 @@
 							</button>
 							<ul class="dropdown-menu">
 								<li class="active">
-									<a data-toggle="pill" href=".edit_profile" class="profile-trigger">
-										{{ trans('profile.editProfileTitle') }}
-									</a>
-								</li>
-								<li>
 									<a data-toggle="pill" href=".edit_settings" class="settings-trigger">
 										{{ trans('profile.editAccountTitle') }}
 									</a>
@@ -34,10 +29,7 @@
 							</ul>
 						</div>
 						<div class="tab-content">
-							<span class="tab-pane active edit_profile">
-								{{ trans('profile.editProfileTitle') }}
-							</span>
-							<span class="tab-pane edit_settings">
+							<span class="tab-pane active edit_settings">
 								{{ trans('profile.editAccountTitle') }}
 							</span>
 							<span class="tab-pane edit_account">
@@ -49,80 +41,7 @@
 						@if ($user->profile)
 							@if (Auth::user()->id == $user->id)
 								<div class="tab-content">
-									<div class="tab-pane fade in active edit_profile">
-										<div class="row">
-											<div class="col-sm-12">
-												<div id="avatar_container">
-													<div class="collapseOne panel-collapse collapse @if($user->profile->avatar_status == 0) in @endif">
-														<div class="panel-body">
-															<img src="{{  Gravatar::get('test@test.ch') }}" alt="{{ $user->name_gen }}" class="user-avatar">
-														</div>
-													</div>
-													<div class="collapseTwo panel-collapse collapse @if($user->profile->avatar_status == 1) in @endif">
-														<div class="panel-body">
-															<div class="dz-preview"></div>
-															{!! Form::open(array('route' => 'avatar.upload', 'method' => 'POST', 'name' => 'avatarDropzone','id' => 'avatarDropzone', 'class' => 'form single-dropzone dropzone single', 'files' => true)) !!}
-																<img id="user_selected_avatar" class="user-avatar" src="@if ($user->profile->avatar != NULL) {{ $user->profile->avatar }} @endif" alt="{{ $user->name_gen }}">
-															{!! Form::close() !!}
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										{!! Form::model($user->profile, ['method' => 'PATCH', 'route' => ['profile.update', $user->name_gen],  'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data'  ]) !!}
-											{{ csrf_field() }}
-											<div class="row">
-												<div class="col-sm-5 col-sm-offset-4 margin-bottom-1">
-													<div class="row" data-toggle="buttons">
-														<div class="col-xs-6 right-btn-container">
-															<label class="btn btn-primary @if($user->profile->avatar_status == 0) active @endif btn-block btn-sm" data-toggle="collapse" data-target=".collapseOne:not(.in), .collapseTwo.in">
-																<input type="radio" name="avatar_status" id="option1" autocomplete="off" value="0" @if($user->profile->avatar_status == 0) checked @endif> Use Gravatar
-															</label>
-														</div>
-														<div class="col-xs-6 left-btn-container">
-															<label class="btn btn-primary @if($user->profile->avatar_status == 1) active @endif btn-block btn-sm" data-toggle="collapse" data-target=".collapseOne.in, .collapseTwo:not(.in)">
-																<input type="radio" name="avatar_status" id="option2" autocomplete="off" value="1" @if($user->profile->avatar_status == 1) checked @endif> Use My Image
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="form-group has-feedback {{ $errors->has('theme') ? ' has-error ' : '' }}">
-												{!! Form::label('theme', trans('profile.label-theme') , array('class' => 'col-sm-4 control-label')); !!}
-												<div class="col-sm-6">
-													<select class="form-control" name="theme_id" id="theme_id">
-														@if ($themes->count())
-															@foreach($themes as $theme)
-															  <option value="{{ $theme->id }}"{{ $currentTheme->id == $theme->id ? 'selected="selected"' : '' }}>{{ $theme->name }}</option>
-															@endforeach
-														@endif
-													</select>
-													<span class="glyphicon {{ $errors->has('theme') ? ' glyphicon-asterisk ' : ' ' }} form-control-feedback" aria-hidden="true"></span>
-											        @if ($errors->has('theme'))
-											            <span class="help-block">
-											                <strong>{{ $errors->first('theme') }}</strong>
-											            </span>
-											        @endif
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="col-sm-6 col-sm-offset-4">
-													{!! Form::button(
-														'<i class="fa fa-fw fa-save" aria-hidden="true"></i> ' . trans('profile.submitButton'),
-														 array(
-															'class' 		 	=> 'btn btn-success disableddd',
-															'type' 			 	=> 'button',
-															'data-target' 		=> '#confirmForm',
-															'data-modalClass' 	=> 'modal-success',
-															'data-toggle' 		=> 'modal',
-															'data-title' 		=> trans('modals.edit_user__modal_text_confirm_title'),
-															'data-message' 		=> trans('modals.edit_user__modal_text_confirm_message')
-													)) !!}
-												</div>
-											</div>
-										{!! Form::close() !!}
-									</div>
-									<div class="tab-pane fade edit_settings">
+									<div class="tab-pane fade in active edit_settings">
 										{!! Form::model($user, array('action' => array('ProfilesController@updateUserAccount', $user->id), 'method' => 'PUT', 'id' => 'user_basics_form')) !!}
 											{!! csrf_field() !!}
 								            <div class="form-group has-feedback row {{ $errors->has('scoutname') ? ' has-error ' : '' }}">
@@ -305,8 +224,6 @@
 
 @section('footer_scripts')
 	@include('scripts.form-modal-script')
-	@include('scripts.gmaps-address-lookup-api3')
-	@include('scripts.user-avatar-dz')
 
 	<script type="text/javascript">
 		$('.dropdown-menu li a').click(function() {

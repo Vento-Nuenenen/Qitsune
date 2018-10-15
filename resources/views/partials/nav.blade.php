@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
             </button>
             {{-- Branding Image --}}
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand" href="{{ url('/home') }}">
                 {!! trans('titles.app') !!}
             </a>
         </div>
@@ -62,13 +62,6 @@
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-
-                            @if ((Auth::User()->profile) && Auth::user()->profile->avatar_status == 1)
-                                <img src="{{ Auth::user()->profile->avatar }}" alt="{{ Auth::user()->name_gen }}" class="user-avatar-nav">
-                            @else
-                                <div class="user-avatar-nav"></div>
-                            @endif
-
                             {{ Auth::user()->name_gen }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">

@@ -164,11 +164,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
-         */
-        Laravel\Tinker\TinkerServiceProvider::class,
-
-        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
@@ -181,14 +176,12 @@ return [
         App\Providers\MacroServiceProvider::class,
         jeremykenedy\LaravelRoles\RolesServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
-        Creativeorange\Gravatar\GravatarServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         App\Providers\LocalEnvironmentServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         jeremykenedy\laravelexceptionnotifier\LaravelExceptionNotifier::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         Codedge\Fpdf\FpdfServiceProvider::class,
-        Appstract\Opcache\OpcacheServiceProvider::class,
 
     ],
 
@@ -204,7 +197,6 @@ return [
     */
 
     'aliases' => [
-
         'App'          => Illuminate\Support\Facades\App::class,
         'Artisan'      => Illuminate\Support\Facades\Artisan::class,
         'Auth'         => Illuminate\Support\Facades\Auth::class,
@@ -240,9 +232,7 @@ return [
         'View'         => Illuminate\Support\Facades\View::class,
         'Form'         => \Collective\Html\FormFacade::class,
         'HTML'         => \Collective\Html\HtmlFacade::class,
-        'Socialite'    => Laravel\Socialite\Facades\Socialite::class,
         'Input'        => Illuminate\Support\Facades\Input::class,
-        'Gravatar'     => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Image'        => Intervention\Image\Facades\Image::class,
         'Uuid'         => Webpatser\Uuid\Uuid::class,
         'QrCode'       => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
