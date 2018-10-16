@@ -10,17 +10,16 @@
   "devDependencies": {
     "axios": "^0.18.0",
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-social": "^5.1.1",
     "cross-env": "^5.2.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
-    "laravel-mix": "^2.1.11",
-    "lodash": "^4.17.10",
-    "vue": "^2.5.16"
+    "laravel-mix": "^2.1.14",
+    "lodash": "^4.17.11",
+    "vue": "^2.5.17"
   },
   "dependencies": {
-    "dropzone": "^5.4.0",
-    "hideshowpassword": "^2.0.10",
-    "password-strength-meter": "^1.1.2"
+    "dropzone": "^5.5.0",
+    "hideshowpassword": "^2.1.1",
+    "password-strength-meter": "^1.2.1"
   }
 }

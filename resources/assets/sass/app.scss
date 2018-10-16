@@ -1,7 +1,3 @@
-
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
 // Variables
 @import "variables";
 
@@ -14,9 +10,6 @@
 // Dropzone
 @import "node_modules/dropzone/dist/min/basic.min";
 @import "node_modules/dropzone/dist/min/dropzone.min";
-
-// Bootstrap Social Media Buttons - https://github.com/lipis/bootstrap-social
-@import "node_modules/bootstrap-social/bootstrap-social.scss";
 
 // Mixins
 @import "mixins";
@@ -45,26 +38,14 @@
 // Components
 @import "modals";
 
-// Socials
-@import "socials";
-
 // Forms
 @import "forms";
 
 // Lists
 @import "lists";
 
-// Avatars
-@import "avatar";
-
-// Logs
-@import "logs";
-
 // Password Strength Meter
 @import "password";
 
 // Hide Show Password
 @import "hideShowPassword";
-
-// PHP Info Styling
-@import "php-info";
