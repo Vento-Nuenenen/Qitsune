@@ -178,7 +178,6 @@ return [
         App\Providers\ComposerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         App\Providers\LocalEnvironmentServiceProvider::class,
-        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         jeremykenedy\laravelexceptionnotifier\LaravelExceptionNotifier::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         Codedge\Fpdf\FpdfServiceProvider::class,
