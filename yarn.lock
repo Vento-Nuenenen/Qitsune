@@ -3385,7 +3385,7 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
-jquery@>=1.11, jquery@>=1.14.0, jquery@^3.2:
+jquery@>=1.11, jquery@^3.2:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
@@ -4519,11 +4519,9 @@ pascalcase@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
 
-password-strength-meter@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/password-strength-meter/-/password-strength-meter-1.2.1.tgz#38bd327381844c07d667ef3f61d5ef89489f491e"
-  dependencies:
-    jquery ">=1.14.0"
+password-strength-meter@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/password-strength-meter/-/password-strength-meter-1.2.2.tgz#679ecdccd59f80c6558042d30feaa647d0e1bd5c"
 
 path-browserify@0.0.0:
   version "0.0.0"
