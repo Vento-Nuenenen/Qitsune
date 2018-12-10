@@ -15,7 +15,7 @@
     "jquery": "^3.2",
     "laravel-mix": "^3.0.0",
     "lodash": "^4.17.11",
-    "vue": "^2.5.17"
+    "vue": "^2.5.19"
   },
   "dependencies": {
     "chart.js": "^2.7.3",
