@@ -32,7 +32,7 @@ return [
     'channels' => [
         'stack' => [
             'driver'   => 'stack',
-            'channels' => ['single', 'airbrake'],
+            'channels' => ['single', 'daily'],
         ],
 
         'single' => [
@@ -41,10 +41,11 @@ return [
             'level'  => 'debug',
         ],
 
-        'airbrake' => [
-            'driver' => 'custom',
-            'via'    => Kouz\LaravelAirbrake\AirbrakeLogger::class,
-            'level'  => 'error',
-        ],
+	    'daily' => [
+		    'driver' => 'daily',
+		    'path'   => storage_path('logs/laravel.log'),
+		    'level'  => 'debug',
+		    'days'   => 7,
+	    ],
     ],
 ];
