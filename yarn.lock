@@ -3176,10 +3176,10 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
-hideshowpassword@^2.0.4:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/hideshowpassword/-/hideshowpassword-2.1.1.tgz#bf9be986d30b30f9ebad780dbc6183bbabcd3d31"
-  integrity sha512-/5s2JeMDzMI9xNE77yZpw07jN+pcc91Rk9k7vv4YkA7DzjXre9qgMKpgg75zNwI6OITK7rLV2S4aaFLAdDsqNw==
+hideshowpassword@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/hideshowpassword/-/hideshowpassword-2.2.0.tgz#59c8e8b98415536dc08ec57214a39481b5be439e"
+  integrity sha512-7N3H9v7mg0gZN5K8vIufps0s7KTYAXQ6C52LUDG880FrD5BDECICa1GaRXyZbR+zieC7p9T+cvmttR7mkxD2Hw==
   dependencies:
     jquery ">=1.11"
 
