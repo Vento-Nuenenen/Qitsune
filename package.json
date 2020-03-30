@@ -29,6 +29,6 @@
     "dropzone": "^5.7.0",
     "hideshowpassword": "^2.2.0",
     "moment": "^2.24.0",
-    "password-strength-meter": "^1.2.2"
+    "password-strength-meter": "^2.1.0"
   }
 }
