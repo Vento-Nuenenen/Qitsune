@@ -28,7 +28,7 @@
     "chart.js": "^2.9.3",
     "dropzone": "^5.7.0",
     "hideshowpassword": "^2.2.0",
-    "moment": "^2.24.0",
+    "moment": "^2.25.1",
     "password-strength-meter": "^2.1.0"
   }
 }
