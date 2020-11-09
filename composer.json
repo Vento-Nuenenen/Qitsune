@@ -16,7 +16,7 @@
         "jeremykenedy/laravel-logger": "^3.0",
         "jeremykenedy/laravel-roles": "^4.0",
         "jeremykenedy/uuid": "^3.1",
-        "kouz/laravel-airbrake": "^0.6.0",
+        "kouz/laravel-airbrake": "^0.7.0",
         "laravel/framework": "5.8.*",
         "laravelcollective/html": "^5.5",
         "rap2hpoutre/laravel-log-viewer": "^1.0.0",
