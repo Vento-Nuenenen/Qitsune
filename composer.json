@@ -9,7 +9,7 @@
         "appstract/laravel-opcache": "^3.0",
         "barryvdh/laravel-debugbar": "^3.0",
         "codedge/laravel-fpdf": "^1.2",
-        "doctrine/dbal": "^2.5",
+        "doctrine/dbal": "^3.0",
         "fideloper/proxy": "~4.0",
         "intervention/image": "^2.4",
         "jeremykenedy/laravel-https": "^1.1",
