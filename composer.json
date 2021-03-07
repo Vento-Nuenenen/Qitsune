@@ -6,7 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=7.1.3",
-        "appstract/laravel-opcache": "3.2.1",
+        "appstract/laravel-opcache": "4.0.2",
         "barryvdh/laravel-debugbar": "3.5.2",
         "codedge/laravel-fpdf": "1.7.2",
         "doctrine/dbal": "3.0.0",
