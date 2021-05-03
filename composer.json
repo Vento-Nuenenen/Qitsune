@@ -14,7 +14,7 @@
         "intervention/image": "2.5.1",
         "jeremykenedy/laravel-https": "1.4.0",
         "jeremykenedy/laravel-logger": "4.2.0",
-        "jeremykenedy/laravel-roles": "5.1.0",
+        "jeremykenedy/laravel-roles": "6.0.0",
         "jeremykenedy/uuid": "3.1.0",
         "kouz/laravel-airbrake": "0.7.0",
         "laravel/framework": "5.8.38",
