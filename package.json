@@ -23,7 +23,7 @@
     "moment": "2.29.1",
     "password-strength-meter": "2.1.0",
     "popper.js": "1.16.1",
-    "postcss": "8.3.5",
+    "postcss": "8.3.6",
     "resolve-url-loader": "4.0.0",
     "sass": "1.35.2",
     "sass-loader": "12.1.0",
