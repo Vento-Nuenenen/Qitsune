@@ -26,7 +26,7 @@
         "filp/whoops": "2.14.0",
         "fzaninotto/faker": "1.9.2",
         "mockery/mockery": "1.4.3",
-        "nunomaduro/collision": "5.8.0",
+        "nunomaduro/collision": "5.9.0",
         "phpunit/phpunit": "9.5.8",
         "symfony/thanks": "1.2.10"
     },
