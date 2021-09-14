@@ -17,7 +17,7 @@
         "jeremykenedy/laravel-roles": "6.0.0",
         "jeremykenedy/uuid": "3.1.0",
         "kouz/laravel-airbrake": "0.7.0",
-        "laravel/framework": "8.58.0",
+        "laravel/framework": "8.60.0",
         "laravelcollective/html": "6.2.1",
         "rap2hpoutre/laravel-log-viewer": "1.7.0",
         "simplesoftwareio/simple-qrcode": "4.2.0"
