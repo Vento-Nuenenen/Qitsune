@@ -23,7 +23,7 @@
         "simplesoftwareio/simple-qrcode": "4.2.0"
     },
     "require-dev": {
-        "filp/whoops": "2.14.1",
+        "filp/whoops": "2.14.3",
         "fzaninotto/faker": "1.9.2",
         "mockery/mockery": "1.4.4",
         "nunomaduro/collision": "5.9.0",
