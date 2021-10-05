@@ -11,7 +11,7 @@
         "codedge/laravel-fpdf": "1.8.0",
         "doctrine/dbal": "3.1.2",
         "fideloper/proxy": "4.4.1",
-        "intervention/image": "2.6.1",
+        "intervention/image": "2.7.0",
         "jeremykenedy/laravel-https": "1.4.0",
         "jeremykenedy/laravel-logger": "5.0.0",
         "jeremykenedy/laravel-roles": "6.0.0",
