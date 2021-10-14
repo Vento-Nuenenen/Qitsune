@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "axios": "^0.21",
-        "bootstrap": "^5.1.1",
+        "bootstrap": "^4.6.0",
         "bootstrap-select": "^1.13.18",
         "bootstrap4-toggle": "^3.6.1",
         "font-awesome": "^4.7.0",
@@ -22,6 +22,7 @@
         "postcss": "^8.1.14",
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.43.2",
-        "sass-loader": "^12.1.0"
+        "sass-loader": "^12.1.0",
+        "webpack": "^5.58.2"
     }
 }
