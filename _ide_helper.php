@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 8.63.0.
+ * Generated for Laravel 8.64.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -700,7 +700,7 @@
          * @param int $code
          * @param string $message
          * @param array $headers
-         * @return void 
+         * @return \Illuminate\Foundation\never 
          * @throws \Symfony\Component\HttpKernel\Exception\HttpException
          * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
          * @static 
@@ -708,7 +708,7 @@
         public static function abort($code, $message = '', $headers = [])
         {
                         /** @var \Illuminate\Foundation\Application $instance */
-                        $instance->abort($code, $message, $headers);
+                        return $instance->abort($code, $message, $headers);
         }
                     /**
          * Register a terminating callback with the application.
@@ -15262,6 +15262,19 @@
                         return $instance->renderComponent();
         }
                     /**
+         * Get an item from the component data that exists above the current component.
+         *
+         * @param string $key
+         * @param mixed $default
+         * @return mixed|null 
+         * @static 
+         */ 
+        public static function getConsumableComponentData($key, $default = null)
+        {
+                        /** @var \Illuminate\View\Factory $instance */
+                        return $instance->getConsumableComponentData($key, $default);
+        }
+                    /**
          * Start the slot rendering process.
          *
          * @param string $name
@@ -21413,13 +21426,13 @@ namespace  {
                 /**
              * Die and dump the current SQL and bindings.
              *
-             * @return void 
+             * @return \Illuminate\Database\Query\never 
              * @static 
              */ 
             public static function dd()
             {
                                 /** @var \Illuminate\Database\Query\Builder $instance */
-                                $instance->dd();
+                                return $instance->dd();
             }
              
                 /**
