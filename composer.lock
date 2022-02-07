@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "601a7e614d3ae2bb5e8237dde67c3332",
+    "content-hash": "065ae4ebce110349ce119800bada7b07",
     "packages": [
         {
             "name": "airbrake/phpbrake",
@@ -622,20 +622,20 @@
         },
         {
             "name": "elibyy/tcpdf-laravel",
-            "version": "8.1.2",
+            "version": "9.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elibyy/tcpdf-laravel.git",
-                "reference": "50a5c6bfc38fc0c03deb16d4065267f471c787d9"
+                "reference": "5e76a706d40ab547e378fac831ba6528813d4625"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elibyy/tcpdf-laravel/zipball/50a5c6bfc38fc0c03deb16d4065267f471c787d9",
-                "reference": "50a5c6bfc38fc0c03deb16d4065267f471c787d9",
+                "url": "https://api.github.com/repos/elibyy/tcpdf-laravel/zipball/5e76a706d40ab547e378fac831ba6528813d4625",
+                "reference": "5e76a706d40ab547e378fac831ba6528813d4625",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "^6.0|^7.0|^8.0",
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
                 "tecnickcom/tcpdf": "6.2.*|6.3.*|6.4.*|dev-main"
             },
             "type": "library",
@@ -672,9 +672,9 @@
             ],
             "support": {
                 "issues": "https://github.com/elibyy/tcpdf-laravel/issues",
-                "source": "https://github.com/elibyy/tcpdf-laravel/tree/8.1.2"
+                "source": "https://github.com/elibyy/tcpdf-laravel/tree/9.0.0"
             },
-            "time": "2021-03-27T14:23:50+00:00"
+            "time": "2022-02-06T11:38:30+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",
@@ -5323,16 +5323,16 @@
         },
         {
             "name": "tecnickcom/tcpdf",
-            "version": "6.4.2",
+            "version": "6.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tecnickcom/TCPDF.git",
-                "reference": "172540dcbfdf8dc983bc2fe78feff48ff7ec1c76"
+                "reference": "42cd0f9786af7e5db4fcedaa66f717b0d0032320"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/172540dcbfdf8dc983bc2fe78feff48ff7ec1c76",
-                "reference": "172540dcbfdf8dc983bc2fe78feff48ff7ec1c76",
+                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/42cd0f9786af7e5db4fcedaa66f717b0d0032320",
+                "reference": "42cd0f9786af7e5db4fcedaa66f717b0d0032320",
                 "shasum": ""
             },
             "require": {
@@ -5383,7 +5383,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tecnickcom/TCPDF/issues",
-                "source": "https://github.com/tecnickcom/TCPDF/tree/6.4.2"
+                "source": "https://github.com/tecnickcom/TCPDF/tree/6.4.4"
             },
             "funding": [
                 {
@@ -5391,7 +5391,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-07-20T14:43:20+00:00"
+            "time": "2021-12-31T08:39:24+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
