@@ -16,12 +16,12 @@
         "bootstrap4-toggle": "^3.6.1",
         "font-awesome": "^4.7.0",
         "jquery": "^3.6.1",
-        "laravel-mix": "^6.0.6",
-        "lodash": "^4.17.19",
+        "laravel-mix": "^6.0.49",
+        "lodash": "^4.17.21",
         "popper.js": "^1.16.1",
         "postcss": "^8.4.16",
         "resolve-url-loader": "^5.0.0",
-        "sass": "^1.54.5",
+        "sass": "^1.54.6",
         "sass-loader": "^13.0.2",
         "webpack": "^5.74.0"
     }
