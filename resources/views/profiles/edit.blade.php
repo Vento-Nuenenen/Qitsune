@@ -10,14 +10,11 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-
 						<div class="btn-group pull-right btn-group-xs">
-
 							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="fa fa-ellipsis-v fa-fw" aria-hidden="true"></i>
 								<span class="sr-only">{{ trans('profile.editTriggerAlt') }}</span>
 							</button>
-
 							<ul class="dropdown-menu">
 								<li class="active">
 									<a data-toggle="pill" href=".edit_settings" class="settings-trigger">
@@ -31,43 +28,31 @@
 								</li>
 							</ul>
 						</div>
-
 						<div class="tab-content">
-							<span class="tab-pane active edit_profile">
-								{{ trans('profile.editProfileTitle') }}
-							</span>
-							<span class="tab-pane edit_settings">
+							<span class="tab-pane active edit_settings">
 								{{ trans('profile.editAccountTitle') }}
 							</span>
 							<span class="tab-pane edit_account">
 								{{ trans('profile.editAccountAdminTitle') }}
 							</span>
 						</div>
-
 					</div>
 					<div class="panel-body">
-
 						@if ($user->profile)
-
 							@if (Auth::user()->id == $user->id)
-
 								<div class="tab-content">
 									<div class="tab-pane fade in active edit_settings">
-
 										{!! Form::model($user, array('action' => array('ProfilesController@updateUserAccount', $user->id), 'method' => 'PUT', 'id' => 'user_basics_form')) !!}
-
 											{!! csrf_field() !!}
-
-								            <div class="form-group has-feedback row {{ $errors->has('scout_name') ? ' has-error ' : '' }}">
-								                {!! Form::label('scout_name', 'Pfadiname' , array('class' => 'col-md-3 control-label')); !!}
+								            <div class="form-group has-feedback row {{ $errors->has('scoutname') ? ' has-error ' : '' }}">
+								                {!! Form::label('scoutname', 'Pfadiname' , array('class' => 'col-md-3 control-label')); !!}
 								                <div class="col-md-9">
 								                  	<div class="input-group">
-								                    	{!! Form::text('scout_name', old('scout_name'), array('id' => 'name', 'class' => 'form-control', 'placeholder' => trans('forms.ph-username'))) !!}
-								                    	<label class="input-group-addon" for="scout_name"><i class="fa fa-fw fa-user }}" aria-hidden="true"></i></label>
+								                    	{!! Form::text('scoutname', old('scoutname'), array('id' => 'scoutname', 'class' => 'form-control', 'placeholder' => trans('forms.ph-scoutname'))) !!}
+								                    	<label class="input-group-addon" for="scoutname"><i class="fa fa-fw fa-user }}" aria-hidden="true"></i></label>
 								                  	</div>
 								                </div>
 								            </div>
-
 								            <div class="form-group has-feedback row {{ $errors->has('first_name') ? ' has-error ' : '' }}">
 								                {!! Form::label('first_name', trans('forms.create_user_label_firstname'), array('class' => 'col-md-3 control-label')); !!}
 								                <div class="col-md-9">
@@ -82,7 +67,6 @@
 								                  	@endif
 								                </div>
 								            </div>
-
 								            <div class="form-group has-feedback row {{ $errors->has('last_name') ? ' has-error ' : '' }}">
 								                {!! Form::label('last_name', trans('forms.create_user_label_lastname'), array('class' => 'col-md-3 control-label')); !!}
 								                <div class="col-md-9">
@@ -97,7 +81,6 @@
 								                  	@endif
 								                </div>
 								            </div>
-
 										    <div class="form-group row">
 											    <div class="col-md-9 col-md-offset-3">
 													{!! Form::button(
@@ -116,13 +99,9 @@
 													)) !!}
 												</div>
 											</div>
-
 										{!! Form::close() !!}
-
 									</div>
-
 									<div class="tab-pane fade edit_account">
-
 										<ul class="nav nav-pills nav-justified margin-bottom-3">
 											<li class="bg-info change-pw active">
 												<a data-toggle="pill" href="#changepw" class="warning-pill-trigger">
@@ -135,19 +114,13 @@
 												</a>
 											</li>
 										</ul>
-
 										<div class="tab-content">
-
 										    <div id="changepw" class="tab-pane fade in active">
-
 												<h3 class="margin-bottom-1">
 													{{ trans('profile.changePwTitle') }}
 												</h3>
-
 												{!! Form::model($user, array('action' => array('ProfilesController@updateUserPassword', $user->id), 'method' => 'PUT', 'autocomplete' => 'new-password')) !!}
-
 												    <div class="pw-change-container margin-bottom-2">
-
 														<div class="form-group has-feedback row {{ $errors->has('password') ? ' has-error ' : '' }}">
 														  	{!! Form::label('password', trans('forms.create_user_label_password'), array('class' => 'col-md-3 control-label')); !!}
 														  	<div class="col-md-9">
@@ -159,7 +132,6 @@
 														        @endif
 														  	</div>
 														</div>
-
 												        <div class="form-group has-feedback row {{ $errors->has('password_confirmation') ? ' has-error ' : '' }}">
 												          	{!! Form::label('password_confirmation', trans('forms.create_user_label_pw_confirmation'), array('class' => 'col-md-3 control-label')); !!}
 												          	<div class="col-md-9">
@@ -173,7 +145,6 @@
 												          	</div>
 												        </div>
 												    </div>
-
 												    <div class="form-group row">
 													    <div class="col-md-9 col-md-offset-3">
 															{!! Form::button(
@@ -193,11 +164,8 @@
 														</div>
 													</div>
 												{!! Form::close() !!}
-
 	    									</div>
-
 										    <div id="deleteAccount" class="tab-pane fade">
-
 										      	<h3 class="margin-bottom-1 text-center text-danger">
 										      		{{ trans('profile.deleteAccountTitle') }}
 										      	</h3>
@@ -206,14 +174,10 @@
 														<strong>Deleting</strong> your account is <u><strong>permanent</strong></u> and <u><strong>cannot</strong></u> be undone.
 													<i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i>
 										      	</p>
-
-												<hr>
-
+												<hr/>
 												<div class="row">
 													<div class="col-sm-6 col-sm-offset-3 margin-bottom-3 text-center">
-
 														{!! Form::model($user, array('action' => array('ProfilesController@deleteUserAccount', $user->id), 'method' => 'DELETE')) !!}
-
 															<div class="btn-group btn-group-vertical margin-bottom-2" data-toggle="buttons">
 																<label class="btn no-shadow" for="checkConfirmDelete" >
 																	<input type="checkbox" name='checkConfirmDelete' id="checkConfirmDelete">
@@ -222,7 +186,6 @@
 																	<span class="margin-left-2"> Confirm Account Deletion</span>
 																</label>
 															</div>
-
 														    {!! Form::button(
 														    	'<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> ' . trans('profile.deleteAccountBtn'),
 																array(
@@ -238,49 +201,31 @@
 																	'data-message' 		=> trans('profile.deleteAccountConfirmMsg')
 																)
 														    ) !!}
-
 														{!! Form::close() !!}
-
 													</div>
 												</div>
 										    </div>
 										</div>
 									</div>
 								</div>
-
 							@else
-
 								<p>{{ trans('profile.notYourProfile') }}</p>
-
 							@endif
 						@else
-
 							<p>{{ trans('profile.noProfileYet') }}</p>
-
 						@endif
-
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	@include('modals.modal-form')
-
 @endsection
 
 @section('footer_scripts')
-
 	@include('scripts.form-modal-script')
 
-	@if(config('settings.googleMapsAPIStatus'))
-		@include('scripts.gmaps-address-lookup-api3')
-	@endif
-
-	@include('scripts.user-avatar-dz')
-
 	<script type="text/javascript">
-
 		$('.dropdown-menu li a').click(function() {
 			$('.dropdown-menu li').removeClass('active');
 		});
@@ -337,7 +282,7 @@
 		$('#password, #password_confirmation').hidePassword(true);
 
 		$('#password').password({
-			shortPass: 'The password is too short',
+			shortPass: 'Das Passwort ist zu kurz',
 			badPass: 'Weak - Try combining letters & numbers',
 			goodPass: 'Medium - Try using special charecters',
 			strongPass: 'Strong password',
@@ -374,7 +319,5 @@
 		        submitChange.attr('disabled', false);
 		    }
 		}
-
 	</script>
-
 @endsection

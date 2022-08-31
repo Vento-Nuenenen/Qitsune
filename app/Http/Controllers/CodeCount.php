@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: caspa
- * Date: 31.05.2018
- * Time: 11:39.
- */
 
 namespace App\Http\Controllers;
 
@@ -31,7 +25,7 @@ class CodeCount extends Controller
      *
      * @return mixed
      */
-    public function getCodeCount()
+    public static function getCodeCount()
     {
         $codeCount = DB::table('game_admin')->select('code_count')->first()->code_count;
 
@@ -45,13 +39,19 @@ class CodeCount extends Controller
      */
     public static function getTotalPoints()
     {
-        return $totalPoints = DB::table('game_admin')->select('total_points')->first();
+        $totalPoints = DB::table('game_admin')->select('total_points')->first();
+
+        if($totalPoints){
+	        return $totalPoints->total_points;
+        }else{
+        	return 0;
+        }
     }
 
     public static function setRank()
     {
         $totalPoints = self::getTotalPoints();
-        $rankObj = DB::select("SELECT * FROM users WHERE total_points = $totalPoints ORDER BY TIMEDIFF(start, end) DESC;");
+        $rankObj = DB::select('SELECT * FROM users WHERE total_points = '.$totalPoints.' ORDER BY TIMEDIFF(start, end) DESC;');
 
         for ($i = 0; $i < count($rankObj); $i++) {
             DB::table('users')->where('name_gen', $rankObj[$i]->name_gen)->update(['rank' => (++$i)]);

@@ -18,7 +18,7 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						{{ trans('profile.showProfileTitle',['username' => $user->name]) }}
+						{{ trans('profile.showProfileTitle',['username' => $user->name_gen]) }}
 					</div>
 					<div class="panel-body">
 						<dl class="user-info">
@@ -28,14 +28,6 @@
 							<dd>
 								{{ $user->name_gen }}
 							</dd>
-
-							<dt>
-								Pfadiname
-							</dt>
-							<dd>
-								{{ $user->scout_name }}
-							</dd>
-
 							<dt>
 								{{ trans('profile.showProfileFirstName') }}
 							</dt>
@@ -51,21 +43,26 @@
 									{{ $user->last_name }}
 								</dd>
 							@endif
-						</dl>
 
+							@if ($user->profile)
+								@if ($user->profile->theme_id)
+									<dt>
+										{{ trans('profile.showProfileTheme') }}
+									</dt>
+									<dd>
+										{{ $currentTheme->name }}
+									</dd>
+								@endif
+							@endif
+						</dl>
 						@if ($user->profile)
 							@if (Auth::user()->id == $user->id)
-
-								{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
-
+								{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name_gen.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
 							@endif
 						@else
-
 							<p>{{ trans('profile.noProfileYet') }}</p>
-							{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-plus ', trans('titles.createProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
-
+							{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name_gen.'/edit'), 'fa fa-fw fa-plus ', trans('titles.createProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
 						@endif
-
 					</div>
 				</div>
 			</div>

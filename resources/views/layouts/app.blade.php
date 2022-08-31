@@ -9,8 +9,6 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>@if (trim($__env->yieldContent('template_title')))@yield('template_title') | @endif {{ config('app.name', Lang::get('titles.app')) }}</title>
-        <meta name="description" content="">
-        <meta name="author" content="Chronyms">
         <link rel="shortcut icon" href="/favicon.ico">
 
         {{-- Fonts --}}
@@ -27,34 +25,29 @@
 
         {{-- Scripts --}}
         <script>
-            window.Laravel = {!! json_encode([
-                'csrfToken' => csrf_token(),
-            ]) !!};
+            window.Laravel = {!! json_encode(['csrfToken' => csrf_token(),]) !!};
         </script>
+
+        @if (Auth::User() && (Auth::User()->profile) && $theme->link != null && $theme->link != 'null')
+            <link rel="stylesheet" type="text/css" href="{{ $theme->link }}">
+        @endif
 
         @yield('head')
     </head>
     <body>
         <div id="app">
-
             @include('partials.nav')
 
             <div class="container">
-
                 @include('partials.form-status')
-
             </div>
 
             @yield('content')
-
         </div>
-
-        @include('cookieConsent::index')
 
         {{-- Scripts --}}
         <script src="{{ mix('/js/app.js') }}"></script>
 
         @yield('footer_scripts')
-
     </body>
 </html>

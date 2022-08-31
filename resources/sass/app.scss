@@ -1,18 +1,15 @@
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
 // Variables
 @import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 // Font Awesome
-@import '~font-awesome/scss/font-awesome';
+@import "node_modules/font-awesome/scss/font-awesome";
 
 // Dropzone
-@import "~dropzone/dist/basic";
-@import "~dropzone/dist/dropzone";
+@import "node_modules/dropzone/dist/min/basic.min";
+@import "node_modules/dropzone/dist/min/dropzone.min";
 
 // Mixins
 @import "mixins";
@@ -41,26 +38,14 @@
 // Components
 @import "modals";
 
-// Socials
-@import "socials";
-
 // Forms
 @import "forms";
 
 // Lists
 @import "lists";
 
-// Avatars
-@import "avatar";
-
-// Logs
-@import "logs";
-
 // Password Strength Meter
 @import "password";
 
 // Hide Show Password
 @import "hideShowPassword";
-
-// PHP Info Styling
-@import "php-info";
