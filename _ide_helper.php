@@ -3426,6 +3426,102 @@
             /**
      * 
      *
+     * @see \Illuminate\Encryption\Encrypter
+     */ 
+        class Crypt {
+                    /**
+         * Determine if the given key and cipher combination is valid.
+         *
+         * @param string $key
+         * @param string $cipher
+         * @return bool 
+         * @static 
+         */ 
+        public static function supported($key, $cipher)
+        {
+                        return \Illuminate\Encryption\Encrypter::supported($key, $cipher);
+        }
+                    /**
+         * Create a new encryption key for the given cipher.
+         *
+         * @param string $cipher
+         * @return string 
+         * @static 
+         */ 
+        public static function generateKey($cipher)
+        {
+                        return \Illuminate\Encryption\Encrypter::generateKey($cipher);
+        }
+                    /**
+         * Encrypt the given value.
+         *
+         * @param mixed $value
+         * @param bool $serialize
+         * @return string 
+         * @throws \Illuminate\Contracts\Encryption\EncryptException
+         * @static 
+         */ 
+        public static function encrypt($value, $serialize = true)
+        {
+                        /** @var \Illuminate\Encryption\Encrypter $instance */
+                        return $instance->encrypt($value, $serialize);
+        }
+                    /**
+         * Encrypt a string without serialization.
+         *
+         * @param string $value
+         * @return string 
+         * @throws \Illuminate\Contracts\Encryption\EncryptException
+         * @static 
+         */ 
+        public static function encryptString($value)
+        {
+                        /** @var \Illuminate\Encryption\Encrypter $instance */
+                        return $instance->encryptString($value);
+        }
+                    /**
+         * Decrypt the given value.
+         *
+         * @param string $payload
+         * @param bool $unserialize
+         * @return mixed 
+         * @throws \Illuminate\Contracts\Encryption\DecryptException
+         * @static 
+         */ 
+        public static function decrypt($payload, $unserialize = true)
+        {
+                        /** @var \Illuminate\Encryption\Encrypter $instance */
+                        return $instance->decrypt($payload, $unserialize);
+        }
+                    /**
+         * Decrypt the given string without unserialization.
+         *
+         * @param string $payload
+         * @return string 
+         * @throws \Illuminate\Contracts\Encryption\DecryptException
+         * @static 
+         */ 
+        public static function decryptString($payload)
+        {
+                        /** @var \Illuminate\Encryption\Encrypter $instance */
+                        return $instance->decryptString($payload);
+        }
+                    /**
+         * Get the encryption key.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getKey()
+        {
+                        /** @var \Illuminate\Encryption\Encrypter $instance */
+                        return $instance->getKey();
+        }
+         
+    }
+            /**
+     * 
+     *
      * @see \Illuminate\Database\DatabaseManager
      * @see \Illuminate\Database\Connection
      */ 
@@ -16765,133 +16861,298 @@
      */ 
         class QrCode {
                     /**
-         * Generates a QrCode.
+         * Generates the QrCode.
          *
-         * @param string $text The text to be converted into a QrCode
-         * @param null|string $filename The filename and path to save the QrCode file
-         * @return string|void Returns a QrCode string depending on the format, or saves to a file.
+         * @param string $text
+         * @param string|null $filename
+         * @return void|\Illuminate\Support\HtmlString|string 
+         * @throws WriterException
+         * @throws InvalidArgumentException
          * @static 
          */ 
         public static function generate($text, $filename = null)
         {
-                        /** @var \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator $instance */
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
                         return $instance->generate($text, $filename);
         }
                     /**
-         * Merges an image with the center of the QrCode.
+         * Merges an image over the QrCode.
          *
-         * @param $filepath string The filepath to an image
-         * @param $percentage float The amount that the merged image should be placed over the qrcode.
-         * @param $absolute boolean Whether to use an absolute filepath or not.
-         * @return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator 
+         * @param string $filepath
+         * @param float $percentage
+         * @param \SimpleSoftwareIO\QrCode\SimpleSoftwareIO\QrCode\boolean|bool $absolute
+         * @return \Generator 
          * @static 
          */ 
         public static function merge($filepath, $percentage = 0.200000000000000011102230246251565404236316680908203125, $absolute = false)
         {
-                        /** @var \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator $instance */
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
                         return $instance->merge($filepath, $percentage, $absolute);
         }
                     /**
-         * Merges an image string with the center of the QrCode, does not check for correct format.
+         * Merges an image string with the center of the QrCode.
          *
-         * @param $content string The string contents of an image.
-         * @param $percentage float The amount that the merged image should be placed over the qrcode.
-         * @return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator 
+         * @param string $content
+         * @param float $percentage
+         * @return \Generator 
          * @static 
          */ 
         public static function mergeString($content, $percentage = 0.200000000000000011102230246251565404236316680908203125)
         {
-                        /** @var \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator $instance */
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
                         return $instance->mergeString($content, $percentage);
         }
                     /**
-         * Switches the format of the outputted QrCode or defaults to SVG.
+         * Sets the size of the QrCode.
          *
-         * @param string $format The desired format.
-         * @throws \InvalidArgumentException
-         * @return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator 
-         * @static 
-         */ 
-        public static function format($format)
-        {
-                        /** @var \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator $instance */
-                        return $instance->format($format);
-        }
-                    /**
-         * Changes the size of the QrCode.
-         *
-         * @param int $pixels The size of the QrCode in pixels
-         * @return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator 
+         * @param int $pixels
+         * @return \Generator 
          * @static 
          */ 
         public static function size($pixels)
         {
-                        /** @var \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator $instance */
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
                         return $instance->size($pixels);
         }
                     /**
-         * Changes the foreground color of a QrCode.
+         * Sets the format of the QrCode.
+         *
+         * @param string $format
+         * @return \Generator 
+         * @throws InvalidArgumentException
+         * @static 
+         */ 
+        public static function format($format)
+        {
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->format($format);
+        }
+                    /**
+         * Sets the foreground color of the QrCode.
          *
          * @param int $red
          * @param int $green
          * @param int $blue
-         * @return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator 
+         * @param null|int $alpha
+         * @return \Generator 
          * @static 
          */ 
-        public static function color($red, $green, $blue)
+        public static function color($red, $green, $blue, $alpha = null)
         {
-                        /** @var \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator $instance */
-                        return $instance->color($red, $green, $blue);
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->color($red, $green, $blue, $alpha);
         }
                     /**
-         * Changes the background color of a QrCode.
+         * Sets the background color of the QrCode.
          *
          * @param int $red
          * @param int $green
          * @param int $blue
-         * @return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator 
+         * @param null|int $alpha
+         * @return \Generator 
          * @static 
          */ 
-        public static function backgroundColor($red, $green, $blue)
+        public static function backgroundColor($red, $green, $blue, $alpha = null)
         {
-                        /** @var \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator $instance */
-                        return $instance->backgroundColor($red, $green, $blue);
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->backgroundColor($red, $green, $blue, $alpha);
         }
                     /**
-         * Changes the error correction level of a QrCode.
+         * Sets the eye color for the provided eye index.
          *
-         * @param string $level Desired error correction level.  L = 7% M = 15% Q = 25% H = 30%
-         * @return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator 
+         * @param int $eyeNumber
+         * @param int $innerRed
+         * @param int $innerGreen
+         * @param int $innerBlue
+         * @param int $outterRed
+         * @param int $outterGreen
+         * @param int $outterBlue
+         * @return \Generator 
+         * @throws InvalidArgumentException
          * @static 
          */ 
-        public static function errorCorrection($level)
+        public static function eyeColor($eyeNumber, $innerRed, $innerGreen, $innerBlue, $outterRed = 0, $outterGreen = 0, $outterBlue = 0)
         {
-                        /** @var \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator $instance */
-                        return $instance->errorCorrection($level);
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->eyeColor($eyeNumber, $innerRed, $innerGreen, $innerBlue, $outterRed, $outterGreen, $outterBlue);
         }
                     /**
-         * Creates a margin around the QrCode.
+         * 
          *
-         * @param int $margin The desired margin in pixels around the QrCode
-         * @return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator 
          * @static 
          */ 
-        public static function margin($margin)
+        public static function gradient($startRed, $startGreen, $startBlue, $endRed, $endGreen, $endBlue, $type)
         {
-                        /** @var \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator $instance */
-                        return $instance->margin($margin);
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->gradient($startRed, $startGreen, $startBlue, $endRed, $endGreen, $endBlue, $type);
         }
                     /**
-         * Sets the Encoding mode.
+         * Sets the eye style.
+         *
+         * @param string $style
+         * @return \Generator 
+         * @throws InvalidArgumentException
+         * @static 
+         */ 
+        public static function eye($style)
+        {
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->eye($style);
+        }
+                    /**
+         * Sets the style of the blocks for the QrCode.
+         *
+         * @param string $style
+         * @param float $size
+         * @return \Generator 
+         * @throws InvalidArgumentException
+         * @static 
+         */ 
+        public static function style($style, $size = 0.5)
+        {
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->style($style, $size);
+        }
+                    /**
+         * Sets the encoding for the QrCode.
+         * 
+         * Possible values are
+         * ISO-8859-2, ISO-8859-3, ISO-8859-4, ISO-8859-5, ISO-8859-6,
+         * ISO-8859-7, ISO-8859-8, ISO-8859-9, ISO-8859-10, ISO-8859-11,
+         * ISO-8859-12, ISO-8859-13, ISO-8859-14, ISO-8859-15, ISO-8859-16,
+         * SHIFT-JIS, WINDOWS-1250, WINDOWS-1251, WINDOWS-1252, WINDOWS-1256,
+         * UTF-16BE, UTF-8, ASCII, GBK, EUC-KR.
          *
          * @param string $encoding
-         * @return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator 
+         * @return \Generator 
          * @static 
          */ 
         public static function encoding($encoding)
         {
-                        /** @var \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator $instance */
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
                         return $instance->encoding($encoding);
+        }
+                    /**
+         * Sets the error correction for the QrCode.
+         * 
+         * L: 7% loss.
+         * M: 15% loss.
+         * Q: 25% loss.
+         * H: 30% loss.
+         *
+         * @param string $errorCorrection
+         * @return \Generator 
+         * @static 
+         */ 
+        public static function errorCorrection($errorCorrection)
+        {
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->errorCorrection($errorCorrection);
+        }
+                    /**
+         * Sets the margin of the QrCode.
+         *
+         * @param int $margin
+         * @return \Generator 
+         * @static 
+         */ 
+        public static function margin($margin)
+        {
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->margin($margin);
+        }
+                    /**
+         * Fetches the Writer.
+         *
+         * @param \SimpleSoftwareIO\QrCode\ImageRenderer $renderer
+         * @return \SimpleSoftwareIO\QrCode\Writer 
+         * @static 
+         */ 
+        public static function getWriter($renderer)
+        {
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->getWriter($renderer);
+        }
+                    /**
+         * Fetches the Image Renderer.
+         *
+         * @return \SimpleSoftwareIO\QrCode\ImageRenderer 
+         * @static 
+         */ 
+        public static function getRenderer()
+        {
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->getRenderer();
+        }
+                    /**
+         * Returns the Renderer Style.
+         *
+         * @return \SimpleSoftwareIO\QrCode\RendererStyle 
+         * @static 
+         */ 
+        public static function getRendererStyle()
+        {
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->getRendererStyle();
+        }
+                    /**
+         * Fetches the formatter.
+         *
+         * @return \SimpleSoftwareIO\QrCode\ImageBackEndInterface 
+         * @static 
+         */ 
+        public static function getFormatter()
+        {
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->getFormatter();
+        }
+                    /**
+         * Fetches the module.
+         *
+         * @return \SimpleSoftwareIO\QrCode\ModuleInterface 
+         * @static 
+         */ 
+        public static function getModule()
+        {
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->getModule();
+        }
+                    /**
+         * Fetches the eye style.
+         *
+         * @return \SimpleSoftwareIO\QrCode\EyeInterface 
+         * @static 
+         */ 
+        public static function getEye()
+        {
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->getEye();
+        }
+                    /**
+         * Fetches the color fill.
+         *
+         * @return \SimpleSoftwareIO\QrCode\Fill 
+         * @static 
+         */ 
+        public static function getFill()
+        {
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->getFill();
+        }
+                    /**
+         * Creates a RGB or Alpha channel color.
+         *
+         * @param int $red
+         * @param int $green
+         * @param int $blue
+         * @param null|int $alpha
+         * @return \SimpleSoftwareIO\QrCode\ColorInterface 
+         * @static 
+         */ 
+        public static function createColor($red, $green, $blue, $alpha = null)
+        {
+                        /** @var \SimpleSoftwareIO\QrCode\Generator $instance */
+                        return $instance->createColor($red, $green, $blue, $alpha);
         }
          
     }
@@ -18404,6 +18665,7 @@ namespace  {
             class Cache extends \Illuminate\Support\Facades\Cache {}
             class Config extends \Illuminate\Support\Facades\Config {}
             class Cookie extends \Illuminate\Support\Facades\Cookie {}
+            class Crypt extends \Illuminate\Support\Facades\Crypt {}
             class DB extends \Illuminate\Support\Facades\DB {}
             class Eloquent extends \Illuminate\Database\Eloquent\Model {             
                 /**
