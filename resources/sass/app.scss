@@ -1,11 +1,14 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
 // Variables
 @import "variables";
 
 // Bootstrap
-@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "bootstrap-sass";
 
 // Font Awesome
-@import "../../node_modules/font-awesome/scss/font-awesome";
+@import "font-awesome";
 
 // Dropzone
 @import "../../node_modules/dropzone/dist/min/basic.min.css";
