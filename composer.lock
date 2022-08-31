@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3bdb0b630f3a17239f583fa34b8d667c",
+    "content-hash": "24bc417e2f80541d9846a3c476ed8b74",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -805,20 +805,20 @@
         },
         {
             "name": "eklundkristoffer/seedster",
-            "version": "3.4",
+            "version": "5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eklundkristoffer/seedster.git",
-                "reference": "c216c8947de27f3abf292a360a6af2547254cda3"
+                "reference": "57f6229b1651d1147e8c6c2f1324dc52e73e85e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eklundkristoffer/seedster/zipball/c216c8947de27f3abf292a360a6af2547254cda3",
-                "reference": "c216c8947de27f3abf292a360a6af2547254cda3",
+                "url": "https://api.github.com/repos/eklundkristoffer/seedster/zipball/57f6229b1651d1147e8c6c2f1324dc52e73e85e6",
+                "reference": "57f6229b1651d1147e8c6c2f1324dc52e73e85e6",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "5.5.*|5.6.*|5.7.*|5.8.*|6.*|^7.0"
+                "illuminate/support": "5.5.*|5.6.*|5.7.*|5.8.*|6.*|^7.0|^8.0|^9.0"
             },
             "type": "library",
             "extra": {
@@ -845,9 +845,9 @@
             ],
             "support": {
                 "issues": "https://github.com/eklundkristoffer/seedster/issues",
-                "source": "https://github.com/eklundkristoffer/seedster/tree/3.4"
+                "source": "https://github.com/eklundkristoffer/seedster/tree/5.0"
             },
-            "time": "2020-03-03T19:32:23+00:00"
+            "time": "2022-02-19T12:30:41+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -1228,28 +1228,29 @@
         },
         {
             "name": "jeremykenedy/laravel-roles",
-            "version": "v1.7.0",
+            "version": "v8.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeremykenedy/laravel-roles.git",
-                "reference": "0850e6902467ec22e1f8153c21b3098502f77db7"
+                "reference": "46e6391806a077487a81f4b60bafe7f3aed8bdb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeremykenedy/laravel-roles/zipball/0850e6902467ec22e1f8153c21b3098502f77db7",
-                "reference": "0850e6902467ec22e1f8153c21b3098502f77db7",
+                "url": "https://api.github.com/repos/jeremykenedy/laravel-roles/zipball/46e6391806a077487a81f4b60bafe7f3aed8bdb1",
+                "reference": "46e6391806a077487a81f4b60bafe7f3aed8bdb1",
                 "shasum": ""
             },
             "require": {
-                "eklundkristoffer/seedster": "^3.0",
-                "laravel/framework": "5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*",
-                "php": ">=5.6.4"
+                "eklundkristoffer/seedster": "^5.0",
+                "laravel/framework": "5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|6.*|7.*|8.*|^9.0",
+                "laravel/helpers": "^1.5",
+                "php": "^7.2|^8.0.2|^8.1"
             },
             "require-dev": {
-                "illuminate/support": "^5.8",
-                "laravel/laravel": "5.8.*",
-                "orchestra/testbench": "~3.0",
-                "phpunit/phpunit": "^7.5"
+                "illuminate/support": "^8.5|^9.0",
+                "laravel/laravel": "^8.0|^9.0",
+                "laravel/tinker": "^2.7",
+                "orchestra/testbench": "^6.0|^7.0"
             },
             "type": "package",
             "extra": {
@@ -1274,14 +1275,11 @@
                     "email": "romanbican@seznam.cz"
                 },
                 {
-                    "name": "Ultraware"
-                },
-                {
                     "name": "Jeremy Kenedy",
                     "email": "jeremykenedy@gmail.com"
                 }
             ],
-            "description": "Powerful package for handling roles, permissions, and levels in Laravel. Supports Laravel 5.3 and higher",
+            "description": "A Powerful package for handling roles and permissions in Laravel. Supports Laravel 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 6.0, 7.0, 8.0 and 9.0.",
             "keywords": [
                 "acl",
                 "laravel",
@@ -1294,7 +1292,7 @@
             ],
             "support": {
                 "issues": "https://github.com/jeremykenedy/laravel-roles/issues",
-                "source": "https://github.com/jeremykenedy/laravel-roles/tree/v1.7.0"
+                "source": "https://github.com/jeremykenedy/laravel-roles/tree/v8.1.0"
             },
             "funding": [
                 {
@@ -1306,7 +1304,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2019-04-19T21:57:29+00:00"
+            "time": "2022-02-20T07:05:24+00:00"
         },
         {
             "name": "jeremykenedy/uuid",
@@ -1521,6 +1519,62 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2020-04-14T14:14:36+00:00"
+        },
+        {
+            "name": "laravel/helpers",
+            "version": "v1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/helpers.git",
+                "reference": "c28b0ccd799d58564c41a62395ac9511a1e72931"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/helpers/zipball/c28b0ccd799d58564c41a62395ac9511a1e72931",
+                "reference": "c28b0ccd799d58564c41a62395ac9511a1e72931",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.8.0|^6.0|^7.0|^8.0|^9.0",
+                "php": "^7.1.3|^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.0|^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Dries Vints",
+                    "email": "dries@laravel.com"
+                }
+            ],
+            "description": "Provides backwards compatibility for helpers in the latest Laravel release.",
+            "keywords": [
+                "helpers",
+                "laravel"
+            ],
+            "support": {
+                "source": "https://github.com/laravel/helpers/tree/v1.5.0"
+            },
+            "time": "2022-01-12T15:58:51+00:00"
         },
         {
             "name": "laravelcollective/html",
@@ -2124,20 +2178,20 @@
         },
         {
             "name": "psr/container",
-            "version": "1.1.2",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/container.git",
-                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea"
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/513e0666f7216c7459170d56df27dfcefe1689ea",
-                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/8622567409010282b7aeebe4bb841fe98b58dcaf",
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.4.0"
+                "php": ">=7.2.0"
             },
             "type": "library",
             "autoload": {
@@ -2166,9 +2220,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-fig/container/issues",
-                "source": "https://github.com/php-fig/container/tree/1.1.2"
+                "source": "https://github.com/php-fig/container/tree/1.1.1"
             },
-            "time": "2021-11-05T16:50:12+00:00"
+            "time": "2021-03-05T17:36:06+00:00"
         },
         {
             "name": "psr/http-factory",
