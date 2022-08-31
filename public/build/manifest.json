@@ -20,9 +20,19 @@
     "src": "node_modules/font-awesome/fonts/fontawesome-webfont.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app.75efd1b2.js",
+    "file": "assets/app.bd1fd5e3.js",
     "src": "resources/js/app.js",
-    "isEntry": true
+    "isEntry": true,
+    "dynamicImports": [
+      "_jquery.a7a372bf.js"
+    ]
+  },
+  "_jquery.a7a372bf.js": {
+    "file": "assets/jquery.a7a372bf.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
   },
   "resources/sass/app.scss": {
     "file": "assets/app.10eaca53.css",
