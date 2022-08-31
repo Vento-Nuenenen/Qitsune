@@ -2,14 +2,14 @@
 @import "variables";
 
 // Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 // Font Awesome
-@import "node_modules/font-awesome/scss/font-awesome";
+@import "../../node_modules/font-awesome/scss/font-awesome";
 
 // Dropzone
-@import "node_modules/dropzone/dist/min/basic.min";
-@import "node_modules/dropzone/dist/min/dropzone.min";
+@import "../../node_modules/dropzone/dist/min/basic.min.css";
+@import "../../node_modules/dropzone/dist/min/dropzone.min.css";
 
 // Mixins
 @import "mixins";
