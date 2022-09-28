@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "91d055850df3638d4b1cad8659a69c2e",
+    "content-hash": "063f726264cf8e5573b1a6d064fa2481",
     "packages": [
         {
             "name": "airbrake/phpbrake",
@@ -1433,26 +1433,23 @@
         },
         {
             "name": "jeremykenedy/laravel-exception-notifier",
-            "version": "v1.2.0",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeremykenedy/laravel-exception-notifier.git",
-                "reference": "50458c1a6f698166c978c86571cc9d55ac3d4f28"
+                "reference": "02217d7727923d55d172a6d0b1af0bb1589ef86a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeremykenedy/laravel-exception-notifier/zipball/50458c1a6f698166c978c86571cc9d55ac3d4f28",
-                "reference": "50458c1a6f698166c978c86571cc9d55ac3d4f28",
+                "url": "https://api.github.com/repos/jeremykenedy/laravel-exception-notifier/zipball/02217d7727923d55d172a6d0b1af0bb1589ef86a",
+                "reference": "02217d7727923d55d172a6d0b1af0bb1589ef86a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6.4"
+                "php": "^8.0"
             },
             "require-dev": {
-                "illuminate/support": "^5.8",
-                "laravel/laravel": "5.8.*",
-                "orchestra/testbench": "~3.0",
-                "phpunit/phpunit": "^7.5"
+                "laravel/framework": "9.*"
             },
             "type": "package",
             "extra": {
@@ -1493,9 +1490,19 @@
             ],
             "support": {
                 "issues": "https://github.com/jeremykenedy/laravel-exception-notifier/issues",
-                "source": "https://github.com/jeremykenedy/laravel-exception-notifier/tree/v1.2.0"
+                "source": "https://github.com/jeremykenedy/laravel-exception-notifier/tree/v3.1.0"
             },
-            "time": "2019-03-25T00:48:44+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/jeremykenedy",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/jeremykenedy",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2022-09-28T06:47:06+00:00"
         },
         {
             "name": "jeremykenedy/laravel-roles",
