@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "063f726264cf8e5573b1a6d064fa2481",
+    "content-hash": "fdcccd21674a98a0fca4b9e55360a90e",
     "packages": [
         {
             "name": "airbrake/phpbrake",
@@ -1506,16 +1506,16 @@
         },
         {
             "name": "jeremykenedy/laravel-roles",
-            "version": "v8.1.0",
+            "version": "v9.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeremykenedy/laravel-roles.git",
-                "reference": "46e6391806a077487a81f4b60bafe7f3aed8bdb1"
+                "reference": "fc0b0f6aef83109d073d2763486c93297549fd19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeremykenedy/laravel-roles/zipball/46e6391806a077487a81f4b60bafe7f3aed8bdb1",
-                "reference": "46e6391806a077487a81f4b60bafe7f3aed8bdb1",
+                "url": "https://api.github.com/repos/jeremykenedy/laravel-roles/zipball/fc0b0f6aef83109d073d2763486c93297549fd19",
+                "reference": "fc0b0f6aef83109d073d2763486c93297549fd19",
                 "shasum": ""
             },
             "require": {
@@ -1570,7 +1570,7 @@
             ],
             "support": {
                 "issues": "https://github.com/jeremykenedy/laravel-roles/issues",
-                "source": "https://github.com/jeremykenedy/laravel-roles/tree/v8.1.0"
+                "source": "https://github.com/jeremykenedy/laravel-roles/tree/v9.0.0"
             },
             "funding": [
                 {
@@ -1582,7 +1582,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-02-20T07:05:24+00:00"
+            "time": "2022-09-09T04:12:08+00:00"
         },
         {
             "name": "jeremykenedy/uuid",
