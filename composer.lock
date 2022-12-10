@@ -220,16 +220,16 @@
         },
         {
             "name": "codedge/laravel-fpdf",
-            "version": "1.9.1",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codedge/laravel-fpdf.git",
-                "reference": "e2bc9836fd981d15bd44a1c60ad27c990012574d"
+                "reference": "13ef1d014a0729107b4818647d2cb4611f76803f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codedge/laravel-fpdf/zipball/e2bc9836fd981d15bd44a1c60ad27c990012574d",
-                "reference": "e2bc9836fd981d15bd44a1c60ad27c990012574d",
+                "url": "https://api.github.com/repos/codedge/laravel-fpdf/zipball/13ef1d014a0729107b4818647d2cb4611f76803f",
+                "reference": "13ef1d014a0729107b4818647d2cb4611f76803f",
                 "shasum": ""
             },
             "require": {
@@ -237,8 +237,8 @@
                 "php": "^8.0 || ^8.1"
             },
             "require-dev": {
-                "orchestra/testbench": "^6.25.0",
-                "phpunit/phpunit": "^9.5.24"
+                "orchestra/testbench": "^6.25.1",
+                "phpunit/phpunit": "^9.5.26"
             },
             "type": "library",
             "extra": {
@@ -282,7 +282,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-09-14T07:28:26+00:00"
+            "time": "2022-12-09T10:50:17+00:00"
         },
         {
             "name": "dasprid/enum",
