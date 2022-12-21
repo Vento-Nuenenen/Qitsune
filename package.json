@@ -11,7 +11,7 @@
     "dropzone": "^5.5.0",
     "font-awesome": "^4.7.0",
     "hideshowpassword": "^2.1.1",
-    "jquery": "^3.6.2",
+    "jquery": "^3.6.3",
     "laravel-vite-plugin": "^0.7.3",
     "lodash": "^4.17.21",
     "node-sass": "^8.0.0",
