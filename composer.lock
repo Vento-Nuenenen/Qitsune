@@ -219,25 +219,26 @@
         },
         {
             "name": "codedge/laravel-fpdf",
-            "version": "1.10.0",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codedge/laravel-fpdf.git",
-                "reference": "13ef1d014a0729107b4818647d2cb4611f76803f"
+                "reference": "426993f1b2d5b0f113984e9dcac0dc58c2ef05b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codedge/laravel-fpdf/zipball/13ef1d014a0729107b4818647d2cb4611f76803f",
-                "reference": "13ef1d014a0729107b4818647d2cb4611f76803f",
+                "url": "https://api.github.com/repos/codedge/laravel-fpdf/zipball/426993f1b2d5b0f113984e9dcac0dc58c2ef05b2",
+                "reference": "426993f1b2d5b0f113984e9dcac0dc58c2ef05b2",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "^8.0 || ^9.0",
-                "php": "^8.0 || ^8.1"
+                "illuminate/support": "^9.0 || ^10.0",
+                "php": "~8.0 || ~8.1"
             },
             "require-dev": {
-                "orchestra/testbench": "^6.25.1",
-                "phpunit/phpunit": "^9.5.26"
+                "ergebnis/composer-normalize": "^2.29",
+                "orchestra/testbench": "^6.25.1 || ^8.0",
+                "phpunit/phpunit": "^9.6.0"
             },
             "type": "library",
             "extra": {
@@ -265,7 +266,7 @@
                     "email": "holger.loesken@codedge.de"
                 }
             ],
-            "description": "Laravel package to include Fpdf. It ships with Fpdf 1.84.",
+            "description": "Laravel package to include Fpdf. It ships with Fpdf 1.85.",
             "keywords": [
                 "fpdf",
                 "laravel",
@@ -281,7 +282,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-09T10:50:17+00:00"
+            "time": "2023-02-08T15:13:24+00:00"
         },
         {
             "name": "dasprid/enum",
