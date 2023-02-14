@@ -19,7 +19,7 @@
         "laravel/ui": "^4.0",
         "laravelcollective/html": "^6.3",
         "simplesoftwareio/simple-qrcode": "^4.2",
-        "vento/laravel-airbrake": "^0.8.1"
+        "vento/laravel-airbrake": "^0.10.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",
