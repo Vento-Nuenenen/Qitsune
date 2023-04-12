@@ -1513,10 +1513,10 @@ parse-json@^5.0.0:
     json-parse-even-better-errors "^2.3.0"
     lines-and-columns "^1.1.6"
 
-password-strength-meter@^1.2.1:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/password-strength-meter/-/password-strength-meter-1.2.2.tgz#679ecdccd59f80c6558042d30feaa647d0e1bd5c"
-  integrity sha512-us4S3GPJZQGepydf/La6MUPDJYBuWdDGb/p9RUibsqHrp+0o26qhoaGRnz9Gp5m9sui4KsOep9mmBI/0RrNt+w==
+password-strength-meter@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/password-strength-meter/-/password-strength-meter-2.1.0.tgz#c85ce011c37772f28eb00c778a08da56f600b1ff"
+  integrity sha512-VMUE0c+FWZZcjbqpAA5b3+DBUPZGrJtQLk6/tjJs/jQRFXR5jt0xd7EXGVBUnjXc0Y9oeIFkMmVrKiYezX/2Og==
 
 path-exists@^4.0.0:
   version "4.0.0"
