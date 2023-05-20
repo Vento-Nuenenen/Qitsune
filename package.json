@@ -19,7 +19,7 @@
     "resolve-url-loader": "5.0.0",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
-    "vite": "^4.3.7",
+    "vite": "^4.3.8",
     "vue": "^3.3.2",
     "vue-loader": "^17.1.1",
     "vue-template-compiler": "^2.7.14"
