@@ -1775,16 +1775,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v9.52.13",
+            "version": "v9.52.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "4e591ce0ffe9e09e230c4d3fb6430ac8e23f88b7"
+                "reference": "5366a9035100f858589e1b43bbcb134ffcc81a73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/4e591ce0ffe9e09e230c4d3fb6430ac8e23f88b7",
-                "reference": "4e591ce0ffe9e09e230c4d3fb6430ac8e23f88b7",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5366a9035100f858589e1b43bbcb134ffcc81a73",
+                "reference": "5366a9035100f858589e1b43bbcb134ffcc81a73",
                 "shasum": ""
             },
             "require": {
@@ -1969,7 +1969,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-08-01T14:07:54+00:00"
+            "time": "2023-08-02T14:58:02+00:00"
         },
         {
             "name": "laravel/helpers",
