@@ -17,7 +17,7 @@
     "node-sass": "^9.0.0",
     "password-strength-meter": "^1.2.1",
     "resolve-url-loader": "5.0.0",
-    "sass": "^1.69.6",
+    "sass": "^1.69.7",
     "sass-loader": "^13.3.3",
     "vite": "^4.5.1",
     "vue": "^3.4.3",
