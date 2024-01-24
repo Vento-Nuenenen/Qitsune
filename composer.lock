@@ -868,16 +868,16 @@
         },
         {
             "name": "elibyy/tcpdf-laravel",
-            "version": "10.0.2",
+            "version": "10.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elibyy/tcpdf-laravel.git",
-                "reference": "edc3318607370b9367748565446c0bb53c17da6f"
+                "reference": "290ad7bc5acf424d3f1c6208f3efd13906b6b9f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elibyy/tcpdf-laravel/zipball/edc3318607370b9367748565446c0bb53c17da6f",
-                "reference": "edc3318607370b9367748565446c0bb53c17da6f",
+                "url": "https://api.github.com/repos/elibyy/tcpdf-laravel/zipball/290ad7bc5acf424d3f1c6208f3efd13906b6b9f5",
+                "reference": "290ad7bc5acf424d3f1c6208f3efd13906b6b9f5",
                 "shasum": ""
             },
             "require": {
@@ -918,9 +918,9 @@
             ],
             "support": {
                 "issues": "https://github.com/elibyy/tcpdf-laravel/issues",
-                "source": "https://github.com/elibyy/tcpdf-laravel/tree/10.0.2"
+                "source": "https://github.com/elibyy/tcpdf-laravel/tree/10.0.3"
             },
-            "time": "2023-11-20T08:37:17+00:00"
+            "time": "2024-01-24T11:05:55+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",
