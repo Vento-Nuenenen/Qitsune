@@ -7,7 +7,7 @@
     "require": {
         "php": "^8.0",
         "codedge/laravel-fpdf": "^1.5",
-        "elibyy/tcpdf-laravel": "^10.0",
+        "elibyy/tcpdf-laravel": "^11.0",
         "fruitcake/laravel-cors": "^3.0.0",
         "guzzlehttp/guzzle": "^7.4",
         "intervention/image": "^2.7",
