@@ -10,7 +10,7 @@
         "elibyy/tcpdf-laravel": "^11.0",
         "fruitcake/laravel-cors": "^3.0.0",
         "guzzlehttp/guzzle": "^7.4",
-        "intervention/image": "^2.7",
+        "intervention/image": "^3.7",
         "jeremykenedy/laravel-exception-notifier": "^3.1",
         "jeremykenedy/laravel-roles": "^10.0",
         "jeremykenedy/uuid": "^3.1",
