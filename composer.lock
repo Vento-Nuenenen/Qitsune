@@ -1720,16 +1720,16 @@
         },
         {
             "name": "jeremykenedy/laravel-roles",
-            "version": "v11.0.0",
+            "version": "v11.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeremykenedy/laravel-roles.git",
-                "reference": "95af5e025d55e6997ed579f9d65ebfa572d42bbf"
+                "reference": "d85150490c9aa20a7ffae17ae2bf8cb4d2a7a0e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeremykenedy/laravel-roles/zipball/95af5e025d55e6997ed579f9d65ebfa572d42bbf",
-                "reference": "95af5e025d55e6997ed579f9d65ebfa572d42bbf",
+                "url": "https://api.github.com/repos/jeremykenedy/laravel-roles/zipball/d85150490c9aa20a7ffae17ae2bf8cb4d2a7a0e7",
+                "reference": "d85150490c9aa20a7ffae17ae2bf8cb4d2a7a0e7",
                 "shasum": ""
             },
             "require": {
@@ -1784,7 +1784,7 @@
             ],
             "support": {
                 "issues": "https://github.com/jeremykenedy/laravel-roles/issues",
-                "source": "https://github.com/jeremykenedy/laravel-roles/tree/v11.0.0"
+                "source": "https://github.com/jeremykenedy/laravel-roles/tree/v11.0.1"
             },
             "funding": [
                 {
@@ -1796,7 +1796,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2024-10-03T20:31:39+00:00"
+            "time": "2024-11-22T07:52:08+00:00"
         },
         {
             "name": "jeremykenedy/uuid",
